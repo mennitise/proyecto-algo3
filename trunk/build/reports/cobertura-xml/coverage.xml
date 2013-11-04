@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="1.0" branch-rate="1.0" lines-covered="2" lines-valid="2" branches-covered="0" branches-valid="0" complexity="1.0" version="1.9.4.1" timestamp="1383583797897">
+	<sources>
+		<source>C:/Users/PC/proyecto-algo3/src</source>
+	</sources>
+	<packages>
+		<package name="fiuba.algo3.ejemplo1" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="fiuba.algo3.ejemplo1.Foo" filename="fiuba/algo3/ejemplo1/Foo.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="4" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="doFoo" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="7" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="4" hits="1" branch="false"/>
+						<line number="7" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
