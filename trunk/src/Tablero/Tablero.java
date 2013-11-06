@@ -3,10 +3,12 @@ package Tablero;
 import java.util.ArrayList;
 
 import Excepciones.NumeroNegativoException;
+import Excepciones.PosicionInvalidaException;
 import Obstaculos.ControlPolicial;
 import Obstaculos.Obstaculo;
 import Obstaculos.Piquete;
 import Obstaculos.Pozo;
+import Vehiculos.Vehiculo;
 
 public class Tablero{
 	
@@ -86,6 +88,27 @@ public class Tablero{
 	
 	public int getColumnas(){
 		return this.columnas;
+	}
+	
+	public boolean posicionValida(int fila, int columna){
+		if( (fila < 0) || (columna < 0) || (fila > this.filas) || (columna > this.columnas)){
+			return false;
+		}
+		return true;
+	}
+	
+	public void colocarVehiculoEn(Vehiculo unVehiculo,int fila, int columna) throws PosicionInvalidaException{
+		if( !this.posicionValida(fila, columna) ){
+			throw new PosicionInvalidaException();
+		}
+		this.mapa[fila][columna].ponerVehiculo(unVehiculo);
+	}
+	
+	public Vehiculo getVehiculoEn(int fila, int columna) throws PosicionInvalidaException{
+		if( !this.posicionValida(fila, columna) ){
+			throw new PosicionInvalidaException();
+		}
+		return this.mapa[fila][columna].getVehiculoEnCasillero();
 	}
 
 }
