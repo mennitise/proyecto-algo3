@@ -1,28 +1,34 @@
 package GestorDeMovimientos;
 
 import Tablero.Tablero;
+import Vehiculos.Vehiculo;
 import Excepciones.PosicionInvalidaException;
 
 public class GestorDeMovimientos {
 
 	private int filaActual;
 	private int columnaActual;
+	private Tablero tablero;
 	
 	public GestorDeMovimientos(int filaOrigen, int columnaOrigen, Tablero tablero) throws PosicionInvalidaException {
 		
-		if( (filaOrigen < 0) || (columnaOrigen < 0) || (filaOrigen > tablero.getFilas()) || (columnaOrigen > tablero.getColumnas())){
+		if( !tablero.posicionValida(filaOrigen, columnaOrigen) ){
 			
 			throw new PosicionInvalidaException();
 		} else{
 			
 			this.filaActual    = filaOrigen;
 			this.columnaActual = columnaOrigen;
+			this.tablero       = tablero;
 		}
-		
-		
 	}
 
+	
 	public boolean esPosibleMoverseA(int filaDestino, int columnaDestino) {
+		 
+		if(!tablero.posicionValida(filaDestino, columnaDestino)){
+			return false;
+		}
 		
 		 int distanciaHorizontal = Math.abs(filaDestino - filaActual);
 		 int distanciaVertical   = Math.abs(columnaDestino - columnaActual);
@@ -35,4 +41,37 @@ public class GestorDeMovimientos {
 		 return false;
 	}
 
+
+	public int getFilaActual() {
+		return filaActual;
+	}
+
+
+	public int getColumnaActual() {
+		return columnaActual;
+	}
+
+
+	public void moverVehiculoEnPosicionActualA(int fila, int columna) throws PosicionInvalidaException{
+		
+		if( !tablero.posicionValida(fila, columna) || !this.esPosibleMoverseA(fila, columna)){
+			throw new PosicionInvalidaException();
+		}
+		Vehiculo vehiculo = tablero.quitarVehiculoEn(filaActual, columnaActual);
+		
+		// Acá faltaría agregar penalizar si hay obstáculo o dar sorpresa si la hay.
+		
+		tablero.colocarVehiculoEn(vehiculo, fila, columna);
+		filaActual    = fila;
+		columnaActual = columna;
+	}
+
+
+	public Vehiculo getVehiculoEnPosicionActual() {
+		try{
+			return tablero.getVehiculoEn(filaActual, columnaActual);
+		}catch(PosicionInvalidaException e){
+			return null;
+		}
+	}
 }
