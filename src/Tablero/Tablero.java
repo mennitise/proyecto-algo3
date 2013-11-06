@@ -41,7 +41,6 @@ public class Tablero{
 		}
 	}
 	
-	
 	private void inicializarColeccionDeObjetosYSorpresas(){
 		this.coleccionDeObjetosYSorpresas = new ArrayList<Obstaculo>();
 		this.coleccionDeObjetosYSorpresas.add(new ControlPolicial());
@@ -109,6 +108,13 @@ public class Tablero{
 			throw new PosicionInvalidaException();
 		}
 		return this.mapa[fila][columna].getVehiculoEnCasillero();
+	}
+	
+	public Vehiculo quitarVehiculoEn(int fila, int columna) throws PosicionInvalidaException{
+		if( !this.posicionValida(fila, columna) ){
+			throw new PosicionInvalidaException();
+		}
+		return mapa[fila][columna].quitarVehiculo();
 	}
 
 }
