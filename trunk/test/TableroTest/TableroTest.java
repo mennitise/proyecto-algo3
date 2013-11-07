@@ -14,28 +14,28 @@ public class TableroTest {
 
 	@Test
 	public void testTableroDevuelveBienLasFilas() {
-		Tablero unTablero = new Tablero (4,4,0);
+		Tablero unTablero = new Tablero (4,4);
 		
 		assertTrue(unTablero.getFilas()==4);
 	}
 
 	@Test
 	public void testTableroDevuelveBienLasColumnas() {
-		Tablero unTablero = new Tablero (4,2,0);
+		Tablero unTablero = new Tablero (4,2);
 		
 		assertTrue(unTablero.getColumnas()==2);
 	}
 	
 	@Test
 	public void testTableroRevisaPosicion() {
-		Tablero unTablero = new Tablero (4,2,0);
+		Tablero unTablero = new Tablero (4,2);
 		
 		assertTrue(unTablero.posicionValida(2, 1));
 	}
 	
 	@Test
 	public void testTableroColocaVehiculoEnPosicion() {
-		Tablero unTablero = new Tablero (4,2,0);
+		Tablero unTablero = new Tablero (4,2);
 		Vehiculo unVehiculo = new Vehiculo();
 		Vehiculo vehiculoResultado = null;
 		

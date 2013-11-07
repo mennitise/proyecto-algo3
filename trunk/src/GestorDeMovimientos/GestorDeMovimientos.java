@@ -23,7 +23,6 @@ public class GestorDeMovimientos {
 		}
 	}
 
-	
 	public boolean esPosibleMoverseA(int filaDestino, int columnaDestino) {
 		 
 		if(!tablero.posicionValida(filaDestino, columnaDestino)){
@@ -41,16 +40,13 @@ public class GestorDeMovimientos {
 		 return false;
 	}
 
-
 	public int getFilaActual() {
 		return filaActual;
 	}
 
-
 	public int getColumnaActual() {
 		return columnaActual;
 	}
-
 
 	public void moverVehiculoEnPosicionActualA(int fila, int columna) throws PosicionInvalidaException{
 		
@@ -65,7 +61,6 @@ public class GestorDeMovimientos {
 		filaActual    = fila;
 		columnaActual = columna;
 	}
-
 
 	public Vehiculo getVehiculoEnPosicionActual() {
 		try{
