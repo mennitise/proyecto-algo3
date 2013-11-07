@@ -14,7 +14,7 @@ public class GestorDeMovimientosTest {
 	private GestorDeMovimientos unGestor;
 	
 	private void inicializarGestor(){
-		Tablero unTablero = new Tablero(4,4,0);
+		Tablero unTablero = new Tablero(4,4);
 		Vehiculo unVehiculo = new Vehiculo();
 		int filaOrigen     = 1; 
 		int columnaOrigen  = 1;
@@ -54,7 +54,7 @@ public class GestorDeMovimientosTest {
 	
 	@Test
 	public void testGestorDeMovimientosMoverVehiculoMueveElVehiculo(){
-		Tablero unTablero = new Tablero(4,4,0);
+		Tablero unTablero = new Tablero(4,4);
 		Vehiculo unVehiculo = new Vehiculo();
 		int filaOrigen     = 1; 
 		int columnaOrigen  = 1;

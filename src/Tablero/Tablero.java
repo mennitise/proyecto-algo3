@@ -2,7 +2,6 @@ package Tablero;
 
 import java.util.ArrayList;
 
-import Excepciones.NumeroNegativoException;
 import Excepciones.PosicionInvalidaException;
 import Obstaculos.ControlPolicial;
 import Obstaculos.Obstaculo;
@@ -12,75 +11,52 @@ import Vehiculos.Vehiculo;
 
 public class Tablero{
 	
-	private Casillero[][] mapa;
+	private Esquina[][] esquinas;
 	private int filas;
 	private int columnas;
-	private int sorpresasYObstaculos;
-	private ArrayList<Obstaculo> coleccionDeObjetosYSorpresas;
 	
-
-	public Tablero(int numFilas,int numColumnas, int sorpresasYObstaculosTotal){
+	public void Tablero(){
+		this.filas = 0;
+		this.columnas = 0;
+	}
+	
+	public Tablero(int numFilas,int numColumnas){
 		this.filas = numFilas;
-		this.columnas = numColumnas;
-		this.sorpresasYObstaculos = sorpresasYObstaculosTotal;		
-
-		this.mapa = new Casillero[filas][columnas];
-		this.inicializarCasilleros();
-		
-		this.inicializarColeccionDeObjetosYSorpresas();
-		this.ponerObstaculosYSorpresas();
-
-				
+		this.columnas = numColumnas;		
+		this.esquinas = new Esquina[filas][columnas];
+		this.inicializarEsquinas();	
+		this.unirEsquinas();			
 	}
 
-	private void inicializarCasilleros(){
-		for (int i=0; i<this.filas;i++){
-			for (int j=0; j<this.columnas;j++){
-				mapa[i][j] = new Casillero();
+	public void inicializarEsquinas(){
+		for (int i=0; i<this.filas; i++){
+			for (int j=0; j<this.columnas; j++){
+				esquinas[i][j] = new Esquina();
 			}
 		}
 	}
 	
-	private void inicializarColeccionDeObjetosYSorpresas(){
-		this.coleccionDeObjetosYSorpresas = new ArrayList<Obstaculo>();
-		this.coleccionDeObjetosYSorpresas.add(new ControlPolicial());
-		this.coleccionDeObjetosYSorpresas.add(new Pozo());
-		this.coleccionDeObjetosYSorpresas.add( new Piquete());	
-	}
-		
-	private int chequearPositividadDelNumero(int numero) throws NumeroNegativoException{
-		if(numero >= 0){
-			return numero;
-		}else{
-			throw new NumeroNegativoException();
+	private void unirEsquinas(){
+		for (int i=0; i<this.filas-1; i++){
+			for (int j=0; j<this.columnas-1; j++){
+				this.unirHorizontalmente(esquinas[i][j], esquinas[i][j+1]);
+				this.unirVerticalmente(esquinas[i][j], esquinas[i+1][j]);
+			}
 		}
 	}
 	
-	private void ponerObstaculosYSorpresas(){
-		for(int i=0; i<this.sorpresasYObstaculos;i++){
-			this.colocarSorpresaUObstaculo();		
-		}
+	private void unirHorizontalmente(Esquina unaEsquina, Esquina otraEsquina){
+		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
+		unaEsquina.ponerCalleHaciaDerecha(unaCalle);
+		otraEsquina.ponerCalleHaciaIzquierda(unaCalle);
 	}
-
-	private void colocarSorpresaUObstaculo(){
-		int ColumnaRandom;	
-		int FilaRandom;
+	
+	private void unirVerticalmente(Esquina unaEsquina, Esquina otraEsquina){
+		Calle unaCalle = new Calle(unaEsquina, otraEsquina);
+		unaEsquina.ponerCalleHaciaAbajo(unaCalle);
+		otraEsquina.ponerCalleHaciaArriba(unaCalle);
+	}
 		
-		ColumnaRandom = (int) ( Math.random() * (this.columnas-1));
-		FilaRandom = (int) ( Math.random() * (this.filas-1));
-		while (this.mapa[FilaRandom][ColumnaRandom].estaOcupado()){
-			ColumnaRandom = (int) ( Math.random() * (this.columnas-1));
-			FilaRandom = (int) ( Math.random() * (this.filas-1));
-			
-		}
-		this.mapa[FilaRandom][ColumnaRandom].ponerObstaculoOSorpresa(this.elegirUnObstaculoOSorpresa());
-	}
-
-	private Obstaculo elegirUnObstaculoOSorpresa(){
-		int posicionRandom = (int)Math.random()*(this.coleccionDeObjetosYSorpresas.size()-1);
-		return this.coleccionDeObjetosYSorpresas.get(posicionRandom);	
-	}
-
 	public int getFilas(){
 		return this.filas;
 	}
@@ -100,21 +76,25 @@ public class Tablero{
 		if( !this.posicionValida(fila, columna) ){
 			throw new PosicionInvalidaException();
 		}
-		this.mapa[fila][columna].ponerVehiculo(unVehiculo);
+		this.esquinas[fila][columna].ponerVehiculo(unVehiculo);
 	}
 	
 	public Vehiculo getVehiculoEn(int fila, int columna) throws PosicionInvalidaException{
 		if( !this.posicionValida(fila, columna) ){
 			throw new PosicionInvalidaException();
 		}
-		return this.mapa[fila][columna].getVehiculoEnCasillero();
+		return this.esquinas[fila][columna].getVehiculoEnEsquina();
 	}
 	
 	public Vehiculo quitarVehiculoEn(int fila, int columna) throws PosicionInvalidaException{
 		if( !this.posicionValida(fila, columna) ){
 			throw new PosicionInvalidaException();
 		}
-		return mapa[fila][columna].quitarVehiculo();
+		return esquinas[fila][columna].quitarVehiculo();
+	}
+	
+	public Esquina getEsquinaEn(int posX, int posY){
+		return this.esquinas[posX][posY];
 	}
 
 }
