@@ -8,6 +8,8 @@ import Excepciones.StringVacioException;
 import Jugador.Jugador;
 import Obstaculos.Piquete;
 import Obstaculos.Pozo;
+import Tablero.Posicion;
+import Vehiculos.Auto;
 import Vehiculos.Vehiculo;
 
 public class PiqueteTest {
@@ -16,8 +18,9 @@ public class PiqueteTest {
 	private Piquete unPiquete;
 	
 	private void crearJugadorPepe(){
+		Posicion unaPosicion = new Posicion(1,2);
 		try {
-			this.unJugador = new Jugador("Pepe",new Vehiculo());
+			this.unJugador = new Jugador("Pepe",new Auto(unaPosicion));
 		} catch (StringVacioException e) {
 			// No va a entrar nunca aca
 		}

@@ -7,6 +7,9 @@ import org.junit.Test;
 import Excepciones.NumeroNegativoException;
 import Excepciones.StringVacioException;
 import Jugador.Jugador;
+import Tablero.Posicion;
+import Vehiculos.Auto;
+import Vehiculos.CuatroXCuatro;
 import Vehiculos.Vehiculo;
 
 public class JugadorTest {
@@ -14,8 +17,9 @@ public class JugadorTest {
 	private Jugador unJugador;
 	
 	private void crearJugadorPepe(){
+		Posicion unaPosicion = new Posicion(0,1);
 		try {
-			this.unJugador = new Jugador("Pepe",new Vehiculo());
+			this.unJugador = new Jugador("Pepe",new CuatroXCuatro(unaPosicion));
 		} catch (StringVacioException e) {
 			// No va a entrar nunca aca
 		}
@@ -95,8 +99,9 @@ public class JugadorTest {
 	@Test
 	public void testDeberiaLanzarStringVacioExceptionAlCrearJugadorSinNombre(){
 		boolean lanzoExcepcion = false;
+		Posicion unaPosicion = new Posicion(1,2);
 		try {
-			this.unJugador = new Jugador("",new Vehiculo());
+			this.unJugador = new Jugador("",new Auto(unaPosicion));
 		} catch (StringVacioException e) {
 			lanzoExcepcion = true;
 		}
