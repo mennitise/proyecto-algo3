@@ -1,26 +1,20 @@
 package Vehiculos;
 
-import Excepciones.NumeroNegativoException;
+import Obstaculos.Obstaculo;
+import Tablero.Posicion;
 import Excepciones.ProbabilidadNoValidaException;
 
-public class Vehiculo {
-	private double probabilidadDeSerDetenidoPorControlPolicial;
+public abstract class Vehiculo {
 	
-	public Vehiculo(){
-		this.probabilidadDeSerDetenidoPorControlPolicial = 0;
+	private Posicion posicionActual;
+	
+	public Vehiculo(Posicion unaPosicion){
+		this.posicionActual = unaPosicion;
 	}
 	
-	public Vehiculo(double unaProbabilidad) throws ProbabilidadNoValidaException{
-		if(( unaProbabilidad >= 0) & (unaProbabilidad<= 1)){
-			this.probabilidadDeSerDetenidoPorControlPolicial = unaProbabilidad;
-		}else{
-			throw new ProbabilidadNoValidaException();
-		}
+	public Posicion getPosicion(){
+		return this.posicionActual;
 	}
 	
-	
-	public double getProbabilidadDeSerDetenidoPorControlPolicial(){
-		return this.probabilidadDeSerDetenidoPorControlPolicial;
-	}
-
+	public abstract void interactuarCon(Obstaculo obstaculo);
 }

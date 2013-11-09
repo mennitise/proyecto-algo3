@@ -1,7 +1,5 @@
 package Tablero;
 
-import java.util.ArrayList;
-
 import Excepciones.PosicionInvalidaException;
 import Obstaculos.ControlPolicial;
 import Obstaculos.Obstaculo;
@@ -15,7 +13,7 @@ public class Tablero{
 	private int filas;
 	private int columnas;
 	
-	public void Tablero(){
+	public Tablero(){
 		this.filas = 0;
 		this.columnas = 0;
 	}
@@ -47,14 +45,14 @@ public class Tablero{
 	
 	private void unirHorizontalmente(Esquina unaEsquina, Esquina otraEsquina){
 		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
-		unaEsquina.ponerCalleHaciaDerecha(unaCalle);
-		otraEsquina.ponerCalleHaciaIzquierda(unaCalle);
+		unaEsquina.ponerCalleHaciaElEste(unaCalle);
+		otraEsquina.ponerCalleHaciaOeste(unaCalle);
 	}
 	
 	private void unirVerticalmente(Esquina unaEsquina, Esquina otraEsquina){
 		Calle unaCalle = new Calle(unaEsquina, otraEsquina);
-		unaEsquina.ponerCalleHaciaAbajo(unaCalle);
-		otraEsquina.ponerCalleHaciaArriba(unaCalle);
+		unaEsquina.ponerCalleHaciaElSur(unaCalle);
+		otraEsquina.ponerCalleHaciaElNorte(unaCalle);
 	}
 		
 	public int getFilas(){
@@ -71,30 +69,25 @@ public class Tablero{
 		}
 		return true;
 	}
-	
-	public void colocarVehiculoEn(Vehiculo unVehiculo,int fila, int columna) throws PosicionInvalidaException{
-		if( !this.posicionValida(fila, columna) ){
-			throw new PosicionInvalidaException();
-		}
-		this.esquinas[fila][columna].ponerVehiculo(unVehiculo);
+		
+	public Esquina getEsquinaEn(int fila, int columna){
+		return this.esquinas[fila][columna];
 	}
 	
-	public Vehiculo getVehiculoEn(int fila, int columna) throws PosicionInvalidaException{
-		if( !this.posicionValida(fila, columna) ){
-			throw new PosicionInvalidaException();
-		}
-		return this.esquinas[fila][columna].getVehiculoEnEsquina();
+	public boolean esquinaEnPosicionTieneCalleOeste(int fila, int columna){
+		return this.esquinas[fila][columna].tieneCalleOeste();
 	}
 	
-	public Vehiculo quitarVehiculoEn(int fila, int columna) throws PosicionInvalidaException{
-		if( !this.posicionValida(fila, columna) ){
-			throw new PosicionInvalidaException();
-		}
-		return esquinas[fila][columna].quitarVehiculo();
+	public boolean esquinaEnPosicionTieneCalleEste(int fila, int columna){
+		return this.esquinas[fila][columna].tieneCalleEste();
 	}
 	
-	public Esquina getEsquinaEn(int posX, int posY){
-		return this.esquinas[posX][posY];
+	public boolean esquinaEnPosicionTieneCalleNorte(int fila, int columna){
+		return this.esquinas[fila][columna].tieneCalleAlNorte();
+	}
+	
+	public boolean esquinaEnPosicionTieneCalleSur(int fila, int columna){
+		return this.esquinas[fila][columna].tieneCalleAlSur();
 	}
 
 }

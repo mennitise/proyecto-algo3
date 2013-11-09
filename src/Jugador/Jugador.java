@@ -53,10 +53,6 @@ public class Jugador {
 		}
 	}
 	
-	public double getProbabilidadDeSerDetenidoPorControlPolicial(){
-		return this.vehiculoUtilizado.getProbabilidadDeSerDetenidoPorControlPolicial();
-		
-	}
 	
 	public Vehiculo getVehiculo(){
 		return this.vehiculoUtilizado;
