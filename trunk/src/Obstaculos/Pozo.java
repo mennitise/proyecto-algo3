@@ -15,20 +15,25 @@ public class Pozo extends Obstaculo {
 
 	@Override
 	public void interactuarCon(Moto unaMoto) {
-		// TODO Auto-generated method stub
-		
+		try {
+			unaMoto.getConductor().sumarMovimientos(this.cantidadDeMovimientosAPenalizar);
+		} catch (NumeroNegativoException e) {
+			// No entra Nunca porque this.cantidadDeMovimientosAPenalizar es siempre 3
+		};
 	}
 
 	@Override
 	public void interactuarCon(Auto unAuto) throws PasoImpedidoException {
-		// TODO Auto-generated method stub
-		
+		try {
+			unAuto.getConductor().sumarMovimientos(this.cantidadDeMovimientosAPenalizar);
+		} catch (NumeroNegativoException e) {
+			// No entra Nunca porque this.cantidadDeMovimientosAPenalizar es siempre 2
+		};
 	}
 
 	@Override
-	public void interactuarCon(CuatroXCuatro vehiculo) {
-		// TODO Auto-generated method stub
-		
+	public void interactuarCon(CuatroXCuatro unaCuatroXCuatro) {
+		//No Les hace nada
 	}
 	
 }

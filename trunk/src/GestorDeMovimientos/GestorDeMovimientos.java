@@ -1,5 +1,6 @@
 package GestorDeMovimientos;
 
+import Tablero.Esquina;
 import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Vehiculo;
@@ -27,6 +28,12 @@ public class GestorDeMovimientos {
 	}
 
 	public void moverVehiculo(EstrategiaDeMovimiento unaEstrategia){
-		//Activar la estrategia recibida.
+		Posicion laPosicion = this.vehiculo.getPosicion(); 
+		Esquina laEsquina = tablero.getEsquinaEn(laPosicion);
+		try {
+			unaEstrategia.realizarMovimiento(this.vehiculo, laEsquina);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			//IMPLEMENTAR
+		}
 	}
 }

@@ -34,6 +34,6 @@ public abstract class Obstaculo {
 
 	public abstract void interactuarCon(Moto unaMoto);
 	public abstract void interactuarCon(Auto unAuto) throws PasoImpedidoException;
-	public abstract void interactuarCon(CuatroXCuatro vehiculo);
+	public abstract void interactuarCon(CuatroXCuatro vehiculo)throws PasoImpedidoException;
 
 }
