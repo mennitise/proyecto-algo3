@@ -1,5 +1,6 @@
 package Obstaculos;
 
+import Excepciones.NumeroNegativoException;
 import Excepciones.PasoImpedidoException;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
@@ -11,18 +12,23 @@ public class Piquete extends Obstaculo {
 		super();
 		this.cantidadDeMovimientosAPenalizar = 2;			
 	}
-
+	
+	@Override
+	public void interactuarCon(Moto unaMoto) {
+		try {
+			unaMoto.getConductor().sumarMovimientos(this.cantidadDeMovimientosAPenalizar);
+		} catch (NumeroNegativoException e) {
+			// No entra Nunca porque this.cantidadDeMovimientosAPenalizar es siempre 2
+		};
+	}
+	@Override
 	public void interactuarCon(Auto auto) throws PasoImpedidoException {
 		throw new PasoImpedidoException();
 	}
 
-	public void interactuarCon(Moto unaMoto) {
-		
-	}
-
 	@Override
-	public void interactuarCon(CuatroXCuatro vehiculo) {
-		
+	public void interactuarCon(CuatroXCuatro unaCuatroXCuatro) throws PasoImpedidoException {
+		throw new PasoImpedidoException();
 	}
 
 

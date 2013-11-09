@@ -13,7 +13,7 @@ public class TableroTest {
 
 	@Test
 	public void testTableroDevuelveBienLasFilas() {
-		Tablero unTablero = new Tablero (4,4);
+		Tablero unTablero = new Tablero (4,6);
 		
 		assertTrue(unTablero.getFilas()==4);
 	}

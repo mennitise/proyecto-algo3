@@ -46,7 +46,7 @@ public class Tablero{
 	private void unirHorizontalmente(Esquina unaEsquina, Esquina otraEsquina){
 		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
 		unaEsquina.ponerCalleHaciaElEste(unaCalle);
-		otraEsquina.ponerCalleHaciaOeste(unaCalle);
+		otraEsquina.ponerCalleHaciaElOeste(unaCalle);
 	}
 	
 	private void unirVerticalmente(Esquina unaEsquina, Esquina otraEsquina){
@@ -74,12 +74,16 @@ public class Tablero{
 		return this.esquinas[fila][columna];
 	}
 	
+	public Esquina getEsquinaEn(Posicion unaPosicion){
+		return this.esquinas[unaPosicion.getFila()][unaPosicion.getColumna()];
+	}
+	
 	public boolean esquinaEnPosicionTieneCalleOeste(int fila, int columna){
-		return this.esquinas[fila][columna].tieneCalleOeste();
+		return this.esquinas[fila][columna].tieneCalleAlOeste();
 	}
 	
 	public boolean esquinaEnPosicionTieneCalleEste(int fila, int columna){
-		return this.esquinas[fila][columna].tieneCalleEste();
+		return this.esquinas[fila][columna].tieneCalleAlEste();
 	}
 	
 	public boolean esquinaEnPosicionTieneCalleNorte(int fila, int columna){
