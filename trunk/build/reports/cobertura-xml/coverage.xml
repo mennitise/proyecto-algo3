@@ -1,29 +1,1235 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="1.0" branch-rate="1.0" lines-covered="2" lines-valid="2" branches-covered="0" branches-valid="0" complexity="1.0" version="1.9.4.1" timestamp="1383583797897">
+<coverage line-rate="0.7827868852459017" branch-rate="0.6153846153846154" lines-covered="191" lines-valid="244" branches-covered="32" branches-valid="52" complexity="1.4719101123595506" version="1.9.4.1" timestamp="1384090447307">
 	<sources>
-		<source>C:/Users/PC/proyecto-algo3/src</source>
+		<source>C:/Users/Juan/proyecto-algo3/src</source>
 	</sources>
 	<packages>
-		<package name="fiuba.algo3.ejemplo1" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+		<package name="Excepciones" line-rate="0.5" branch-rate="1.0" complexity="0.0">
 			<classes>
-				<class name="fiuba.algo3.ejemplo1.Foo" filename="fiuba/algo3/ejemplo1/Foo.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+				<class name="Excepciones.MovimientoFisicamenteInvalidoException" filename="Excepciones/MovimientoFisicamenteInvalidoException.java" line-rate="0.0" branch-rate="1.0" complexity="0.0">
 					<methods>
-						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="4" hits="1" branch="false"/>
-							</lines>
-						</method>
-						<method name="doFoo" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
-							<lines>
-								<line number="7" hits="1" branch="false"/>
+								<line number="3" hits="0" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="4" hits="1" branch="false"/>
-						<line number="7" hits="1" branch="false"/>
+						<line number="3" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="Excepciones.NumeroNegativoException" filename="Excepciones/NumeroNegativoException.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="3" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="Excepciones.PasoImpedidoException" filename="Excepciones/PasoImpedidoException.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="3" hits="12" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="12" branch="false"/>
+					</lines>
+				</class>
+				<class name="Excepciones.PosicionInvalidaException" filename="Excepciones/PosicionInvalidaException.java" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="3" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="Excepciones.ProbabilidadNoValidaException" filename="Excepciones/ProbabilidadNoValidaException.java" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="3" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="Excepciones.StringVacioException" filename="Excepciones/StringVacioException.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="3" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="3" hits="2" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="GestorDeMovimientos" line-rate="0.8695652173913043" branch-rate="0.6" complexity="2.5555555555555554">
+			<classes>
+				<class name="GestorDeMovimientos.EstrategiaDeMovimiento" filename="GestorDeMovimientos/EstrategiaDeMovimiento.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="GestorDeMovimientos.EstrategiaEste" filename="GestorDeMovimientos/EstrategiaEste.java" line-rate="0.875" branch-rate="0.5" complexity="4.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="8" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="realizarMovimiento" signature="(LVehiculos/Vehiculo;LTablero/Esquina;)V" line-rate="0.8571428571428571" branch-rate="0.5">
+							<lines>
+								<line number="13" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="15" hits="10" branch="false"/>
+								<line number="16" hits="8" branch="false"/>
+								<line number="17" hits="2" branch="false"/>
+								<line number="19" hits="10" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+								<line number="23" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="34" branch="false"/>
+						<line number="13" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="15" hits="10" branch="false"/>
+						<line number="16" hits="8" branch="false"/>
+						<line number="17" hits="2" branch="false"/>
+						<line number="19" hits="10" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="23" hits="10" branch="false"/>
+					</lines>
+				</class>
+				<class name="GestorDeMovimientos.EstrategiaNorte" filename="GestorDeMovimientos/EstrategiaNorte.java" line-rate="0.9" branch-rate="0.75" complexity="5.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="realizarMovimiento" signature="(LVehiculos/Vehiculo;LTablero/Esquina;)V" line-rate="0.8888888888888888" branch-rate="0.75">
+							<lines>
+								<line number="13" hits="10" branch="false"/>
+								<line number="14" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="16" hits="10" branch="false"/>
+								<line number="17" hits="2" branch="false"/>
+								<line number="18" hits="2" branch="false"/>
+								<line number="20" hits="8" branch="false"/>
+								<line number="21" hits="10" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="23" hits="0" branch="false"/>
+								<line number="25" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="34" branch="false"/>
+						<line number="13" hits="10" branch="false"/>
+						<line number="14" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="16" hits="10" branch="false"/>
+						<line number="17" hits="2" branch="false"/>
+						<line number="18" hits="2" branch="false"/>
+						<line number="20" hits="8" branch="false"/>
+						<line number="21" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="23" hits="0" branch="false"/>
+						<line number="25" hits="10" branch="false"/>
+					</lines>
+				</class>
+				<class name="GestorDeMovimientos.EstrategiaOeste" filename="GestorDeMovimientos/EstrategiaOeste.java" line-rate="0.875" branch-rate="0.5" complexity="4.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="realizarMovimiento" signature="(LVehiculos/Vehiculo;LTablero/Esquina;)V" line-rate="0.8571428571428571" branch-rate="0.5">
+							<lines>
+								<line number="13" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="15" hits="10" branch="false"/>
+								<line number="16" hits="8" branch="false"/>
+								<line number="17" hits="2" branch="false"/>
+								<line number="19" hits="10" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+								<line number="24" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="34" branch="false"/>
+						<line number="13" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="15" hits="10" branch="false"/>
+						<line number="16" hits="8" branch="false"/>
+						<line number="17" hits="2" branch="false"/>
+						<line number="19" hits="10" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="24" hits="10" branch="false"/>
+					</lines>
+				</class>
+				<class name="GestorDeMovimientos.EstrategiaSur" filename="GestorDeMovimientos/EstrategiaSur.java" line-rate="0.875" branch-rate="0.5" complexity="4.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="8" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="realizarMovimiento" signature="(LVehiculos/Vehiculo;LTablero/Esquina;)V" line-rate="0.8571428571428571" branch-rate="0.5">
+							<lines>
+								<line number="13" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="15" hits="10" branch="false"/>
+								<line number="16" hits="8" branch="false"/>
+								<line number="17" hits="2" branch="false"/>
+								<line number="19" hits="10" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+								<line number="23" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="34" branch="false"/>
+						<line number="13" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="15" hits="10" branch="false"/>
+						<line number="16" hits="8" branch="false"/>
+						<line number="17" hits="2" branch="false"/>
+						<line number="19" hits="10" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="23" hits="10" branch="false"/>
+					</lines>
+				</class>
+				<class name="GestorDeMovimientos.GestorDeMovimientos" filename="GestorDeMovimientos/GestorDeMovimientos.java" line-rate="0.8333333333333334" branch-rate="1.0" complexity="1.25">
+					<methods>
+						<method name="&lt;init&gt;" signature="(LVehiculos/Vehiculo;LTablero/Tablero;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="15" hits="33" branch="false"/>
+								<line number="17" hits="33" branch="false"/>
+								<line number="18" hits="33" branch="false"/>
+								<line number="19" hits="33" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPosicionActual" signature="()LTablero/Posicion;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVehiculoEnPosicionActual" signature="()LVehiculos/Vehiculo;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="27" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverVehiculo" signature="(LGestorDeMovimientos/EstrategiaDeMovimiento;)V" line-rate="0.8333333333333334" branch-rate="1.0">
+							<lines>
+								<line number="31" hits="32" branch="false"/>
+								<line number="32" hits="32" branch="false"/>
+								<line number="34" hits="32" branch="false"/>
+								<line number="35" hits="0" branch="false"/>
+								<line number="37" hits="32" branch="false"/>
+								<line number="38" hits="32" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="15" hits="33" branch="false"/>
+						<line number="17" hits="33" branch="false"/>
+						<line number="18" hits="33" branch="false"/>
+						<line number="19" hits="33" branch="false"/>
+						<line number="23" hits="9" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="31" hits="32" branch="false"/>
+						<line number="32" hits="32" branch="false"/>
+						<line number="34" hits="32" branch="false"/>
+						<line number="35" hits="0" branch="false"/>
+						<line number="37" hits="32" branch="false"/>
+						<line number="38" hits="32" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="Jugador" line-rate="1.0" branch-rate="1.0" complexity="1.875">
+			<classes>
+				<class name="Jugador.Jugador" filename="Jugador/Jugador.java" line-rate="1.0" branch-rate="1.0" complexity="1.875">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;LVehiculos/Vehiculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="13" hits="43" branch="false"/>
+								<line number="14" hits="43" branch="false"/>
+								<line number="15" hits="42" branch="false"/>
+								<line number="16" hits="42" branch="false"/>
+								<line number="17" hits="42" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCantidadDeMovimientos" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="32" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="getNombre" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVehiculo" signature="()LVehiculos/Vehiculo;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="58" hits="80" branch="false"/>
+							</lines>
+						</method>
+						<method name="quitarMovimientos" signature="(I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="44" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="45" hits="2" branch="false"/>
+								<line number="47" hits="1" branch="false"/>
+								<line number="51" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="52" hits="1" branch="false"/>
+								<line number="54" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setNombre" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="20" hits="45" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="21" hits="2" branch="false"/>
+								<line number="23" hits="43" branch="false"/>
+								<line number="25" hits="43" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVehiculo" signature="(LVehiculos/Vehiculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="62" hits="42" branch="false"/>
+								<line number="63" hits="42" branch="false"/>
+								<line number="64" hits="42" branch="false"/>
+							</lines>
+						</method>
+						<method name="sumarMovimientos" signature="(I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="19" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="37" hits="18" branch="false"/>
+								<line number="39" hits="1" branch="false"/>
+								<line number="41" hits="18" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="13" hits="43" branch="false"/>
+						<line number="14" hits="43" branch="false"/>
+						<line number="15" hits="42" branch="false"/>
+						<line number="16" hits="42" branch="false"/>
+						<line number="17" hits="42" branch="false"/>
+						<line number="20" hits="45" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="21" hits="2" branch="false"/>
+						<line number="23" hits="43" branch="false"/>
+						<line number="25" hits="43" branch="false"/>
+						<line number="28" hits="3" branch="false"/>
+						<line number="32" hits="34" branch="false"/>
+						<line number="36" hits="19" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="37" hits="18" branch="false"/>
+						<line number="39" hits="1" branch="false"/>
+						<line number="41" hits="18" branch="false"/>
+						<line number="44" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="45" hits="2" branch="false"/>
+						<line number="47" hits="1" branch="false"/>
+						<line number="51" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="52" hits="1" branch="false"/>
+						<line number="54" hits="2" branch="false"/>
+						<line number="58" hits="80" branch="false"/>
+						<line number="62" hits="42" branch="false"/>
+						<line number="63" hits="42" branch="false"/>
+						<line number="64" hits="42" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="Obstaculos" line-rate="0.4117647058823529" branch-rate="0.0" complexity="1.6111111111111112">
+			<classes>
+				<class name="Obstaculos.ControlPolicial" filename="Obstaculos/ControlPolicial.java" line-rate="0.0" branch-rate="0.0" complexity="1.8">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="15" hits="0" branch="false"/>
+								<line number="16" hits="0" branch="false"/>
+								<line number="17" hits="0" branch="false"/>
+								<line number="20" hits="0" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+								<line number="22" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="DetenerAlvehiculo" signature="(LVehiculos/Vehiculo;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="0" branch="false"/>
+								<line number="27" hits="0" branch="false"/>
+								<line number="29" hits="0" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/Auto;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="42" hits="0" branch="false"/>
+								<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="0" branch="false"/>
+								<line number="46" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/CuatroXCuatro;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="50" hits="0" branch="false"/>
+								<line number="51" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="52" hits="0" branch="false"/>
+								<line number="54" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/Moto;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="34" hits="0" branch="false"/>
+								<line number="35" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="36" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="15" hits="0" branch="false"/>
+						<line number="16" hits="0" branch="false"/>
+						<line number="17" hits="0" branch="false"/>
+						<line number="20" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="22" hits="0" branch="false"/>
+						<line number="26" hits="0" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+						<line number="35" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="36" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="42" hits="0" branch="false"/>
+						<line number="43" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="0" branch="false"/>
+						<line number="46" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="51" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="52" hits="0" branch="false"/>
+						<line number="54" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="Obstaculos.Obstaculo" filename="Obstaculos/Obstaculo.java" line-rate="0.375" branch-rate="0.0" complexity="1.4">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="32" branch="false"/>
+								<line number="15" hits="32" branch="false"/>
+								<line number="16" hits="32" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(I)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="18" hits="0" branch="false"/>
+								<line number="19" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="20" hits="0" branch="false"/>
+								<line number="22" hits="0" branch="false"/>
+								<line number="24" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="14" hits="32" branch="false"/>
+						<line number="15" hits="32" branch="false"/>
+						<line number="16" hits="32" branch="false"/>
+						<line number="18" hits="0" branch="false"/>
+						<line number="19" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="20" hits="0" branch="false"/>
+						<line number="22" hits="0" branch="false"/>
+						<line number="24" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="Obstaculos.Piquete" filename="Obstaculos/Piquete.java" line-rate="0.8888888888888888" branch-rate="1.0" complexity="1.75">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="17" branch="false"/>
+								<line number="13" hits="17" branch="false"/>
+								<line number="14" hits="17" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/Auto;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/CuatroXCuatro;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="31" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/Moto;)V" line-rate="0.75" branch-rate="1.0">
+							<lines>
+								<line number="19" hits="5" branch="false"/>
+								<line number="20" hits="0" branch="false"/>
+								<line number="22" hits="5" branch="false"/>
+								<line number="23" hits="5" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="17" branch="false"/>
+						<line number="13" hits="17" branch="false"/>
+						<line number="14" hits="17" branch="false"/>
+						<line number="19" hits="5" branch="false"/>
+						<line number="20" hits="0" branch="false"/>
+						<line number="22" hits="5" branch="false"/>
+						<line number="23" hits="5" branch="false"/>
+						<line number="26" hits="6" branch="false"/>
+						<line number="31" hits="6" branch="false"/>
+					</lines>
+				</class>
+				<class name="Obstaculos.Pozo" filename="Obstaculos/Pozo.java" line-rate="0.8333333333333334" branch-rate="1.0" complexity="1.5">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="12" hits="15" branch="false"/>
+								<line number="13" hits="15" branch="false"/>
+								<line number="14" hits="15" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/Auto;)V" line-rate="0.75" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="5" branch="false"/>
+								<line number="29" hits="0" branch="false"/>
+								<line number="31" hits="5" branch="false"/>
+								<line number="32" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/CuatroXCuatro;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LVehiculos/Moto;)V" line-rate="0.75" branch-rate="1.0">
+							<lines>
+								<line number="19" hits="5" branch="false"/>
+								<line number="20" hits="0" branch="false"/>
+								<line number="22" hits="5" branch="false"/>
+								<line number="23" hits="5" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="15" branch="false"/>
+						<line number="13" hits="15" branch="false"/>
+						<line number="14" hits="15" branch="false"/>
+						<line number="19" hits="5" branch="false"/>
+						<line number="20" hits="0" branch="false"/>
+						<line number="22" hits="5" branch="false"/>
+						<line number="23" hits="5" branch="false"/>
+						<line number="28" hits="5" branch="false"/>
+						<line number="29" hits="0" branch="false"/>
+						<line number="31" hits="5" branch="false"/>
+						<line number="32" hits="5" branch="false"/>
+						<line number="37" hits="5" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="Tablero" line-rate="0.8823529411764706" branch-rate="0.6923076923076923" complexity="1.263157894736842">
+			<classes>
+				<class name="Tablero.Calle" filename="Tablero/Calle.java" line-rate="1.0" branch-rate="1.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;init&gt;" signature="(LTablero/Esquina;LTablero/Esquina;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="16" hits="780" branch="false"/>
+								<line number="17" hits="780" branch="false"/>
+								<line number="18" hits="780" branch="false"/>
+								<line number="19" hits="780" branch="false"/>
+								<line number="20" hits="780" branch="false"/>
+							</lines>
+						</method>
+						<method name="agregarObstaculo" signature="(LObstaculos/Obstaculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="24" branch="false"/>
+								<line number="24" hits="24" branch="false"/>
+							</lines>
+						</method>
+						<method name="procesarVehiculo" signature="(LVehiculos/Vehiculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="27" hits="56" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="28" hits="24" branch="false"/>
+								<line number="30" hits="32" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="16" hits="780" branch="false"/>
+						<line number="17" hits="780" branch="false"/>
+						<line number="18" hits="780" branch="false"/>
+						<line number="19" hits="780" branch="false"/>
+						<line number="20" hits="780" branch="false"/>
+						<line number="23" hits="24" branch="false"/>
+						<line number="24" hits="24" branch="false"/>
+						<line number="27" hits="56" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="28" hits="24" branch="false"/>
+						<line number="30" hits="32" branch="false"/>
+					</lines>
+				</class>
+				<class name="Tablero.Esquina" filename="Tablero/Esquina.java" line-rate="1.0" branch-rate="0.5" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="696" branch="false"/>
+								<line number="11" hits="696" branch="false"/>
+								<line number="12" hits="696" branch="false"/>
+								<line number="13" hits="696" branch="false"/>
+								<line number="14" hits="696" branch="false"/>
+								<line number="15" hits="696" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCalleEste" signature="()LTablero/Calle;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="62" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCalleNorte" signature="()LTablero/Calle;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="50" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCalleOeste" signature="()LTablero/Calle;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="58" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCalleSur" signature="()LTablero/Calle;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="ponerCalleHaciaElEste" signature="(LTablero/Calle;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="390" branch="false"/>
+								<line number="19" hits="390" branch="false"/>
+							</lines>
+						</method>
+						<method name="ponerCalleHaciaElNorte" signature="(LTablero/Calle;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="390" branch="false"/>
+								<line number="27" hits="390" branch="false"/>
+							</lines>
+						</method>
+						<method name="ponerCalleHaciaElOeste" signature="(LTablero/Calle;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="390" branch="false"/>
+								<line number="23" hits="390" branch="false"/>
+							</lines>
+						</method>
+						<method name="ponerCalleHaciaElSur" signature="(LTablero/Calle;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="390" branch="false"/>
+								<line number="31" hits="390" branch="false"/>
+							</lines>
+						</method>
+						<method name="tieneCalleAlEste" signature="()Z" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="38" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="tieneCalleAlNorte" signature="()Z" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="42" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="tieneCalleAlOeste" signature="()Z" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="34" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="tieneCalleAlSur" signature="()Z" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="46" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="696" branch="false"/>
+						<line number="11" hits="696" branch="false"/>
+						<line number="12" hits="696" branch="false"/>
+						<line number="13" hits="696" branch="false"/>
+						<line number="14" hits="696" branch="false"/>
+						<line number="15" hits="696" branch="false"/>
+						<line number="18" hits="390" branch="false"/>
+						<line number="19" hits="390" branch="false"/>
+						<line number="22" hits="390" branch="false"/>
+						<line number="23" hits="390" branch="false"/>
+						<line number="26" hits="390" branch="false"/>
+						<line number="27" hits="390" branch="false"/>
+						<line number="30" hits="390" branch="false"/>
+						<line number="31" hits="390" branch="false"/>
+						<line number="34" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="38" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="42" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="46" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="16" branch="false"/>
+						<line number="54" hits="16" branch="false"/>
+						<line number="58" hits="16" branch="false"/>
+						<line number="62" hits="16" branch="false"/>
+					</lines>
+				</class>
+				<class name="Tablero.Posicion" filename="Tablero/Posicion.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(II)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="8" hits="66" branch="false"/>
+								<line number="9" hits="66" branch="false"/>
+								<line number="10" hits="66" branch="false"/>
+								<line number="11" hits="66" branch="false"/>
+							</lines>
+						</method>
+						<method name="getColumna" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="100" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFila" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="100" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverAlEste" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="9" branch="false"/>
+								<line number="27" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverAlNorte" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="9" branch="false"/>
+								<line number="31" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverAlOeste" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="9" branch="false"/>
+								<line number="23" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverAlSur" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="34" hits="9" branch="false"/>
+								<line number="35" hits="9" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="66" branch="false"/>
+						<line number="9" hits="66" branch="false"/>
+						<line number="10" hits="66" branch="false"/>
+						<line number="11" hits="66" branch="false"/>
+						<line number="14" hits="100" branch="false"/>
+						<line number="18" hits="100" branch="false"/>
+						<line number="22" hits="9" branch="false"/>
+						<line number="23" hits="9" branch="false"/>
+						<line number="26" hits="9" branch="false"/>
+						<line number="27" hits="9" branch="false"/>
+						<line number="30" hits="9" branch="false"/>
+						<line number="31" hits="9" branch="false"/>
+						<line number="34" hits="9" branch="false"/>
+						<line number="35" hits="9" branch="false"/>
+					</lines>
+				</class>
+				<class name="Tablero.Tablero" filename="Tablero/Tablero.java" line-rate="0.7435897435897436" branch-rate="0.75" complexity="1.6">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="16" hits="0" branch="false"/>
+								<line number="17" hits="0" branch="false"/>
+								<line number="18" hits="0" branch="false"/>
+								<line number="19" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(II)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="21" hits="44" branch="false"/>
+								<line number="22" hits="44" branch="false"/>
+								<line number="23" hits="44" branch="false"/>
+								<line number="24" hits="44" branch="false"/>
+								<line number="25" hits="44" branch="false"/>
+								<line number="26" hits="44" branch="false"/>
+								<line number="27" hits="44" branch="false"/>
+							</lines>
+						</method>
+						<method name="esquinaEnPosicionTieneCalleEste" signature="(II)Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="esquinaEnPosicionTieneCalleNorte" signature="(II)Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="90" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="esquinaEnPosicionTieneCalleOeste" signature="(II)Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="82" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="esquinaEnPosicionTieneCalleSur" signature="(II)Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="94" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getColumnas" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="63" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEsquinaEn" signature="(II)LTablero/Esquina;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="74" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEsquinaEn" signature="(LTablero/Posicion;)LTablero/Esquina;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="78" hits="64" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFilas" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="59" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="inicializarEsquinas" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="220" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="31" hits="872" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="32" hits="696" branch="false"/>
+								<line number="35" hits="44" branch="false"/>
+							</lines>
+						</method>
+						<method name="posicionValida" signature="(II)Z" line-rate="0.6666666666666666" branch-rate="0.5">
+							<lines>
+								<line number="67" hits="1" branch="true" condition-coverage="50% (4/8)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+										<condition number="2" type="jump" coverage="50%"/>
+										<condition number="3" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="68" hits="0" branch="false"/>
+								<line number="70" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="unirEsquinas" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="38" hits="176" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="39" hits="522" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="40" hits="390" branch="false"/>
+								<line number="41" hits="390" branch="false"/>
+								<line number="44" hits="44" branch="false"/>
+							</lines>
+						</method>
+						<method name="unirHorizontalmente" signature="(LTablero/Esquina;LTablero/Esquina;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="47" hits="390" branch="false"/>
+								<line number="48" hits="390" branch="false"/>
+								<line number="49" hits="390" branch="false"/>
+								<line number="50" hits="390" branch="false"/>
+							</lines>
+						</method>
+						<method name="unirVerticalmente" signature="(LTablero/Esquina;LTablero/Esquina;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="53" hits="390" branch="false"/>
+								<line number="54" hits="390" branch="false"/>
+								<line number="55" hits="390" branch="false"/>
+								<line number="56" hits="390" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="16" hits="0" branch="false"/>
+						<line number="17" hits="0" branch="false"/>
+						<line number="18" hits="0" branch="false"/>
+						<line number="19" hits="0" branch="false"/>
+						<line number="21" hits="44" branch="false"/>
+						<line number="22" hits="44" branch="false"/>
+						<line number="23" hits="44" branch="false"/>
+						<line number="24" hits="44" branch="false"/>
+						<line number="25" hits="44" branch="false"/>
+						<line number="26" hits="44" branch="false"/>
+						<line number="27" hits="44" branch="false"/>
+						<line number="30" hits="220" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="31" hits="872" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="32" hits="696" branch="false"/>
+						<line number="35" hits="44" branch="false"/>
+						<line number="38" hits="176" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="39" hits="522" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="40" hits="390" branch="false"/>
+						<line number="41" hits="390" branch="false"/>
+						<line number="44" hits="44" branch="false"/>
+						<line number="47" hits="390" branch="false"/>
+						<line number="48" hits="390" branch="false"/>
+						<line number="49" hits="390" branch="false"/>
+						<line number="50" hits="390" branch="false"/>
+						<line number="53" hits="390" branch="false"/>
+						<line number="54" hits="390" branch="false"/>
+						<line number="55" hits="390" branch="false"/>
+						<line number="56" hits="390" branch="false"/>
+						<line number="59" hits="1" branch="false"/>
+						<line number="63" hits="1" branch="false"/>
+						<line number="67" hits="1" branch="true" condition-coverage="50% (4/8)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+								<condition number="3" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="68" hits="0" branch="false"/>
+						<line number="70" hits="1" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="78" hits="64" branch="false"/>
+						<line number="82" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="90" hits="0" branch="false"/>
+						<line number="94" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="Vehiculos" line-rate="0.8709677419354839" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="Vehiculos.Auto" filename="Vehiculos/Auto.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(LTablero/Posicion;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="12" branch="false"/>
+								<line number="12" hits="12" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LObstaculos/Obstaculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="15" hits="8" branch="false"/>
+								<line number="16" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="12" branch="false"/>
+						<line number="12" hits="12" branch="false"/>
+						<line number="15" hits="8" branch="false"/>
+						<line number="16" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="Vehiculos.CuatroXCuatro" filename="Vehiculos/CuatroXCuatro.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(LTablero/Posicion;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="21" branch="false"/>
+								<line number="11" hits="21" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LObstaculos/Obstaculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="8" branch="false"/>
+								<line number="15" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="21" branch="false"/>
+						<line number="11" hits="21" branch="false"/>
+						<line number="14" hits="8" branch="false"/>
+						<line number="15" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="Vehiculos.Moto" filename="Vehiculos/Moto.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(LTablero/Posicion;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="27" branch="false"/>
+								<line number="11" hits="27" branch="false"/>
+							</lines>
+						</method>
+						<method name="interactuarCon" signature="(LObstaculos/Obstaculo;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="8" branch="false"/>
+								<line number="15" hits="8" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="27" branch="false"/>
+						<line number="11" hits="27" branch="false"/>
+						<line number="14" hits="8" branch="false"/>
+						<line number="15" hits="8" branch="false"/>
+					</lines>
+				</class>
+				<class name="Vehiculos.Vehiculo" filename="Vehiculos/Vehiculo.java" line-rate="0.7894736842105263" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(LTablero/Posicion;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="60" branch="false"/>
+								<line number="15" hits="60" branch="false"/>
+								<line number="16" hits="60" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(LTablero/Posicion;LJugador/Jugador;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="0" branch="false"/>
+								<line number="19" hits="0" branch="false"/>
+								<line number="20" hits="0" branch="false"/>
+								<line number="21" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getConductor" signature="()LJugador/Jugador;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="32" hits="15" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPosicion" signature="()LTablero/Posicion;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="24" hits="97" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverseAlEste" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="8" branch="false"/>
+								<line number="37" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverseAlNorte" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="44" hits="8" branch="false"/>
+								<line number="45" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverseAlOeste" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="48" hits="8" branch="false"/>
+								<line number="49" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="moverseAlSur" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="40" hits="8" branch="false"/>
+								<line number="41" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="setConductor" signature="(LJugador/Jugador;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="42" branch="false"/>
+								<line number="29" hits="42" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="14" hits="60" branch="false"/>
+						<line number="15" hits="60" branch="false"/>
+						<line number="16" hits="60" branch="false"/>
+						<line number="18" hits="0" branch="false"/>
+						<line number="19" hits="0" branch="false"/>
+						<line number="20" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="24" hits="97" branch="false"/>
+						<line number="28" hits="42" branch="false"/>
+						<line number="29" hits="42" branch="false"/>
+						<line number="32" hits="15" branch="false"/>
+						<line number="36" hits="8" branch="false"/>
+						<line number="37" hits="8" branch="false"/>
+						<line number="40" hits="8" branch="false"/>
+						<line number="41" hits="8" branch="false"/>
+						<line number="44" hits="8" branch="false"/>
+						<line number="45" hits="8" branch="false"/>
+						<line number="48" hits="8" branch="false"/>
+						<line number="49" hits="8" branch="false"/>
 					</lines>
 				</class>
 			</classes>

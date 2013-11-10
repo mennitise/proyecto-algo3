@@ -22,15 +22,7 @@ public abstract class Obstaculo {
 			throw new NumeroNegativoException();
 		}
 	}
-	
-	public void penalizarA(Jugador unJugador){
-		try {
-			unJugador.sumarMovimientos(this.cantidadDeMovimientosAPenalizar);
-		} catch (NumeroNegativoException e) {
-			// nunca entra porque el atributo cantidadDeMovimientosAPenalizar 
-			// de esta clase es siempre >= 0
-		}
-	}
+
 
 	public abstract void interactuarCon(Moto unaMoto);
 	public abstract void interactuarCon(Auto unAuto) throws PasoImpedidoException;

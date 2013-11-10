@@ -10,18 +10,22 @@ public class Calle {
 	
 	private Esquina esquinaUno;
 	private Esquina esquinaDos;
-	private ArrayList<Obstaculo> objetos;
+	private ArrayList<Obstaculo> losObstaculos;
 	//van a venir los obstaculos tambien
 	
 	public Calle(Esquina unaEsquina, Esquina otraEsquina) {
 		this.esquinaUno = unaEsquina;
 		this.esquinaDos = otraEsquina;
-		this.objetos = new ArrayList<Obstaculo>();
+		this.losObstaculos = new ArrayList<Obstaculo>();
+	}
+	
+	public void agregarObstaculo(Obstaculo unObstaculo){
+		this.losObstaculos.add(unObstaculo);
 	}
 
 	public void procesarVehiculo(Vehiculo unVehiculo) throws PasoImpedidoException{
-		for(int i=0; i<this.objetos.size();i++){
-			unVehiculo.interactuarCon(this.objetos.get(i));
+		for(int i=0; i<this.losObstaculos.size();i++){
+			unVehiculo.interactuarCon(this.losObstaculos.get(i));
 		}
 	}
 	

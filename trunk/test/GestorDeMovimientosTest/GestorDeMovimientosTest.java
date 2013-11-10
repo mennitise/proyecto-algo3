@@ -115,6 +115,5 @@ public class GestorDeMovimientosTest {
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getFila()==1);
 	}
-	
 
 }

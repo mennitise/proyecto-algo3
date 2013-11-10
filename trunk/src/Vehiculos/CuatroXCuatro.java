@@ -10,12 +10,8 @@ public class CuatroXCuatro extends Vehiculo{
 		super(unaPosicion);
 	}
 
-	public void interactuarCon(Obstaculo obstaculo) {
-		try {
-			obstaculo.interactuarCon(this);
-		} catch (PasoImpedidoException e) {
-			// Implementar
-		}
+	public void interactuarCon(Obstaculo obstaculo) throws PasoImpedidoException {
+		obstaculo.interactuarCon(this);
 	}
 
 }
