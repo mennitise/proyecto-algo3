@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Juan-PC" name="TableroTest.PosicionTest" skipped="0" tests="6" time="0.008" timestamp="2013-11-10T17:35:20">
+<testsuite errors="0" failures="0" hostname="Juan-PC" name="TableroTest.EsquinaTest" skipped="0" tests="8" time="0.013" timestamp="2013-11-10T17:35:20">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="coverage.summaryxml.dir" value="C:\Users\Juan\proyecto-algo3\build\reports\cobertura-summary-xml" />
@@ -82,12 +82,14 @@
     <property name="src.dir" value="C:\Users\Juan\proyecto-algo3\src" />
     <property name="ant.project.invoked-targets" value="test" />
   </properties>
-  <testcase classname="TableroTest.PosicionTest" name="testMoverAlSur" time="0.0" />
-  <testcase classname="TableroTest.PosicionTest" name="testMoverAlNorte" time="0.0" />
-  <testcase classname="TableroTest.PosicionTest" name="testMoverAlEste" time="0.0" />
-  <testcase classname="TableroTest.PosicionTest" name="testMoverAlOeste" time="0.0" />
-  <testcase classname="TableroTest.PosicionTest" name="testPosicionGuardaBienX" time="0.0" />
-  <testcase classname="TableroTest.PosicionTest" name="testPosicionGuardaBienY" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlOeste" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlNorte" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlSur" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlEste" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlOeste" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlEste" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlNorte" time="0.0" />
+  <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlSur" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
