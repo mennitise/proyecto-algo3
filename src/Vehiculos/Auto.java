@@ -11,12 +11,8 @@ public class Auto extends Vehiculo {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void interactuarCon(Obstaculo obstaculo){
-		try {
-			obstaculo.interactuarCon(this);
-		} catch (PasoImpedidoException e) {
-			// Implementar
-		}
+	public void interactuarCon(Obstaculo obstaculo) throws PasoImpedidoException{
+		obstaculo.interactuarCon(this);
 	}
 
 }

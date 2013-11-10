@@ -3,6 +3,7 @@ package Vehiculos;
 import Jugador.Jugador;
 import Obstaculos.Obstaculo;
 import Tablero.Posicion;
+import Excepciones.PasoImpedidoException;
 import Excepciones.ProbabilidadNoValidaException;
 
 public abstract class Vehiculo {
@@ -47,6 +48,6 @@ public abstract class Vehiculo {
 		this.posicionActual.moverAlOeste();
 	}
 	
-	public abstract void interactuarCon(Obstaculo obstaculo);
+	public abstract void interactuarCon(Obstaculo obstaculo) throws PasoImpedidoException;
 	
 }

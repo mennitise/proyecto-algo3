@@ -23,11 +23,11 @@ public class Pozo extends Obstaculo {
 	}
 
 	@Override
-	public void interactuarCon(Auto unAuto) throws PasoImpedidoException {
+	public void interactuarCon(Auto unAuto) {
 		try {
 			unAuto.getConductor().sumarMovimientos(this.cantidadDeMovimientosAPenalizar);
 		} catch (NumeroNegativoException e) {
-			// No entra Nunca porque this.cantidadDeMovimientosAPenalizar es siempre 2
+			// No entra Nunca porque this.cantidadDeMovimientosAPenalizar es siempre 3
 		};
 	}
 
