@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="0" name="EstrategiaEsteTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.195" timestamp="2013-11-10T13:34:04">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="0" name="EstrategiaEsteTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.171" timestamp="2013-11-10T17:35:19">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -112,7 +112,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -164,16 +164,16 @@
 
       </properties>
 
-      <testcase classname="GestorDeMovimientosTest.EstrategiaEsteTest" name="testEstrategiaEsteMantuvoLaPosicionFila" time="0.032" />
+      <testcase classname="GestorDeMovimientosTest.EstrategiaEsteTest" name="testEstrategiaEsteMantuvoLaPosicionFila" time="0.044" />
 
-      <testcase classname="GestorDeMovimientosTest.EstrategiaEsteTest" name="testEstrategiaEsteCambioPosicionColumna" time="0.002" />
+      <testcase classname="GestorDeMovimientosTest.EstrategiaEsteTest" name="testEstrategiaEsteCambioPosicionColumna" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="1" name="EstrategiaNorteTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.01" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="1" name="EstrategiaNorteTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.012" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -285,7 +285,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -337,7 +337,7 @@
 
       </properties>
 
-      <testcase classname="GestorDeMovimientosTest.EstrategiaNorteTest" name="testEstrategiaNorteMantuvoLaPosicionColumna" time="0.003" />
+      <testcase classname="GestorDeMovimientosTest.EstrategiaNorteTest" name="testEstrategiaNorteMantuvoLaPosicionColumna" time="0.004" />
 
       <testcase classname="GestorDeMovimientosTest.EstrategiaNorteTest" name="testEstrategiaNorteCambioPosicionFila" time="0.001" />
 
@@ -346,7 +346,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="2" name="EstrategiaOesteTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.009" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="2" name="EstrategiaOesteTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.011" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -458,7 +458,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -510,7 +510,7 @@
 
       </properties>
 
-      <testcase classname="GestorDeMovimientosTest.EstrategiaOesteTest" name="testEstrategiaEsteCambioPosicionColumna" time="0.002" />
+      <testcase classname="GestorDeMovimientosTest.EstrategiaOesteTest" name="testEstrategiaEsteCambioPosicionColumna" time="0.003" />
 
       <testcase classname="GestorDeMovimientosTest.EstrategiaOesteTest" name="testEstrategiaOesteMantuvoLaPosicionFila" time="0.0" />
 
@@ -519,7 +519,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="3" name="EstrategiaSurTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.008" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="3" name="EstrategiaSurTest" package="GestorDeMovimientosTest" skipped="0" tests="2" time="0.01" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -631,7 +631,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -683,7 +683,7 @@
 
       </properties>
 
-      <testcase classname="GestorDeMovimientosTest.EstrategiaSurTest" name="testEstrategiaSurMantuvoLaPosicionColumna" time="0.002" />
+      <testcase classname="GestorDeMovimientosTest.EstrategiaSurTest" name="testEstrategiaSurMantuvoLaPosicionColumna" time="0.004" />
 
       <testcase classname="GestorDeMovimientosTest.EstrategiaSurTest" name="testEstrategiaSurCambioPosicionFila" time="0.0" />
 
@@ -692,7 +692,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="4" name="GestorDeMovimientosTest" package="GestorDeMovimientosTest" skipped="0" tests="9" time="0.017" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="4" name="GestorDeMovimientosTest" package="GestorDeMovimientosTest" skipped="0" tests="9" time="0.015" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -804,7 +804,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -858,11 +858,11 @@
 
       <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElSurLaPosicionFilaCambia" time="0.001" />
 
-      <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testSeColocaBienLaPosicionInicial" time="0.0" />
+      <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testSeColocaBienLaPosicionInicial" time="0.001" />
 
       <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElSurLaPosicionColumnaSeMantiene" time="0.001" />
 
-      <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElNorteLaPosicionColumnaSeMantiene" time="0.001" />
+      <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElNorteLaPosicionColumnaSeMantiene" time="0.0" />
 
       <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElNorteLaPosicionFilaCambia" time="0.0" />
 
@@ -872,14 +872,14 @@
 
       <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElOesteLaPosicionColumnaCambia" time="0.0" />
 
-      <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElOesteLaPosicionFilaSeMantiene" time="0.001" />
+      <testcase classname="GestorDeMovimientosTest.GestorDeMovimientosTest" name="testMovimientoHaciaElOesteLaPosicionFilaSeMantiene" time="0.0" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="5" name="JugadorTest" package="JugadorTest" skipped="0" tests="11" time="0.019" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="5" name="JugadorTest" package="JugadorTest" skipped="0" tests="11" time="0.02" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -991,7 +991,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -1049,15 +1049,11 @@
 
       <testcase classname="JugadorTest.JugadorTest" name="testDeberiaLanzarNumeroNegativoExceptionAlQuitarMovimientosNegativos" time="0.0" />
 
-      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaDevolverElNombreCorrecto" time="0.0" />
-
       <testcase classname="JugadorTest.JugadorTest" name="testDeberiaCrearseConNombre" time="0.0" />
 
-      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaSumarMovimientos" time="0.0" />
+      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaSumarMovimientos" time="0.001" />
 
-      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaQuitarMovimientos" time="0.0" />
-
-      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaCambiarElNombre" time="0.0" />
+      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaDevolverElNombreCorrecto" time="0.0" />
 
       <testcase classname="JugadorTest.JugadorTest" name="testDeberiaCrearseConCantidadDeMovimientosCero" time="0.0" />
 
@@ -1065,12 +1061,16 @@
 
       <testcase classname="JugadorTest.JugadorTest" name="testDeberiaLanzarStringVacioExceptionAlCrearJugadorSinNombre" time="0.0" />
 
+      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaQuitarMovimientos" time="0.0" />
+
+      <testcase classname="JugadorTest.JugadorTest" name="testDeberiaCambiarElNombre" time="0.0" />
+
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="6" name="PiqueteTest" package="ObstaculoTest" skipped="0" tests="5" time="0.01" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="6" name="PiqueteTest" package="ObstaculoTest" skipped="0" tests="5" time="0.01" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1182,7 +1182,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -1233,23 +1233,23 @@
           <property name="ant.project.invoked-targets" value="test" />
 
       </properties>
-
-      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaDejarPasarAlAuto" time="0.0" />
-
-      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaPenalizarAlAuto" time="0.001" />
-
-      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteDeberiaPenalizarALaMoto" time="0.001" />
-
-      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaDejarPasarALaCuatroXCuatro" time="0.0" />
 
       <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaPenalizarALaCuatroXCuatro" time="0.0" />
 
+      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaDejarPasarAlAuto" time="0.0" />
+
+      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaPenalizarAlAuto" time="0.0" />
+
+      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteDeberiaPenalizarALaMoto" time="0.0" />
+
+      <testcase classname="ObstaculoTest.PiqueteTest" name="testPiqueteNoDeberiaDejarPasarALaCuatroXCuatro" time="0.0" />
+
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="7" name="PozoTest" package="ObstaculoTest" skipped="0" tests="3" time="0.007" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="7" name="PozoTest" package="ObstaculoTest" skipped="0" tests="3" time="0.008" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1361,7 +1361,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -1413,7 +1413,7 @@
 
       </properties>
 
-      <testcase classname="ObstaculoTest.PozoTest" name="testPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.0" />
+      <testcase classname="ObstaculoTest.PozoTest" name="testPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.001" />
 
       <testcase classname="ObstaculoTest.PozoTest" name="testPozoDeberiaPenalizarCorrectamenteAUnAuto" time="0.0" />
 
@@ -1424,7 +1424,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="8" name="IntegracionJugabilidadTableroTest" package="PruebasDeIntegracion" skipped="0" tests="24" time="0.041" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="8" name="IntegracionJugabilidadTableroTest" package="PruebasDeIntegracion" skipped="0" tests="24" time="0.043" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1536,7 +1536,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -1592,21 +1592,21 @@
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlEsteConPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlEsteConPozoNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.0" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlEsteConPozoNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.001" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlOesteConPozoDeberiaPenalizarCorrectamenteAUnAuto" time="0.001" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlOesteConPozoDeberiaPenalizarCorrectamenteAUnAuto" time="0.0" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlEsteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlOesteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.0" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlOesteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.001" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlNorteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.0" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlSurConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlOesteConPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.001" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlOesteConPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlOesteConPozoNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.001" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlOesteConPozoNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.0" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlNorteConPozoDeberiaPenalizarCorrectamenteAUnAuto" time="0.0" />
 
@@ -1616,13 +1616,13 @@
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlSurConPozoDeberiaPenalizarCorrectamenteAUnAuto" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlSurConPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.001" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlSurConPozoDeberiaPenalizarCorrectamenteAUnaMoto" time="0.0" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlSurConPozoNoDeberiaPenalizarAUnaCuatroXCuatro" time="0.001" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlEsteConPiqueteNoDeberiaPenalizarAUnAuto" time="0.001" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlEsteConPiqueteNoDeberiaPenalizarAUnAuto" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlEsteConPiqueteDeberiaPenalizarCorrectamenteAUnaMoto" time="0.0" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlEsteConPiqueteDeberiaPenalizarCorrectamenteAUnaMoto" time="0.001" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlOesteConPiqueteNoDeberiaPenalizarAUnAuto" time="0.0" />
 
@@ -1630,7 +1630,7 @@
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlNorteConPiqueteNoDeberiaPenalizarAUnAuto" time="0.0" />
 
-      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlNorteConPiqueteDeberiaPenalizarCorrectamenteAUnaMoto" time="0.0" />
+      <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testCruzarCalleAlNorteConPiqueteDeberiaPenalizarCorrectamenteAUnaMoto" time="0.001" />
 
       <testcase classname="PruebasDeIntegracion.IntegracionJugabilidadTableroTest" name="testNoDeberiaCruzarCalleAlSurConPiqueteNoDeberiaPenalizarAUnAuto" time="0.0" />
 
@@ -1641,7 +1641,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="9" name="PosicionTest" package="TableroTest" skipped="0" tests="6" time="0.009" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="9" name="EsquinaTest" package="TableroTest" skipped="0" tests="8" time="0.013" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1753,7 +1753,192 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
+
+          <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.7" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="sun.os.patch.level" value="" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Juan\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="x86" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="instrumented.dir" value="C:\Users\Juan\proyecto-algo3\build\instrumented" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="C:\Users\Juan\proyecto-algo3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+
+          <property name="basedir" value="C:\Users\Juan\proyecto-algo3" />
+
+          <property name="ant.java.version" value="1.7" />
+
+          <property name="ant.core.lib" value="C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="ant.file.tp-final-algo3" value="C:\Users\Juan\proyecto-algo3\build.xml" />
+
+          <property name="java.specification.version" value="1.7" />
+
+          <property name="src.dir" value="C:\Users\Juan\proyecto-algo3\src" />
+
+          <property name="ant.project.invoked-targets" value="test" />
+
+      </properties>
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlOeste" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlNorte" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlSur" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaSeInicializaSinCalleAlEste" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlOeste" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlEste" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlNorte" time="0.0" />
+
+      <testcase classname="TableroTest.EsquinaTest" name="testEsquinaPonerCalleAlSur" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="10" name="PosicionTest" package="TableroTest" skipped="0" tests="6" time="0.008" timestamp="2013-11-10T17:35:20">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="coverage.summaryxml.dir" value="C:\Users\Juan\proyecto-algo3\build\reports\cobertura-summary-xml" />
+
+          <property name="libs" value="C:\Users\Juan\proyecto-algo3\libs" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_45\jre\classes" />
+
+          <property name="reports.html.dir" value="C:\Users\Juan\proyecto-algo3\build\reports\junit-html" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="ant.file.type.tp-final-algo3" value="file" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="net.sourceforge.cobertura.datafile" value="C:\Users\Juan\proyecto-algo3\build\cobertura.ser" />
+
+          <property name="ant.home" value="C:\Program Files\Java\apache-ant-1.9.2\bin\.." />
+
+          <property name="java.runtime.version" value="1.7.0_45-b18" />
+
+          <property name="cobertura.dir" value="C:\Users\Juan\proyecto-algo3\libs" />
+
+          <property name="user.name" value="Juan" />
+
+          <property name="user.language" value="es" />
+
+          <property name="build" value="C:\Users\Juan\proyecto-algo3\build" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_45\jre\bin" />
+
+          <property name="reports.dir" value="C:\Users\Juan\proyecto-algo3\build\reports" />
+
+          <property name="ant.project.default-target" value="test" />
+
+          <property name="ant.project.name" value="tp-final-algo3" />
+
+          <property name="java.version" value="1.7.0_45" />
+
+          <property name="coverage.html.dir" value="C:\Users\Juan\proyecto-algo3\build\reports\cobertura-html" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="32" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_45\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="classes.dir" value="C:\Users\Juan\proyecto-algo3\build" />
+
+          <property name="java.class.version" value="51.0" />
+
+          <property name="user.country" value="AR" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_45\jre" />
+
+          <property name="java.vm.info" value="mixed mode, sharing" />
+
+          <property name="ant.file" value="C:\Users\Juan\proyecto-algo3\build.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="24.45-b08" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\Java\apache-ant-1.9.2\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="reports.xml.dir" value="C:\Users\Juan\proyecto-algo3\build\reports\junit-xml" />
+
+          <property name="user.home" value="C:\Users\Juan" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="coverage.xml.dir" value="C:\Users\Juan\proyecto-algo3\build\reports\cobertura-xml" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_45\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.7.0_45\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Java\apache-ant-1.9.2\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -1822,7 +2007,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Juan-PC" id="10" name="TableroTest" package="TableroTest" skipped="0" tests="3" time="0.008" timestamp="2013-11-10T13:34:05">
+  <testsuite errors="0" failures="0" hostname="Juan-PC" id="11" name="TableroTest" package="TableroTest" skipped="0" tests="19" time="0.026" timestamp="2013-11-10T17:35:20">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1934,7 +2119,7 @@
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8264155287179262591.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3941100517779353066.properties propsfile=C:\Users\Juan\proyecto-algo3\junit648765868572463651.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=C:\Users\Juan\proyecto-algo3\junittestcases8466255871722170362.properties filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Juan\proyecto-algo3\build\reports\junit-xml\IGNORETHIS.xml crashfile=C:\Users\Juan\proyecto-algo3\junitvmwatcher3110710474828532740.properties propsfile=C:\Users\Juan\proyecto-algo3\junit8946558417879738121.properties" />
 
           <property name="java.class.path" value="C:\Users\Juan\proyecto-algo3\build\instrumented;C:\Users\Juan\proyecto-algo3\build;C:\Users\Juan\proyecto-algo3\libs\asm-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\asm-tree-3.0.jar;C:\Users\Juan\proyecto-algo3\libs\checkstyle-5.5-all.jar;C:\Users\Juan\proyecto-algo3\libs\cobertura.jar;C:\Users\Juan\proyecto-algo3\libs\jakarta-oro-2.0.8.jar;C:\Users\Juan\proyecto-algo3\libs\junit-4.10.jar;C:\Users\Juan\proyecto-algo3\libs\log4j-1.2.9.jar;C:\Users\Juan\proyecto-algo3\libs\mockito-all-1.9.0.jar;C:\Users\Juan\proyecto-algo3\build\tests;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-launcher.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit.jar;C:\Program Files\Java\apache-ant-1.9.2\lib\ant-junit4.jar" />
 
@@ -1986,11 +2171,43 @@
 
       </properties>
 
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEnELCentro" time="0.001" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEnELCentro2" time="0.0" />
+
       <testcase classname="TableroTest.TableroTest" name="testTableroDevuelveBienLasFilas" time="0.0" />
 
       <testcase classname="TableroTest.TableroTest" name="testTableroDevuelveBienLasColumnas" time="0.0" />
 
-      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicion" time="0.001" />
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinaSuperiorDerecha" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinainferiorDerecha" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeIzquierdo" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeIzquierdo2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeDerecho" time="0.001" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeDerecho2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeSuperior" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeSuperior2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionFueraDeRangoBordeInferior2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinaSuperiorIzquierda" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinaSuperiorIzquierda2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinaSuperiorDerecha2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinainferiorIzquierda" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinainferiorIzquierda2" time="0.0" />
+
+      <testcase classname="TableroTest.TableroTest" name="testTableroRevisaPosicionValidaEsquinainferiorDerecha2" time="0.0" />
 
       <system-out><![CDATA[]]></system-out>
 

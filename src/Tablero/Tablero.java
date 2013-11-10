@@ -64,10 +64,14 @@ public class Tablero{
 	}
 	
 	public boolean posicionValida(int fila, int columna){
-		if( (fila < 0) || (columna < 0) || (fila > this.filas) || (columna > this.columnas)){
+		if( (fila < 0) || (columna < 0) || (fila >= this.filas) || (columna >= this.columnas)){
 			return false;
 		}
 		return true;
+	}
+	
+	public boolean posicionValida(Posicion unaPosicion){
+		return this.posicionValida(unaPosicion.getFila(), unaPosicion.getColumna());
 	}
 		
 	public Esquina getEsquinaEn(int fila, int columna){
