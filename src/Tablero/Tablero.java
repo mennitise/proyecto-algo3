@@ -19,7 +19,7 @@ public class Tablero{
 		this.unirEsquinas();			
 	}
 
-	public void inicializarEsquinas(){
+	private void inicializarEsquinas(){
 		for (int i=0; i<this.filas; i++){
 			for (int j=0; j<this.columnas; j++){
 				esquinas[i][j] = new Esquina();

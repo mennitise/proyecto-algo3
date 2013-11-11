@@ -12,7 +12,13 @@ public class Jugador {
 	
 	public Jugador(String unNombre, Vehiculo unVehiculo) throws StringVacioException{
 		this.setNombre(unNombre);
-		this.setVehiculo(unVehiculo);
+		
+		if( unVehiculo != null ){
+			this.setVehiculo(unVehiculo);
+		}else{
+			this.vehiculoUtilizado = null;
+		}
+		
 		this.cantidadDeMovimientos = 0;
 	}
 	
