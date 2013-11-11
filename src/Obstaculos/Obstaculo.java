@@ -2,11 +2,9 @@ package Obstaculos;
 
 import Excepciones.NumeroNegativoException;
 import Excepciones.PasoImpedidoException;
-import Jugador.Jugador;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 
 public abstract class Obstaculo {
 	protected int cantidadDeMovimientosAPenalizar;
@@ -26,6 +24,6 @@ public abstract class Obstaculo {
 
 	public abstract void interactuarCon(Moto unaMoto);
 	public abstract void interactuarCon(Auto unAuto) throws PasoImpedidoException;
-	public abstract void interactuarCon(CuatroXCuatro vehiculo)throws PasoImpedidoException;
+	public abstract void interactuarCon(CuatroXCuatro unaCuatroXCuatro)throws PasoImpedidoException;
 
 }

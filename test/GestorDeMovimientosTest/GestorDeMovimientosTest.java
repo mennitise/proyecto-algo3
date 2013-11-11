@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Excepciones.PosicionInvalidaException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
 import GestorDeMovimientos.EstrategiaOeste;
@@ -13,7 +12,6 @@ import GestorDeMovimientos.GestorDeMovimientos;
 import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 
 public class GestorDeMovimientosTest {
 

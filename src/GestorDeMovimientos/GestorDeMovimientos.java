@@ -5,7 +5,6 @@ import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Vehiculo;
 import Excepciones.MovimientoFisicamenteInvalidoException;
-import Excepciones.PosicionInvalidaException;
 
 public class GestorDeMovimientos {
 

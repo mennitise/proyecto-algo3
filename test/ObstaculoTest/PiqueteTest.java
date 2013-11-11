@@ -8,12 +8,10 @@ import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
 import Jugador.Jugador;
 import Obstaculos.Piquete;
-import Obstaculos.Pozo;
 import Tablero.Posicion;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 
 public class PiqueteTest {
 	

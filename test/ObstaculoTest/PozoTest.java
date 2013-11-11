@@ -4,17 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Excepciones.NumeroNegativoException;
-import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
 import Jugador.Jugador;
-import Obstaculos.Piquete;
 import Obstaculos.Pozo;
 import Tablero.Posicion;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 
 public class PozoTest {
 

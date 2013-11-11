@@ -4,7 +4,6 @@ import java.util.Random;
 
 import Excepciones.NumeroNegativoException;
 import Excepciones.PasoImpedidoException;
-import Jugador.Jugador;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
