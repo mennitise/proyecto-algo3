@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
 import GestorDeMovimientos.EstrategiaOeste;
 import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
+import Jugador.Jugador;
 import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Moto;
@@ -24,6 +26,11 @@ public class GestorDeMovimientosTest {
 	private void inicializarGestor(){
 		Tablero unTablero = new Tablero(4,4);
 		Moto unaMoto = new Moto(new Posicion(1,1));
+		try {
+			Jugador unJugador = new Jugador("pepe",unaMoto);
+		} catch (StringVacioException e) {
+			//No entra nunca aca
+		}
 		this.unGestor = new GestorDeMovimientos(unaMoto,unTablero);
 	}
 	

@@ -7,4 +7,5 @@ import Vehiculos.Vehiculo;
 public interface EstrategiaDeMovimiento {
 
 	public void realizarMovimiento(Vehiculo unVehiculo, Esquina unaEsquina) throws MovimientoFisicamenteInvalidoException;
+
 }

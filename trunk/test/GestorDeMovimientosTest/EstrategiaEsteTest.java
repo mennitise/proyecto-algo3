@@ -5,21 +5,25 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import Excepciones.MovimientoFisicamenteInvalidoException;
+import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaEste;
+import Jugador.Jugador;
 import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Moto;
 
 public class EstrategiaEsteTest {
 
+	private Moto unaMoto;
+	private Posicion unaPosicion;
+	
 	@Test
 	public void testEstrategiaEsteMantuvoLaPosicionFila(){
 		EstrategiaEste unaEstrategia = new EstrategiaEste();
 		Tablero unTablero = new Tablero(4,4);
-		Posicion unaPosicion = new Posicion(1,1);
-		Moto unaMoto = new Moto(unaPosicion);
+		this.inicializarJugadorConMotoYPosicion11();
 		try {
-			unaEstrategia.realizarMovimiento(unaMoto, unTablero.getEsquinaEn(unaPosicion));
+			unaEstrategia.realizarMovimiento(unaMoto, unTablero.getEsquinaEn(this.unaPosicion));
 		} catch (MovimientoFisicamenteInvalidoException e) {
 			//no va a entrar aca
 		}
@@ -30,13 +34,23 @@ public class EstrategiaEsteTest {
 	public void testEstrategiaEsteCambioPosicionColumna(){
 		EstrategiaEste unaEstrategia = new EstrategiaEste();
 		Tablero unTablero = new Tablero(4,4);
-		Posicion unaPosicion = new Posicion(1,1);
-		Moto unaMoto = new Moto(unaPosicion);
+		this.inicializarJugadorConMotoYPosicion11();
 		try {
-			unaEstrategia.realizarMovimiento(unaMoto, unTablero.getEsquinaEn(unaPosicion));
+			unaEstrategia.realizarMovimiento(unaMoto, unTablero.getEsquinaEn(this.unaPosicion));
 		} catch (MovimientoFisicamenteInvalidoException e) {
 			//no va a entrar aca
 		}
 		assertTrue(unaMoto.getPosicion().getColumna()==2);
+	}
+	
+	private void inicializarJugadorConMotoYPosicion11(){
+		this.unaPosicion = new Posicion(1,1);
+		this.unaMoto = new Moto(unaPosicion);
+		try {
+			Jugador unJug = new Jugador("pepe",this.unaMoto);
+		} catch (StringVacioException e) {
+			//no va a entrar aca
+			e.printStackTrace();
+		}
 	}
 }

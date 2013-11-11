@@ -4,11 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Excepciones.PosicionInvalidaException;
 import Tablero.Posicion;
 import Tablero.Tablero;
-import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 
 public class TableroTest {
 	private Tablero unTablero;

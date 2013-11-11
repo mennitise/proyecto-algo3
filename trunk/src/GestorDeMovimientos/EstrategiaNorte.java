@@ -17,10 +17,14 @@ public class EstrategiaNorte implements EstrategiaDeMovimiento{
 				puedePasar = false;
 				//Terminar de implementarImplementar				
 			}
-			if(puedePasar) unVehiculo.moverseAlNorte();
+			if(puedePasar){ 
+				unVehiculo.moverseAlNorte();
+				unVehiculo.getConductor().sumarUnMovimiento();
+			}
 		}else{
 			throw new MovimientoFisicamenteInvalidoException();
 		}
 	}
+	
 
 }
