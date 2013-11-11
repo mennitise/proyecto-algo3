@@ -62,6 +62,13 @@ public class JugadorTest {
 	}
 	
 	@Test
+	public void testDeberiaSumarUnMovimiento(){
+		this.crearJugadorPepe();
+		this.unJugador.sumarUnMovimiento();
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
+	}
+	
+	@Test
 	public void testDeberiaQuitarMovimientos(){
 		this.crearJugadorPepe();
 		this.agregarMovimientos(5);

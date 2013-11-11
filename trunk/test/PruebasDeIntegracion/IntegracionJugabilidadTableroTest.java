@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import Excepciones.NumeroNegativoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
@@ -16,6 +17,8 @@ import Obstaculos.Piquete;
 import Obstaculos.Pozo;
 import Sorpresas.Sorpresa;
 import Sorpresas.SorpresaCambioDeVehiculo;
+import Sorpresas.SorpresaDesfavorable;
+import Sorpresas.SorpresaFavorable;
 import Tablero.Esquina;
 import Tablero.Posicion;
 import Tablero.Tablero;
@@ -34,6 +37,8 @@ public class IntegracionJugabilidadTableroTest {
 	private Tablero unTablero;
 	private Posicion unaPosicion;
 	private SorpresaCambioDeVehiculo unaSorpresaCambioDeVehiculo;
+	private SorpresaFavorable unaSorpresaFavorable;
+	private SorpresaDesfavorable unaSorpresaDesfavorable;
 	
 	@Test
 	public void testCruzarCalleAlEsteConPozoDeberiaPenalizarCorrectamenteAUnAuto(){
@@ -349,7 +354,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConMoto();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
@@ -360,10 +365,10 @@ public class IntegracionJugabilidadTableroTest {
 	@Test
 	public void testDeberiaCambiarLaMotoPorUnAutoYAvanzarHaciaElNorte() {
 		this.inicializarJugadorPepeConMoto();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlNorte(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
@@ -374,10 +379,10 @@ public class IntegracionJugabilidadTableroTest {
 	@Test
 	public void testDeberiaCambiarLaMotoPorUnAutoYAvanzarHaciaElEste() {
 		this.inicializarJugadorPepeConMoto();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlEste(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
@@ -388,10 +393,10 @@ public class IntegracionJugabilidadTableroTest {
 	@Test
 	public void testDeberiaCambiarLaMotoPorUnAutoYAvanzarHaciaElOeste() {
 		this.inicializarJugadorPepeConMoto();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlOeste(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
@@ -405,7 +410,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConAuto();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
@@ -418,7 +423,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConAuto();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlNorte(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
@@ -431,7 +436,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConAuto();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlEste(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
@@ -444,7 +449,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConAuto();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlOeste(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
@@ -458,7 +463,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConCuatroXCuatro();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
@@ -471,7 +476,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConCuatroXCuatro();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlNorte(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
@@ -484,7 +489,7 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConCuatroXCuatro();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlEste(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
@@ -497,13 +502,96 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarJugadorPepeConCuatroXCuatro();
 		this.inicializarEstrategias();
 		this.inicializarGestor();
-		this.inicializarSorpresaCambioDeVehiculo();
+		this.inicializarSorpresas();
 		this.colocarSorpresaAlOeste(this.unaSorpresaCambioDeVehiculo);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
 		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Moto.class);
+	}
+	
+	
+	
+	
+	@Test
+	public void testDeberiaAplicarSorpresaFavorableAUnAutoCon0MovimientosYAvanzarHaciaElSur() {
+		this.inicializarJugadorPepeConAuto();
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlSur(this.unaSorpresaFavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		//solo se suma el movimiento en si
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
+	}	
+	@Test
+	public void testDeberiaAplicarSorpresaFavorableAUnAutoCon3MovimientosYAvanzarHaciaElSur() {
+		this.inicializarJugadorPepeConAutoYTantosMovimientos(3);
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlSur(this.unaSorpresaFavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		//se le resto 1 movimiento y sele suma 1 mov del movimiento en si
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3);
+	}
+	@Test
+	public void testDeberiaAplicarSorpresaFavorableAUnAutoCon8MovimientosYAvanzarHaciaElSur() {
+		this.inicializarJugadorPepeConAutoYTantosMovimientos(7);
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlSur(this.unaSorpresaFavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		//se le resto 2 movimiento y sele suma 1 mov del movimiento en si
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 7);
+	}
+	
+	@Test
+	public void testDeberiaAplicarSorpresaDesfavorableAUnAutoCon0MovimientosYAvanzarHaciaElSur() {
+		this.inicializarJugadorPepeConAuto();
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlSur(this.unaSorpresaDesfavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		//solo se suma el movimiento en si
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
+	}	
+	@Test
+	public void testDeberiaAplicarSorpresaDesfavorableAUnAutoCon2MovimientosYAvanzarHaciaElSur() {
+		this.inicializarJugadorPepeConAutoYTantosMovimientos(2);
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlSur(this.unaSorpresaDesfavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		//se le sumo 1 movimiento y sele suma 1 mov del movimiento en si
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
+	}
+	@Test
+	public void testDeberiaAplicarSorpresaDesfavorableAUnAutoCon6MovimientosYAvanzarHaciaElSur() {
+		this.inicializarJugadorPepeConAutoYTantosMovimientos(6);
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlSur(this.unaSorpresaDesfavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
+		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		//se le sumo 2 movimientos y se le suma 1 mov del movimiento en si
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 9);
 	}
 	
 	
@@ -534,6 +622,19 @@ public class IntegracionJugabilidadTableroTest {
 			// No va a entrar nunca aca
 		}
 	}	
+	private void inicializarJugadorPepeConAutoYTantosMovimientos(int numMovimientos){
+		this.unaPosicion = new Posicion(1,2);
+		try {
+			this.unJugador = new Jugador("Pepe",new Auto(unaPosicion));
+		} catch (StringVacioException e) {
+			// No va a entrar nunca aca
+		}
+		try {
+			this.unJugador.sumarMovimientos(numMovimientos);
+		} catch (NumeroNegativoException e) {
+			assertTrue(false);
+		}
+	}
 	private void inicializarGestor(){
 		this.unTablero = new Tablero(4,4);
 		//unJugador ya debe estar inicializado
@@ -580,7 +681,10 @@ public class IntegracionJugabilidadTableroTest {
 		this.unaEstrategiaOeste = new EstrategiaOeste(); 
 		this.unaEstrategiaEste = new EstrategiaEste();
 	}
-	private void inicializarSorpresaCambioDeVehiculo(){
-		unaSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
+	private void inicializarSorpresas(){
+		this.unaSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
+		this.unaSorpresaFavorable = new SorpresaFavorable();
+		this.unaSorpresaDesfavorable = new SorpresaDesfavorable();
+		
 	}
 }
