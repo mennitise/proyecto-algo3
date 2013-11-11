@@ -32,6 +32,10 @@ public class Jugador {
 		return this.cantidadDeMovimientos;
 	}
 
+	public void sumarUnMovimiento(){
+		this.cantidadDeMovimientos += 1;
+	}
+	
 	public void sumarMovimientos(int unaCantidadDeMovimientos) throws NumeroNegativoException{
 		if(unaCantidadDeMovimientos >= 0){
 			this.cantidadDeMovimientos += unaCantidadDeMovimientos;
