@@ -2,9 +2,9 @@ package Vehiculos;
 
 import Jugador.Jugador;
 import Obstaculos.Obstaculo;
+import Sorpresas.Sorpresa;
 import Tablero.Posicion;
 import Excepciones.PasoImpedidoException;
-import Excepciones.ProbabilidadNoValidaException;
 
 public abstract class Vehiculo {
 	
@@ -49,5 +49,7 @@ public abstract class Vehiculo {
 	}
 	
 	public abstract void interactuarCon(Obstaculo obstaculo) throws PasoImpedidoException;
+	
+	public abstract void interactuarCon(Sorpresa unaSorpresa);
 	
 }

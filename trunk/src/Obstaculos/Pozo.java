@@ -4,7 +4,6 @@ import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Excepciones.NumeroNegativoException;
-import Excepciones.PasoImpedidoException;
 
 public class Pozo extends Obstaculo {
 	

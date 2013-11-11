@@ -1,12 +1,5 @@
 package Tablero;
 
-import Excepciones.PosicionInvalidaException;
-import Obstaculos.ControlPolicial;
-import Obstaculos.Obstaculo;
-import Obstaculos.Piquete;
-import Obstaculos.Pozo;
-import Vehiculos.Vehiculo;
-
 public class Tablero{
 	
 	private Esquina[][] esquinas;

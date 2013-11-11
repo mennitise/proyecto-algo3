@@ -10,7 +10,6 @@ import Jugador.Jugador;
 import Tablero.Posicion;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
-import Vehiculos.Vehiculo;
 
 public class JugadorTest {
 
