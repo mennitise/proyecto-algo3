@@ -25,14 +25,14 @@ public class NivelFacil extends Nivel {
 	}
 
 	@Override
-	public Posicion posicionInicialDelVehiculo() {
+	public Posicion getPosicionInicialDelVehiculo() {
 		int fila    = this.posicionInicialVehiculo.getFila();
 		int columna = this.posicionInicialVehiculo.getColumna();
 		return new Posicion(fila,columna);
 	}
-
+	
 	@Override
-	public Posicion posicionDeLaLlegada() {
+	public Posicion getPosicionDeLaLlegada() {
 		int fila    = this.posicionLlegada.getFila();
 		int columna = this.posicionLlegada.getColumna();
 		return new Posicion(fila,columna);

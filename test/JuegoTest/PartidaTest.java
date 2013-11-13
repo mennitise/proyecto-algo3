@@ -50,7 +50,7 @@ public class PartidaTest {
 	public void testPartidaInicializoLaPosicionDelVehiculoCorrectamente() {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
 		NivelFacil nivelAux = new NivelFacil(); 
-		assertTrue(this.unaPartida.getPosicionJugador().esIgual(nivelAux.posicionInicialDelVehiculo()));
+		assertTrue(this.unaPartida.getPosicionJugador().esIgual(nivelAux.getPosicionInicialDelVehiculo()));
 	}
 	
 	@Test
