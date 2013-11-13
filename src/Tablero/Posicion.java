@@ -33,5 +33,9 @@ public class Posicion {
 	public void moverAlSur(){
 		this.fila += 1;
 	}
+
+	public boolean esIgual(Posicion posicionFinal) {
+		return ( ( this.columna == posicionFinal.getColumna() ) & (this.fila == posicionFinal.getFila()) );
+	}
 	
 }

@@ -10,7 +10,6 @@ import Excepciones.NumeroDeVehiculoInvalidoException;
 import Excepciones.PartidaEnJuegoException;
 import Excepciones.StringVacioException;
 import Jugador.Jugador;
-import Tablero.Posicion;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
@@ -82,10 +81,9 @@ public class Juego {
 		}
 		
 		Nivel unNivel = this.niveles.get(numeroNivel - 1);
-		this.partidaActual = new Partida(this.unJugador, unNivel);
-		Posicion posicionVehiculo = unNivel.posicionInicialDelVehiculo();
-		Vehiculo unVehiculo = this.getVehiculo(numeroVehiculo,posicionVehiculo);
+		Vehiculo unVehiculo = this.getVehiculo(numeroVehiculo);
 		this.unJugador.setVehiculo(unVehiculo);
+		this.partidaActual = new Partida(this.unJugador, unNivel);
 	}
 
 	public ArrayList<String> getListaNombreNivelesConNumero() {
@@ -112,20 +110,20 @@ public class Juego {
 		return listaVehiculos;
 	}
 	
-	private Vehiculo getVehiculo(int numeroVehiculo, Posicion posicionVehiculo) {
+	private Vehiculo getVehiculo(int numeroVehiculo) {
 		
 		Vehiculo unVehiculo;
 		switch(numeroVehiculo){
 		case 1:
-			unVehiculo = new Auto(posicionVehiculo);
+			unVehiculo = new Auto();
 			break;
 		case 2:
-			unVehiculo = new Moto(posicionVehiculo);
+			unVehiculo = new Moto();
 			break;
 		default:
 			// El número del vehículo se verifica antes de ingresar acá
 			// por lo que siempre será válido
-			unVehiculo = new CuatroXCuatro(posicionVehiculo);
+			unVehiculo = new CuatroXCuatro();
 			break;
 		}
 		return unVehiculo;

@@ -11,13 +11,23 @@ public abstract class Vehiculo {
 	private Posicion posicionActual;
 	private Jugador elConductor;
 	
+	public Vehiculo(){
+		this.posicionActual = null;
+		this.elConductor = null;
+	} 
+	
 	public Vehiculo(Posicion unaPosicion){
 		this.posicionActual = unaPosicion;
+		this.elConductor = null;
 	}
 	
 	public Vehiculo(Posicion unaPosicion, Jugador unConductor){
 		this.posicionActual = unaPosicion;
 		this.elConductor = unConductor;
+	}
+	
+	public void setPosicion(Posicion nuevaPosicion){
+		this.posicionActual = nuevaPosicion;
 	}
 	
 	public Posicion getPosicion(){

@@ -10,8 +10,8 @@ public class NivelFacil extends Nivel {
 	
 	public NivelFacil(){
 		super();
-		this.posicionInicialVehiculo = new Posicion(5,1);
-		this.posicionLlegada = new Posicion(5,10);
+		this.posicionInicialVehiculo = new Posicion(5,0);
+		this.posicionLlegada = new Posicion(5,9);
 	}
 	
 	@Override
