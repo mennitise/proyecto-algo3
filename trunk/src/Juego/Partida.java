@@ -9,7 +9,6 @@ import GestorDeMovimientos.GestorDeMovimientos;
 import Jugador.Jugador;
 import Tablero.Posicion;
 import Tablero.Tablero;
-import Vehiculos.Vehiculo;
 
 public class Partida {
 	
@@ -25,7 +24,7 @@ public class Partida {
 	public Partida(Jugador jugador, Nivel unNivel){
 		this.unJugador = jugador;
 		this.unNivel = unNivel;
-		this.unJugador.getVehiculo().setPosicion(this.unNivel.posicionInicialDelVehiculo());
+		this.unJugador.getVehiculo().setPosicion(this.unNivel.getPosicionInicialDelVehiculo());
 		this.unTablero = this.unNivel.inicializarTablero();
 		this.unGestor = new GestorDeMovimientos(this.unJugador.getVehiculo(), unTablero);
 		this.unaEstrategiaSur = new EstrategiaSur(); 
@@ -65,7 +64,7 @@ public class Partida {
 
 	private boolean terminoLaPartida() {
 		Posicion posicionJugador = this.unJugador.getVehiculo().getPosicion();
-		Posicion posicionFinal = this.unNivel.posicionDeLaLlegada();
+		Posicion posicionFinal = this.unNivel.getPosicionDeLaLlegada();
 		if(posicionJugador.esIgual(posicionFinal)){
 			return true;
 		}else{

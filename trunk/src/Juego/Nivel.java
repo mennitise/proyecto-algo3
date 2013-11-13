@@ -7,7 +7,8 @@ public abstract class Nivel {
 
 	public abstract Tablero inicializarTablero();
 
-	public abstract Posicion posicionInicialDelVehiculo();
+	public abstract Posicion getPosicionInicialDelVehiculo();
 	
-	public abstract Posicion posicionDeLaLlegada();
+	public abstract Posicion getPosicionDeLaLlegada();
+
 }
