@@ -47,4 +47,28 @@ public class PosicionTest {
 		assertTrue(unaPosicion.getColumna() == 1);
 	}
 	
+	@Test
+	public void testPosicionesDeberianSerIguales() {
+		Posicion unaPosicion = new Posicion(1,2);
+		Posicion otraPosicion = new Posicion(1,2);
+		assertTrue(unaPosicion.esIgual(otraPosicion));
+	}
+	@Test
+	public void testPosicionesDeberianSerDistintas01() {
+		Posicion unaPosicion = new Posicion(1,1);
+		Posicion otraPosicion = new Posicion(1,2);
+		assertTrue(!unaPosicion.esIgual(otraPosicion));
+	}
+	@Test
+	public void testPosicionesDeberianSerDistintas02() {
+		Posicion unaPosicion = new Posicion(2,2);
+		Posicion otraPosicion = new Posicion(1,2);
+		assertTrue(!unaPosicion.esIgual(otraPosicion));
+	}
+	@Test
+	public void testPosicionesDeberianSerDistintas03() {
+		Posicion unaPosicion = new Posicion(3,8);
+		Posicion otraPosicion = new Posicion(1,2);
+		assertTrue(!unaPosicion.esIgual(otraPosicion));
+	}
 }
