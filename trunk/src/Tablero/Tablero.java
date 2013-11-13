@@ -56,7 +56,7 @@ public class Tablero{
 		return this.columnas;
 	}
 	
-	public boolean posicionValida(int fila, int columna){
+	private boolean posicionValida(int fila, int columna){
 		if( (fila < 0) || (columna < 0) || (fila >= this.filas) || (columna >= this.columnas)){
 			return false;
 		}
@@ -66,29 +66,25 @@ public class Tablero{
 	public boolean posicionValida(Posicion unaPosicion){
 		return this.posicionValida(unaPosicion.getFila(), unaPosicion.getColumna());
 	}
-		
-	public Esquina getEsquinaEn(int fila, int columna){
-		return this.esquinas[fila][columna];
-	}
-	
+
 	public Esquina getEsquinaEn(Posicion unaPosicion){
 		return this.esquinas[unaPosicion.getFila()][unaPosicion.getColumna()];
 	}
 	
-	public boolean esquinaEnPosicionTieneCalleOeste(int fila, int columna){
-		return this.esquinas[fila][columna].tieneCalleAlOeste();
+	public boolean esquinaEnPosicionTieneCalleOeste(Posicion unaPosicion){
+		return this.esquinas[unaPosicion.getFila()][unaPosicion.getColumna()].tieneCalleAlOeste();
 	}
 	
-	public boolean esquinaEnPosicionTieneCalleEste(int fila, int columna){
-		return this.esquinas[fila][columna].tieneCalleAlEste();
+	public boolean esquinaEnPosicionTieneCalleEste(Posicion unaPosicion){
+		return this.esquinas[unaPosicion.getFila()][unaPosicion.getColumna()].tieneCalleAlEste();
 	}
 	
-	public boolean esquinaEnPosicionTieneCalleNorte(int fila, int columna){
-		return this.esquinas[fila][columna].tieneCalleAlNorte();
+	public boolean esquinaEnPosicionTieneCalleNorte(Posicion unaPosicion){
+		return this.esquinas[unaPosicion.getFila()][unaPosicion.getColumna()].tieneCalleAlNorte();
 	}
 	
-	public boolean esquinaEnPosicionTieneCalleSur(int fila, int columna){
-		return this.esquinas[fila][columna].tieneCalleAlSur();
+	public boolean esquinaEnPosicionTieneCalleSur(Posicion unaPosicion){
+		return this.esquinas[unaPosicion.getFila()][unaPosicion.getColumna()].tieneCalleAlSur();
 	}
 
 }
