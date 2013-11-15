@@ -27,70 +27,70 @@ public class SorpresaDesfavorableTest {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(1);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() -1 == 0);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}
 	@Test
 	public void testDeberiaSumar1MovimientosCuandoJugadorTiene2Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(2);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() -2 == 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 3);
 	}
 	@Test
 	public void testDeberiaSumar1MovimientosCuandoJugadorTiene3Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(3);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() -3 == 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 4);
 	}
 	@Test
 	public void testDeberiaSumar1MovimientosCuandoJugadorTiene4Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(4);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 4 == 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 5);
 	}
 	@Test
 	public void testDeberiaSumar1MovimientosCuandoJugadorTiene5Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(5);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 5 == 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 6);
 	}
 	@Test
 	public void testDeberiaSumar2MovimientosCuandoJugadorTiene6Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(6);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 6 == 2);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 8);
 	}
 	@Test
 	public void testDeberiaSumar2MovimientosCuandoJugadorTiene7Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(7);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 7 == 2);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 9);
 	}
 	@Test
 	public void testDeberiaSumar2MovimientosCuandoJugadorTiene8Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(8);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 8 == 2);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 10);
 	}
 	@Test
 	public void testDeberiaSumar2MovimientosCuandoJugadorTiene9Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(9);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 9 == 2);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 11);
 	}
 	@Test
 	public void testDeberiaSumar42MovimientosCuandoJugadorTiene169Movimientos() {
 		this.inicializarJugadorPepeConAutoYTantosMovimientos(169);
 		this.inicializarSorpresaDesfavorable();
 		this.unJugador.getVehiculo().interactuarCon(this.unaSorpresaDesfavorable);
-		assertTrue(this.unJugador.getCantidadDeMovimientos() - 169 == 42);
+		assertTrue(this.unJugador.getCantidadDeMovimientos()  == 211);
 	}
 	
 	
