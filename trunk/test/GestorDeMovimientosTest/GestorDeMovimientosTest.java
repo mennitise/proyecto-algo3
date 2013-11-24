@@ -27,7 +27,7 @@ public class GestorDeMovimientosTest {
 		Tablero unTablero = new Tablero(4,4);
 		Moto unaMoto = new Moto(new Posicion(1,1));
 		try {
-			Jugador unJugador = new Jugador("pepe",unaMoto);
+			unaMoto.setConductor(new Jugador("pepe",unaMoto));
 		} catch (StringVacioException e) {
 			//No entra nunca aca
 		}
@@ -44,9 +44,9 @@ public class GestorDeMovimientosTest {
 	@Test
 	public void testSeColocaBienLaPosicionInicial(){
 		this.inicializarGestor();
+		Posicion posicionActual = new Posicion(1,1);
 		Posicion laPosicion = this.unGestor.getPosicionActual();
-		assertTrue(laPosicion.getColumna()==1);
-		assertTrue(laPosicion.getFila()==1);
+		assertTrue(laPosicion.esIgual(posicionActual));
 	}
 	
 	@Test

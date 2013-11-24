@@ -5,6 +5,7 @@ import Obstaculos.Obstaculo;
 import Sorpresas.Sorpresa;
 import Tablero.Posicion;
 import Excepciones.PasoImpedidoException;
+import GestorDeMovimientos.EstrategiaDeMovimiento;
 
 public abstract class Vehiculo {
 	
@@ -42,20 +43,8 @@ public abstract class Vehiculo {
 		return this.elConductor;
 	}
 	
-	public void moverseAlEste() {
-		this.posicionActual.moverAlEste();
-	}
-	
-	public void moverseAlSur() {
-		this.posicionActual.moverAlSur();
-	}
-	
-	public void moverseAlNorte() {
-		this.posicionActual.moverAlNorte();
-	}
-	
-	public void moverseAlOeste() {
-		this.posicionActual.moverAlOeste();
+	public void mover(EstrategiaDeMovimiento unaEstrategia){
+		unaEstrategia.moverPosicion(this.getPosicion());
 	}
 	
 	public abstract void interactuarCon(Obstaculo obstaculo) throws PasoImpedidoException;

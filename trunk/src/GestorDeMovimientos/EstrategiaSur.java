@@ -3,6 +3,7 @@ package GestorDeMovimientos;
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.PasoImpedidoException;
 import Tablero.Esquina;
+import Tablero.Posicion;
 import Vehiculos.Vehiculo;
 
 public class EstrategiaSur implements EstrategiaDeMovimiento {
@@ -19,12 +20,17 @@ public class EstrategiaSur implements EstrategiaDeMovimiento {
 				//Implementar
 			}
 			if(puedePasar){ 
-				unVehiculo.moverseAlSur();
+				unVehiculo.mover(this);
 				unVehiculo.getConductor().sumarUnMovimiento();
 			}
 		}else{
 			throw new MovimientoFisicamenteInvalidoException();
 		}
+	}
+
+	@Override
+	public void moverPosicion(Posicion posicion) {
+		posicion.moverAlSur();
 	}
 
 }

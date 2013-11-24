@@ -3,6 +3,7 @@ package GestorDeMovimientos;
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.PasoImpedidoException;
 import Tablero.Esquina;
+import Tablero.Posicion;
 import Vehiculos.Vehiculo;
 
 public class EstrategiaNorte implements EstrategiaDeMovimiento{
@@ -18,12 +19,17 @@ public class EstrategiaNorte implements EstrategiaDeMovimiento{
 				//Terminar de implementarImplementar				
 			}
 			if(puedePasar){ 
-				unVehiculo.moverseAlNorte();
+				unVehiculo.mover(this);
 				unVehiculo.getConductor().sumarUnMovimiento();
 			}
 		}else{
 			throw new MovimientoFisicamenteInvalidoException();
 		}
+	}
+
+	@Override
+	public void moverPosicion(Posicion posicion) {
+		posicion.moverAlNorte();
 	}
 	
 
