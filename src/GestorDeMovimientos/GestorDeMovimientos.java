@@ -6,7 +6,7 @@ import Tablero.Tablero;
 import Vehiculos.Vehiculo;
 import Excepciones.MovimientoFisicamenteInvalidoException;
 
-public class GestorDeMovimientos {
+public class GestorDeMovimientos extends java.util.Observable {
 
 	private Vehiculo vehiculo;
 	private Tablero tablero;
@@ -31,8 +31,17 @@ public class GestorDeMovimientos {
 		Esquina laEsquina = tablero.getEsquinaEn(laPosicion);
 		try {
 			unaEstrategia.realizarMovimiento(this.vehiculo, laEsquina);
+			this.ActualizarObservadores();
 		} catch (MovimientoFisicamenteInvalidoException e) {
 			//IMPLEMENTAR
 		}
+		
+	}
+	
+	public void ActualizarObservadores()
+	
+	{
+		setChanged();
+		notifyObservers();		
 	}
 }
