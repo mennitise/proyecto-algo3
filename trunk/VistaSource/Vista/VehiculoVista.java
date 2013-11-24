@@ -33,6 +33,10 @@ public class VehiculoVista implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {	
+		System.out.println("Fila:");
+		System.out.println(this.vehiculoActual.getPosicion().getFila());
+		System.out.println("Columna:");
+		System.out.println(this.vehiculoActual.getPosicion().getColumna());
 		this.dibujarVehiculo();
 	
 	}

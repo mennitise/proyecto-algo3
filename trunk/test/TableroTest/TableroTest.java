@@ -83,5 +83,12 @@ public class TableroTest {
 		this.inicializarPosicionCon(4, 5);
 		assertTrue(!unTablero.posicionValida(this.unaPosicion));
 	}
+	
+	@Test
+	public void testLimitesDeTablero(){
+		this.inicializarTableroDe4x6();
+		this.inicializarPosicionCon(3, 5);
+		assertTrue(this.unTablero.esquinaEnPosicionTieneCalleNorte(this.unaPosicion));
+	}
 
 }
