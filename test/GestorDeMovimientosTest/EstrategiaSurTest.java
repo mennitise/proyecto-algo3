@@ -45,8 +45,9 @@ public class EstrategiaSurTest {
 	private void inicializarJugadorConMotoYPosicion11(){
 		this.unaPosicion = new Posicion(1,1);
 		this.unaMoto = new Moto(unaPosicion);
+		
 		try {
-			Jugador unJug = new Jugador("pepe",this.unaMoto);
+			this.unaMoto.setConductor(new Jugador("pepe",this.unaMoto));
 		} catch (StringVacioException e) {
 			//no va a entrar aca
 			e.printStackTrace();

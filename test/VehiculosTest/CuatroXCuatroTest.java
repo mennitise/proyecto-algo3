@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Excepciones.StringVacioException;
+import GestorDeMovimientos.EstrategiaEste;
+import GestorDeMovimientos.EstrategiaNorte;
+import GestorDeMovimientos.EstrategiaOeste;
+import GestorDeMovimientos.EstrategiaSur;
 import Jugador.Jugador;
 import Tablero.Posicion;
 import Vehiculos.CuatroXCuatro;
@@ -14,7 +18,17 @@ public class CuatroXCuatroTest {
 	private CuatroXCuatro unaCuatroXCuatro;
 	private Posicion unaPos;
 	private Jugador conductor;
+	private EstrategiaSur unaEstrategiaSur; 
+	private EstrategiaNorte unaEstrategiaNorte; 
+	private EstrategiaOeste unaEstrategiaOeste; 
+	private EstrategiaEste unaEstrategiaEste;
 	
+	private void inicializarEstrategias() {
+		this.unaEstrategiaSur = new EstrategiaSur(); 
+		this.unaEstrategiaNorte = new EstrategiaNorte(); 
+		this.unaEstrategiaOeste = new EstrategiaOeste(); 
+		this.unaEstrategiaEste = new EstrategiaEste();
+	}
 	
 	private void inicializarCuatroXCuatro(){
 		this.unaCuatroXCuatro = new CuatroXCuatro();
@@ -84,33 +98,37 @@ public class CuatroXCuatroTest {
 	@Test
 	public void testCuatroXCuatroSeMueveAlOeste() {
 		this.inicializarCuatroXCuatroConPosicion();
-		this.unaCuatroXCuatro.moverseAlOeste();
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getFila()    == 1 );
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getColumna() == 0 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaCuatroXCuatro.getPosicion().getFila(), this.unaCuatroXCuatro.getPosicion().getColumna() - 1);
+		this.unaCuatroXCuatro.mover(this.unaEstrategiaOeste);
+		assertTrue(this.unaCuatroXCuatro.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testCuatroXCuatroSeMueveAlEste() {
 		this.inicializarCuatroXCuatroConPosicion();
-		this.unaCuatroXCuatro.moverseAlEste();
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getFila()    == 1 );
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getColumna() == 2 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaCuatroXCuatro.getPosicion().getFila(), this.unaCuatroXCuatro.getPosicion().getColumna() + 1);
+		this.unaCuatroXCuatro.mover(this.unaEstrategiaEste);
+		assertTrue(this.unaCuatroXCuatro.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testCuatroXCuatroSeMueveAlSur() {
 		this.inicializarCuatroXCuatroConPosicion();
-		this.unaCuatroXCuatro.moverseAlSur();
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getFila()    == 2 );
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getColumna() == 1 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaCuatroXCuatro.getPosicion().getFila() + 1, this.unaCuatroXCuatro.getPosicion().getColumna());
+		this.unaCuatroXCuatro.mover(this.unaEstrategiaSur);
+		assertTrue(this.unaCuatroXCuatro.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testCuatroXCuatroSeMueveAlNorte() {
 		this.inicializarCuatroXCuatroConPosicion();
-		this.unaCuatroXCuatro.moverseAlNorte();
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getFila()    == 0 );
-		assertTrue(this.unaCuatroXCuatro.getPosicion().getColumna() == 1 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaCuatroXCuatro.getPosicion().getFila() - 1, this.unaCuatroXCuatro.getPosicion().getColumna());
+		this.unaCuatroXCuatro.mover(this.unaEstrategiaNorte);
+		assertTrue(this.unaCuatroXCuatro.getPosicion().esIgual(posicionDestino));
 	}
 	
 

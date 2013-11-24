@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Excepciones.StringVacioException;
+import GestorDeMovimientos.EstrategiaEste;
+import GestorDeMovimientos.EstrategiaNorte;
+import GestorDeMovimientos.EstrategiaOeste;
+import GestorDeMovimientos.EstrategiaSur;
 import Jugador.Jugador;
 import Tablero.Posicion;
 import Vehiculos.Moto;
@@ -14,7 +18,17 @@ public class MotoTest {
 	private Moto unaMoto;
 	private Posicion unaPos;
 	private Jugador conductor;
+	private EstrategiaSur unaEstrategiaSur; 
+	private EstrategiaNorte unaEstrategiaNorte; 
+	private EstrategiaOeste unaEstrategiaOeste; 
+	private EstrategiaEste unaEstrategiaEste;
 	
+	private void inicializarEstrategias() {
+		this.unaEstrategiaSur = new EstrategiaSur(); 
+		this.unaEstrategiaNorte = new EstrategiaNorte(); 
+		this.unaEstrategiaOeste = new EstrategiaOeste(); 
+		this.unaEstrategiaEste = new EstrategiaEste();
+	}
 	
 	private void inicializarMoto(){
 		this.unaMoto = new Moto();
@@ -84,33 +98,37 @@ public class MotoTest {
 	@Test
 	public void testMotoSeMueveAlOeste() {
 		this.inicializarMotoConPosicion();
-		this.unaMoto.moverseAlOeste();
-		assertTrue(this.unaMoto.getPosicion().getFila()    == 1 );
-		assertTrue(this.unaMoto.getPosicion().getColumna() == 0 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaMoto.getPosicion().getFila(), this.unaMoto.getPosicion().getColumna() - 1);
+		this.unaMoto.mover(this.unaEstrategiaOeste);
+		assertTrue(this.unaMoto.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testMotoSeMueveAlEste() {
 		this.inicializarMotoConPosicion();
-		this.unaMoto.moverseAlEste();
-		assertTrue(this.unaMoto.getPosicion().getFila()    == 1 );
-		assertTrue(this.unaMoto.getPosicion().getColumna() == 2 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaMoto.getPosicion().getFila(), this.unaMoto.getPosicion().getColumna() + 1);
+		this.unaMoto.mover(this.unaEstrategiaEste);
+		assertTrue(this.unaMoto.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testMotoSeMueveAlSur() {
 		this.inicializarMotoConPosicion();
-		this.unaMoto.moverseAlSur();
-		assertTrue(this.unaMoto.getPosicion().getFila()    == 2 );
-		assertTrue(this.unaMoto.getPosicion().getColumna() == 1 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaMoto.getPosicion().getFila() + 1, this.unaMoto.getPosicion().getColumna());
+		this.unaMoto.mover(this.unaEstrategiaSur);
+		assertTrue(this.unaMoto.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testMotoSeMueveAlNorte() {
 		this.inicializarMotoConPosicion();
-		this.unaMoto.moverseAlNorte();
-		assertTrue(this.unaMoto.getPosicion().getFila()    == 0 );
-		assertTrue(this.unaMoto.getPosicion().getColumna() == 1 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unaMoto.getPosicion().getFila() - 1, this.unaMoto.getPosicion().getColumna());
+		this.unaMoto.mover(this.unaEstrategiaNorte);
+		assertTrue(this.unaMoto.getPosicion().esIgual(posicionDestino));
 	}
 	
 

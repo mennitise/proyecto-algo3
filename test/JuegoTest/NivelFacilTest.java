@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Juego.NivelFacil;
+import Tablero.Posicion;
 import Tablero.Tablero;
 
 public class NivelFacilTest {
@@ -18,15 +19,16 @@ public class NivelFacilTest {
 	@Test
 	public void testNivelFacilSeInicializaBienConPosicionInicialDelVehiculo() {
 		NivelFacil unNivel = new NivelFacil();
-		assertTrue( unNivel.getPosicionInicialDelVehiculo().getColumna() == 0 );
-		assertTrue( unNivel.getPosicionInicialDelVehiculo().getFila() == 5 );
+		Posicion posicionVehiculo = new Posicion(5,0);
+		assertTrue( unNivel.getPosicionInicialDelVehiculo().esIgual(posicionVehiculo) );
 	}
 
 	@Test
 	public void testNivelFacilSeInicializaBienConPosicionDeLlegada() {
 		NivelFacil unNivel = new NivelFacil();
-		assertTrue( unNivel.getPosicionDeLaLlegada().getColumna() == 9 );
-		assertTrue( unNivel.getPosicionDeLaLlegada().getFila() == 5 );
+		Posicion posicionLlegada = new Posicion(5,9);
+		assertTrue( unNivel.getPosicionDeLaLlegada().esIgual(posicionLlegada) );
+		
 	}
 	
 	@Test

@@ -47,11 +47,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlEste(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlEsteConPozoDeberiaPenalizarCorrectamenteAUnaMoto(){
@@ -60,11 +60,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlEste(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlEsteConPozoNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -73,9 +73,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlEste(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}
 	@Test
@@ -85,11 +85,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlOeste(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlOesteConPozoDeberiaPenalizarCorrectamenteAUnaMoto(){
@@ -98,9 +98,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlOeste(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
 	}
@@ -111,9 +111,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlOeste(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}
 	@Test
@@ -123,11 +123,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlNorte(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlNorteConPozoDeberiaPenalizarCorrectamenteAUnaMoto(){
@@ -136,11 +136,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlNorte(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		unGestor.moverVehiculo(unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlNorteConPozoNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -149,9 +149,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlNorte(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}
 	@Test
@@ -161,11 +161,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlSur(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());	
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlSurConPozoDeberiaPenalizarCorrectamenteAUnaMoto(){
@@ -174,11 +174,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlSur(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 3 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
 	@Test
 	public void testCruzarCalleAlSurConPozoNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -187,13 +187,42 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Pozo unPozo = new Pozo();
 		this.colocarObstaculoAlSur(unPozo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}
 
+	@Test
+	public void testLasCallesNoTienenManoYContramano(){
+		this.inicializarJugadorPepeConAuto();
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		Posicion posicionInicial = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
+		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
+		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionInicial));
+	}
 	
+	@Test
+	public void testVehiculoTomaPrimeroSorpresaYLuegoObstaculo(){
+		this.inicializarJugadorPepeConAutoYTantosMovimientos(10);
+		this.inicializarEstrategias();
+		this.inicializarGestor();
+		Posicion posicionInicial = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
+		Piquete unPiquete = new Piquete();
+		this.colocarObstaculoAlEste(unPiquete);
+		this.inicializarSorpresas();
+		this.colocarSorpresaAlEste(this.unaSorpresaFavorable);
+		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
+		
+		
+		// Tomo la sorpresa y le resto 2 movimientos
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 8);
+		
+		// Luego se encontro con el ControlPolicial y no logro pasar
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionInicial));
+	}
 	
 	
 	@Test
@@ -203,9 +232,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlEste(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}
 	@Test
@@ -215,11 +244,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlEste(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 2 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 2 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3);
 	}
 	@Test
 	public void testNoDeberiaCruzarCalleAlEsteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -228,9 +257,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlEste(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}
 	@Test
@@ -240,9 +269,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlOeste(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}
 	@Test
@@ -252,11 +281,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlOeste(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 2 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 2 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3);
 	}
 	@Test
 	public void testNoDeberiaCruzarCalleAlOesteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -265,9 +294,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlOeste(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}
 	@Test
@@ -277,9 +306,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlNorte(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}
 	@Test
@@ -289,11 +318,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlNorte(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		unGestor.moverVehiculo(unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//2 movimientos de penalizacion y 1 del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 2 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3);
 	}
 	@Test
 	public void testNoDeberiaCruzarCalleAlNorteConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -302,9 +331,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlNorte(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}	
 	@Test
@@ -314,9 +343,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlSur(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}	
 	@Test
@@ -326,11 +355,11 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlSur(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		// 2 movimientos de penalizacion, 1 mov del movimiento en si
-		assertTrue(this.unJugador.getCantidadDeMovimientos() == 2 + 1);
+		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3);
 	}
 	@Test
 	public void testNoDeberiaCruzarCalleAlSurConPiqueteNoDeberiaPenalizarAUnaCuatroXCuatro(){
@@ -339,9 +368,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		Piquete unPiquete = new Piquete();
 		this.colocarObstaculoAlSur(unPiquete);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 0);
 	}
 	
@@ -356,9 +385,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Auto.class);
 	}
@@ -370,9 +399,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlNorte(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Auto.class);
 	}
@@ -384,9 +413,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlEste(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Auto.class);
 	}
@@ -398,9 +427,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlOeste(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Auto.class);
 	}
@@ -412,9 +441,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == CuatroXCuatro.class);
 	}
@@ -425,9 +454,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlNorte(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == CuatroXCuatro.class);
 	}
@@ -438,9 +467,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlEste(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == CuatroXCuatro.class);
 	}
@@ -451,9 +480,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlOeste(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == CuatroXCuatro.class);
 	}
@@ -465,9 +494,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Moto.class);
 	}
@@ -478,9 +507,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlNorte(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() - 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 0);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Moto.class);
 	}
@@ -491,9 +520,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlEste(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() + 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 3);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Moto.class);
 	}
@@ -504,9 +533,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlOeste(this.unaSorpresaCambioDeVehiculo);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila(), this.unGestor.getPosicionActual().getColumna() - 1);
 		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 1);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 1);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 		assertTrue(this.unJugador.getVehiculo().getClass() == Moto.class);
 	}
@@ -521,9 +550,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaFavorable);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//solo se suma el movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}	
@@ -534,9 +563,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaFavorable);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//se le resto 1 movimiento y sele suma 1 mov del movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 3);
 	}
@@ -547,9 +576,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaFavorable);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//se le resto 2 movimiento y sele suma 1 mov del movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 7);
 	}
@@ -561,9 +590,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaDesfavorable);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//solo se suma el movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 1);
 	}	
@@ -574,9 +603,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaDesfavorable);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//se le sumo 1 movimiento y sele suma 1 mov del movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 4);
 	}
@@ -587,9 +616,9 @@ public class IntegracionJugabilidadTableroTest {
 		this.inicializarGestor();
 		this.inicializarSorpresas();
 		this.colocarSorpresaAlSur(this.unaSorpresaDesfavorable);
+		Posicion posicionDestino = new Posicion(this.unGestor.getPosicionActual().getFila() + 1, this.unGestor.getPosicionActual().getColumna());
 		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getColumna() == 2);
-		assertTrue(this.unJugador.getVehiculo().getPosicion().getFila() == 2);
+		assertTrue(this.unGestor.getPosicionActual().esIgual(posicionDestino));
 		//se le sumo 2 movimientos y se le suma 1 mov del movimiento en si
 		assertTrue(this.unJugador.getCantidadDeMovimientos() == 9);
 	}

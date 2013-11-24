@@ -5,7 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
+
 import Excepciones.StringVacioException;
+import GestorDeMovimientos.EstrategiaEste;
+import GestorDeMovimientos.EstrategiaNorte;
+import GestorDeMovimientos.EstrategiaOeste;
+import GestorDeMovimientos.EstrategiaSur;
 import Jugador.Jugador;
 import Tablero.Posicion;
 import Vehiculos.Auto;
@@ -15,7 +20,17 @@ public class AutoTest {
 	private Auto unAuto;
 	private Posicion unaPos;
 	private Jugador conductor;
+	private EstrategiaSur unaEstrategiaSur; 
+	private EstrategiaNorte unaEstrategiaNorte; 
+	private EstrategiaOeste unaEstrategiaOeste; 
+	private EstrategiaEste unaEstrategiaEste;
 	
+	private void inicializarEstrategias() {
+		this.unaEstrategiaSur = new EstrategiaSur(); 
+		this.unaEstrategiaNorte = new EstrategiaNorte(); 
+		this.unaEstrategiaOeste = new EstrategiaOeste(); 
+		this.unaEstrategiaEste = new EstrategiaEste();
+	}
 	
 	private void inicializarAuto(){
 		this.unAuto = new Auto();
@@ -85,33 +100,37 @@ public class AutoTest {
 	@Test
 	public void testAutoSeMueveAlOeste() {
 		this.inicializarAutoConPosicion();
-		this.unAuto.moverseAlOeste();
-		assertTrue(this.unAuto.getPosicion().getFila()    == 1 );
-		assertTrue(this.unAuto.getPosicion().getColumna() == 0 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unAuto.getPosicion().getFila(), this.unAuto.getPosicion().getColumna() - 1);
+		this.unAuto.mover(this.unaEstrategiaOeste);
+		assertTrue(this.unAuto.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testAutoSeMueveAlEste() {
 		this.inicializarAutoConPosicion();
-		this.unAuto.moverseAlEste();
-		assertTrue(this.unAuto.getPosicion().getFila()    == 1 );
-		assertTrue(this.unAuto.getPosicion().getColumna() == 2 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unAuto.getPosicion().getFila(), this.unAuto.getPosicion().getColumna() + 1);
+		this.unAuto.mover(this.unaEstrategiaEste);
+		assertTrue(this.unAuto.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testAutoSeMueveAlSur() {
 		this.inicializarAutoConPosicion();
-		this.unAuto.moverseAlSur();
-		assertTrue(this.unAuto.getPosicion().getFila()    == 2 );
-		assertTrue(this.unAuto.getPosicion().getColumna() == 1 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unAuto.getPosicion().getFila() + 1, this.unAuto.getPosicion().getColumna());
+		this.unAuto.mover(this.unaEstrategiaSur);
+		assertTrue(this.unAuto.getPosicion().esIgual(posicionDestino));
 	}
 	
 	@Test
 	public void testAutoSeMueveAlNorte() {
 		this.inicializarAutoConPosicion();
-		this.unAuto.moverseAlNorte();
-		assertTrue(this.unAuto.getPosicion().getFila()    == 0 );
-		assertTrue(this.unAuto.getPosicion().getColumna() == 1 );
+		this.inicializarEstrategias();
+		Posicion posicionDestino = new Posicion(this.unAuto.getPosicion().getFila() - 1, this.unAuto.getPosicion().getColumna());
+		this.unAuto.mover(this.unaEstrategiaNorte);
+		assertTrue(this.unAuto.getPosicion().esIgual(posicionDestino));
 	}
 	
 }
