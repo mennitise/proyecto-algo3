@@ -37,5 +37,12 @@ public class Calle {
 			unVehiculo.interactuarCon(this.losObstaculos.get(i));
 		}
 	}
+
+	public ArrayList<Sorpresa> getSorpresas(){
+		return this.lasSorpresas;		
+	}
 	
+	public ArrayList<Obstaculo> getObstacuos(){
+		return this.losObstaculos;
+	}
 }

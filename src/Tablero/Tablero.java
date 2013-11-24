@@ -1,6 +1,8 @@
 package Tablero;
 
-public class Tablero{
+import java.util.Observable;
+
+public class Tablero extends Observable{
 	
 	private Esquina[][] esquinas;
 	private int filas;
@@ -28,14 +30,27 @@ public class Tablero{
 	}
 	
 	private void unirEsquinas(){
+		//Uno el contenido central
 		for (int i=0; i<this.filas-1; i++){
 			for (int j=0; j<this.columnas-1; j++){
 				this.unirHorizontalmente(esquinas[i][j], esquinas[i][j+1]);
 				this.unirVerticalmente(esquinas[i][j], esquinas[i+1][j]);
 			}
 		}
+		
+		//Uno el borde Derecho del tablero
+		for (int i=0; i<this.filas-1; i++){
+			this.unirVerticalmente(esquinas[i][this.columnas-1],esquinas[i+1][this.columnas-1]);
+		}
+		
+		//Uno el Borde Izquierdo Del Tablero
+		for (int i=0; i<this.columnas-1; i++){
+			this.unirHorizontalmente(esquinas[this.filas-1][i],esquinas[this.filas-1][i+1]);
+		}
+		
 	}
 	
+
 	private void unirHorizontalmente(Esquina unaEsquina, Esquina otraEsquina){
 		Calle unaCalle = new Calle(unaEsquina,otraEsquina);
 		unaEsquina.ponerCalleHaciaElEste(unaCalle);

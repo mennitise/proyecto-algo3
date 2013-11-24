@@ -14,6 +14,7 @@ import Excepciones.StringVacioException;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
 import Jugador.Jugador;
+import Sorpresas.SorpresaFavorable;
 import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Auto;
@@ -25,6 +26,8 @@ public class VentanaVista extends JFrame{
 	private Point puntoInicialMapa;
 	private JButton botonSubir;
 	private JButton botonBajar;
+	private JButton botonIzquierda;
+	private JButton botonDerecha;
 	private ControladorDeMovimientos control;
 	private GestorDeMovimientos gestor;
 	
@@ -38,18 +41,27 @@ public class VentanaVista extends JFrame{
 		this.gestor = gestor;
 		
 		
-		botonSubir = new JButton("Subir");
-		botonSubir.setBounds(650,400,100,100);
-		add(botonSubir);
-		botonSubir.setVisible(true);
+		botonSubir = new JButton("S");
+		botonBajar = new JButton("B");
+		botonDerecha = new JButton("D");
+		botonIzquierda = new JButton ("I");
+
+		botonSubir.setBounds(665,0,50,50);
+		botonBajar.setBounds(665,55,50,50);
+		botonIzquierda.setBounds(610,55,50,50);
+		botonDerecha.setBounds(720,55,50,50);
 		
-		botonBajar = new JButton("Bajar");
-		botonBajar.setBounds(650,500,100,100);
-		add(botonBajar);
+		add(botonSubir);
+		add(botonBajar);		
+		add(botonIzquierda);
+		add(botonDerecha);
 		
 		botonSubir.addActionListener(control.getListenerBotonSubir());
 		botonBajar.addActionListener(control.getListenerBotonBajar());			
-
+		botonDerecha.addActionListener(control.getListenerBotonDerecha());	
+		botonIzquierda.addActionListener(control.getListenerBotonIzquierda());
+		
+		
 	}
 	
 	public int getPixelesHorizontales() {
@@ -66,14 +78,16 @@ public class VentanaVista extends JFrame{
 	
 
 	public static void main(String[] ar) throws StringVacioException{
-		Vehiculo unVehiculo = new Auto(new Posicion(2,2));
+		Vehiculo unVehiculo = new Auto(new Posicion(0,0));
 		Jugador unJugador = new Jugador("Juan", unVehiculo);
-		Tablero tablero = new Tablero(5,5);
+		Tablero tablero = new Tablero(3,3);
 		GestorDeMovimientos gestor = new GestorDeMovimientos(unVehiculo,tablero);
         ControladorDeMovimientos control = new ControladorDeMovimientos(gestor);
-		
-        VentanaVista ventanaVista = new VentanaVista(gestor, control);        
-		MapaVista mapa = new MapaVista(ventanaVista, 5, 5,gestor);
+		tablero.getEsquinaEn(new Posicion(0,0)).getCalleEste().agregarSorpresa(new SorpresaFavorable());
+		tablero.getEsquinaEn(new Posicion(0,1)).getCalleEste().agregarSorpresa(new SorpresaFavorable());
+        
+		VentanaVista ventanaVista = new VentanaVista(gestor, control);        
+        MapaVista mapa = new MapaVista(ventanaVista, tablero,gestor);
 		mapa.dibujarMapaConDeterminadaCantidadDePixeles(600, 600);
 		VehiculoVista vehiculoVista = new VehiculoVista(unVehiculo,mapa,gestor);
         vehiculoVista.dibujarVehiculo();
