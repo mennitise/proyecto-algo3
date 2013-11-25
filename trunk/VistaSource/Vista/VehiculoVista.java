@@ -26,13 +26,13 @@ public class VehiculoVista implements Observer {
 		this.etiquetaRepresentativa= new JLabel();
 		this.etiquetaRepresentativa.setSize(10,10);
 		this.etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)))	;
-
 		this.mapaDestino = mapa;
 		this.gestor = gestor;
 		this.gestor.addObserver(this);
 	}
 	
 	public void dibujarVehiculo(){
+		this.actualizarImagenDelVehiculo();
 		this.mapaDestino.localizarVehiculoEnMapa(etiquetaRepresentativa, this.vehiculoActual);
 	}
 

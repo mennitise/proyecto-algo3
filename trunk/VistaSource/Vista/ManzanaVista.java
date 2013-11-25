@@ -16,7 +16,7 @@ public class ManzanaVista {
 	public void ponerManzana(VentanaVista ventanaDestino, int fila, int columna) {
 		JButton boton=new JButton("");
         boton.setBounds(fila,columna,this.tamanioManzanaHorizontal,this.tamanioManzanaVertical);
-        boton.setBackground(Color.gray);
+        boton.setBackground(Color.black);
         ventanaDestino.add(boton);
 	
 	}
