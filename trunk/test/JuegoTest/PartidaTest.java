@@ -5,7 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Excepciones.StringVacioException;
-import Excepciones.TerminoLaPartidaException;
+import GestorDeMovimientos.EstrategiaEste;
+import GestorDeMovimientos.EstrategiaOeste;
+import GestorDeMovimientos.EstrategiaSur;
+import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.NivelFacil;
 import Juego.Partida;
 import Jugador.Jugador;
@@ -14,85 +17,113 @@ import Vehiculos.Moto;
 public class PartidaTest {
 
 	private Partida unaPartida;
+	private Jugador unJugador;
+	private GestorDeMovimientos unGestor;
 	
-	private void inicializarPartidaConJugadorPepeConMotoYNivelFacil(){
-		Jugador unJugador = null;
-		
+	private void inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor(){
 		try {
-			unJugador = new Jugador("Pepe", new Moto());
+			this.unJugador = new Jugador("Pepe", new Moto());
 		} catch (StringVacioException e) {
 			// No ingresa aca.
 		}
-		
-		this.unaPartida = new Partida(unJugador, new NivelFacil());
-		
+		this.unaPartida = new Partida(unJugador, new NivelFacil());	
+		this.unGestor = new GestorDeMovimientos(unJugador, this.unaPartida.getTablero());
 	}
+	
+	
 	
 	@Test
 	public void testPartidaCrear() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		assertTrue(this.unaPartida != null);
 	}
 	
 	@Test
 	public void testPartidaGuardaElJugadorCorrecto() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		assertTrue(this.unaPartida.getNombreJugador() == "Pepe");
 	}
 	
 	@Test
 	public void testPartidaInicializoLaPosicionDelVehiculo() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		assertTrue(this.unaPartida.getPosicionJugador() != null);
 	}
 	
 	@Test
 	public void testPartidaInicializoLaPosicionDelVehiculoCorrectamente() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		NivelFacil nivelAux = new NivelFacil(); 
 		assertTrue(this.unaPartida.getPosicionJugador().esIgual(nivelAux.getPosicionInicialDelVehiculo()));
 	}
 	
 	@Test
 	public void testJugadorTiene0Movimientos() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		assertTrue(this.unaPartida.getCantidadDeMovimientosDelJugador() == 0);
 	}
 	
 	@Test
-	public void testMovimientoAlSurNoGana() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
-		boolean gano = false; 
-		try {
-			this.unaPartida.moverHaciaElSur();
-		} catch (TerminoLaPartidaException e) {
-			gano = true;
-		}
-		assertTrue(!gano);
+	public void testNoGanaAlInicio() {
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
+		assertTrue(!this.unaPartida.ganoLaPartida());
+	}
+	
+	@Test
+	public void testNoGanaConUnMovimiento() {
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
+		this.unGestor.moverVehiculo(new EstrategiaSur());
+		assertTrue(!this.unaPartida.ganoLaPartida());
 	}
 	
 	@Test
 	public void testGanasAlLlegarAlfinal() {
-		this.inicializarPartidaConJugadorPepeConMotoYNivelFacil();
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		boolean ganoAntes = false;
 		boolean ganoEnElMomentoCorrecto = false;
 		
 		for(int i=1;i<=8;i++){	
-			try {
-				this.unaPartida.moverHaciaElEste();
-			} catch (TerminoLaPartidaException e) {
+			this.unGestor.moverVehiculo(new EstrategiaEste());
+			if(this.unaPartida.ganoLaPartida()){
 				ganoAntes = true;
 			}
 		}
 		
-		try {
-			this.unaPartida.moverHaciaElEste();
-		} catch (TerminoLaPartidaException e) {
+		this.unGestor.moverVehiculo(new EstrategiaEste());
+		if(this.unaPartida.ganoLaPartida()){
 			ganoEnElMomentoCorrecto = true;
 		}
 		assertTrue(!ganoAntes);
 		assertTrue(ganoEnElMomentoCorrecto);
 	}
 	
+	@Test
+	public void testNopierdeAlInicio() {
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
+		assertTrue(!this.unaPartida.perdioLaPartida());
+	}
 	
+	@Test
+	public void testNoPierdeConUnMovimiento() {
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
+		this.unGestor.moverVehiculo(new EstrategiaSur());
+		assertTrue(!this.unaPartida.perdioLaPartida());
+	}
+	
+	@Test
+	public void testPierdeAlRealizarMasMovimientosDeLosPermitidos() {
+		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
+		
+		/* Se moverá de este a oeste y viceversa sucesivamente  *
+		 * en esa calle hay un Piquete que le suma 2 movimentos *
+		 * mas el movimiento en si serán 3 movimentos asignados *
+		 *  por cada movimiento físico, por lo tanto en cada    * 
+		 *           iteracion sumara 6 movimientos.            *
+		 *    (6 * 6 = 36) siendo 35 en limite de movimientos   */
+		for(int i = 1; i <= 6; i++){
+			this.unGestor.moverVehiculo(new EstrategiaEste());
+			this.unGestor.moverVehiculo(new EstrategiaOeste());
+		}
+		assertTrue(this.unaPartida.perdioLaPartida());
+	}
 }

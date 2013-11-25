@@ -37,23 +37,6 @@ public class Partida {
 		return this.unJugador.getNombre();
 	}
 	
-	public void moverHaciaElSur() throws TerminoLaPartidaException{
-		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
-		if( this.terminoLaPartida() ) throw new TerminoLaPartidaException();
-	}
-	public void moverHaciaElNorte() throws TerminoLaPartidaException{
-		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
-		if( this.terminoLaPartida() ) throw new TerminoLaPartidaException();
-	}
-	public void moverHaciaElEste() throws TerminoLaPartidaException{
-		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
-		if( this.terminoLaPartida() ) throw new TerminoLaPartidaException();
-	}
-	public void moverHaciaElOeste() throws TerminoLaPartidaException{
-		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
-		if( this.terminoLaPartida() ) throw new TerminoLaPartidaException();
-	}
-	
 	public Posicion getPosicionJugador(){
 		return this.unJugador.getVehiculo().getPosicion();
 	}
@@ -61,15 +44,23 @@ public class Partida {
 	public int getCantidadDeMovimientosDelJugador(){
 		return this.unJugador.getCantidadDeMovimientos();
 	}
+	
+	public Tablero getTablero(){
+		return this.unTablero;
+	}
 
-	private boolean terminoLaPartida() {
+	public int getCantidadDeMovimientosMaximaEnNivelActual(){
+		return this.unNivel.getCantidadMaximaDeMovimientos();
+	}
+	
+	public boolean ganoLaPartida() {
 		Posicion posicionJugador = this.unJugador.getVehiculo().getPosicion();
 		Posicion posicionFinal = this.unNivel.getPosicionDeLaLlegada();
-		if(posicionJugador.esIgual(posicionFinal)){
-			return true;
-		}else{
-			return false;
-		}
+		return posicionJugador.esIgual(posicionFinal);
+	}
+	
+	public boolean perdioLaPartida() {
+		return (this.unJugador.getCantidadDeMovimientos()>this.unNivel.getCantidadMaximaDeMovimientos());
 	}
 
 }

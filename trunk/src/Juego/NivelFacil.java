@@ -15,6 +15,7 @@ public class NivelFacil extends Nivel {
 
 	private Posicion posicionInicialVehiculo;
 	private Posicion posicionLlegada;
+	private int laCantidadMaximaDeMovimientos;
 	private Esquina esquina; // Usado para inicializar el tablero.
 	private Calle calleADer; // Usado para inicializar el tablero.
 	private Calle calleAbaj; // Usado para inicializar el tablero.
@@ -23,6 +24,7 @@ public class NivelFacil extends Nivel {
 		super();
 		this.posicionInicialVehiculo = new Posicion(5,0);
 		this.posicionLlegada = new Posicion(5,9);
+		this.laCantidadMaximaDeMovimientos = 35;
 	}
 	
 	public void getEsquinaConCalles(Tablero unTablero, Posicion unaPos){
@@ -144,6 +146,11 @@ public class NivelFacil extends Nivel {
 		int fila    = this.posicionLlegada.getFila();
 		int columna = this.posicionLlegada.getColumna();
 		return new Posicion(fila,columna);
+	}
+
+	@Override
+	public int getCantidadMaximaDeMovimientos() {
+		return this.laCantidadMaximaDeMovimientos;
 	}
 
 }
