@@ -1,26 +1,37 @@
 package Vista;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import Controladores.ControladorDeMovimientos;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
 import Jugador.Jugador;
+import Obstaculos.ControlPolicial;
+import Obstaculos.Piquete;
+import Sorpresas.Sorpresa;
+import Sorpresas.SorpresaCambioDeVehiculo;
+import Sorpresas.SorpresaDesfavorable;
 import Sorpresas.SorpresaFavorable;
+import Tablero.Calle;
 import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Auto;
 import Vehiculos.Vehiculo;
 
-public class VentanaVista extends JFrame{
+public class VentanaVista extends JFrame implements Observer{
 	private int pixelesHorizontales;
 	private int pixelesVerticales;
 	private Point puntoInicialMapa;
@@ -30,32 +41,35 @@ public class VentanaVista extends JFrame{
 	private JButton botonDerecha;
 	private ControladorDeMovimientos control;
 	private GestorDeMovimientos gestor;
+
 	
-	VentanaVista(GestorDeMovimientos gestor, ControladorDeMovimientos control){
-		setLayout(null);
+	public VentanaVista(GestorDeMovimientos gestor, ControladorDeMovimientos control){
+		this.gestor = gestor;
+		this.gestor.addObserver(this);
 		this.pixelesHorizontales = 800;
 		this.pixelesVerticales = 800;
 		this.puntoInicialMapa = new Point(200 , 0);
-		this.setBounds(0,0,this.pixelesHorizontales,this.pixelesVerticales);
 		this.control = control;
-		this.gestor = gestor;
-		
-		
-		botonSubir = new JButton("S");
-		botonBajar = new JButton("B");
-		botonDerecha = new JButton("D");
-		botonIzquierda = new JButton ("I");
+		this.botonSubir = new JButton("S");
+		this.botonBajar = new JButton("B");
+		this.botonDerecha = new JButton("D");
+		this.botonIzquierda = new JButton ("I");
 
 		botonSubir.setBounds(665,0,50,50);
 		botonBajar.setBounds(665,55,50,50);
 		botonIzquierda.setBounds(610,55,50,50);
 		botonDerecha.setBounds(720,55,50,50);
+
 		
+		setLayout(null); 
+		this.setBounds(0,0,this.pixelesHorizontales,this.pixelesVerticales);	
+		this.getContentPane().setBackground(Color.black);
+				
+		 
 		add(botonSubir);
 		add(botonBajar);		
 		add(botonIzquierda);
 		add(botonDerecha);
-		
 		botonSubir.addActionListener(control.getListenerBotonSubir());
 		botonBajar.addActionListener(control.getListenerBotonBajar());			
 		botonDerecha.addActionListener(control.getListenerBotonDerecha());	
@@ -76,25 +90,15 @@ public class VentanaVista extends JFrame{
 		return this.puntoInicialMapa;
 	}
 	
-
-	public static void main(String[] ar) throws StringVacioException{
-		Vehiculo unVehiculo = new Auto(new Posicion(0,0));
-		Jugador unJugador = new Jugador("Juan", unVehiculo);
-		Tablero tablero = new Tablero(3,3);
-		GestorDeMovimientos gestor = new GestorDeMovimientos(unVehiculo,tablero);
-        ControladorDeMovimientos control = new ControladorDeMovimientos(gestor);
-		tablero.getEsquinaEn(new Posicion(0,0)).getCalleEste().agregarSorpresa(new SorpresaFavorable());
-		tablero.getEsquinaEn(new Posicion(0,1)).getCalleEste().agregarSorpresa(new SorpresaFavorable());
-        
-		VentanaVista ventanaVista = new VentanaVista(gestor, control);        
-        MapaVista mapa = new MapaVista(ventanaVista, tablero,gestor);
-		mapa.dibujarMapaConDeterminadaCantidadDePixeles(600, 600);
-		VehiculoVista vehiculoVista = new VehiculoVista(unVehiculo,mapa,gestor);
-        vehiculoVista.dibujarVehiculo();
-
-        ventanaVista.setVisible(true);
-    
+	public static void main(String[] ar) throws StringVacioException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+		
       
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		 
+		
 	}
 
 
