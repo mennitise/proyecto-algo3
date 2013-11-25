@@ -25,6 +25,7 @@ public class SorpresaCambioDeVehiculo extends Sorpresa{
 		//cambio la CuatroXCuatro por una moto  
 		Moto unaMoto = new Moto(unaCuatroXCuatro.getPosicion()); 
 		unaCuatroXCuatro.getConductor().setVehiculo(unaMoto);
+		
 	}
 
 }

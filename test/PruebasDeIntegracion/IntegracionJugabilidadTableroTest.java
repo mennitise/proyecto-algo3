@@ -667,7 +667,7 @@ public class IntegracionJugabilidadTableroTest {
 	private void inicializarGestor(){
 		this.unTablero = new Tablero(4,4);
 		//unJugador ya debe estar inicializado
-		this.unGestor = new GestorDeMovimientos(unJugador.getVehiculo(),unTablero);
+		this.unGestor = new GestorDeMovimientos(unJugador,unTablero);
 	}
 	
 	private void colocarSorpresaAlEste(Sorpresa unaSorpresa) {

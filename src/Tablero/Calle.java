@@ -42,7 +42,7 @@ public class Calle {
 		return this.lasSorpresas;		
 	}
 	
-	public ArrayList<Obstaculo> getObstacuos(){
+	public ArrayList<Obstaculo> getObstaculos(){
 		return this.losObstaculos;
 	}
 }

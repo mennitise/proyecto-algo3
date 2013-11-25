@@ -26,7 +26,7 @@ public class Partida {
 		this.unNivel = unNivel;
 		this.unJugador.getVehiculo().setPosicion(this.unNivel.getPosicionInicialDelVehiculo());
 		this.unTablero = this.unNivel.inicializarTablero();
-		this.unGestor = new GestorDeMovimientos(this.unJugador.getVehiculo(), unTablero);
+		this.unGestor = new GestorDeMovimientos(this.unJugador, unTablero);
 		this.unaEstrategiaSur = new EstrategiaSur(); 
 		this.unaEstrategiaNorte = new EstrategiaNorte(); 
 		this.unaEstrategiaOeste = new EstrategiaOeste(); 
