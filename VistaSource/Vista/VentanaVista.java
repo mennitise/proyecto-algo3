@@ -63,7 +63,7 @@ public class VentanaVista extends JFrame implements Observer{
 		
 		setLayout(null); 
 		this.setBounds(0,0,this.pixelesHorizontales,this.pixelesVerticales);	
-		this.getContentPane().setBackground(Color.black);
+		this.getContentPane().setBackground(Color.gray);
 				
 		 
 		add(botonSubir);
