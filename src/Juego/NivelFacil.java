@@ -1,5 +1,8 @@
 package Juego;
 
+import org.jdom.Attribute;
+import org.jdom.Element;
+
 import Obstaculos.ControlPolicial;
 import Obstaculos.Piquete;
 import Obstaculos.Pozo;
@@ -10,15 +13,14 @@ import Tablero.Calle;
 import Tablero.Esquina;
 import Tablero.Posicion;
 import Tablero.Tablero;
+import Vehiculos.Auto;
 
 public class NivelFacil extends Nivel {
 
-	private Posicion posicionInicialVehiculo;
-	private Posicion posicionLlegada;
-	private int laCantidadMaximaDeMovimientos;
 	private Esquina esquina; // Usado para inicializar el tablero.
 	private Calle calleADer; // Usado para inicializar el tablero.
 	private Calle calleAbaj; // Usado para inicializar el tablero.
+	
 	
 	public NivelFacil(){
 		super();
@@ -153,4 +155,17 @@ public class NivelFacil extends Nivel {
 		return this.laCantidadMaximaDeMovimientos;
 	}
 
+	// Serialización
+	
+	@Override
+	public Element serializarXML(){
+		// Solo se serializará para saber que nivel debe ser, ya que no tiene estado.
+		Element element = new Element("nivelFacil");
+		return element;
+	}
+	
+	public static Nivel cargarDesdeXML(Element element) {
+		return new NivelFacil();
+	}
+	
 }

@@ -1,5 +1,8 @@
 package Juego;
 
+import org.jdom.Attribute;
+import org.jdom.Element;
+
 import Excepciones.TerminoLaPartidaException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
@@ -9,6 +12,7 @@ import GestorDeMovimientos.GestorDeMovimientos;
 import Jugador.Jugador;
 import Tablero.Posicion;
 import Tablero.Tablero;
+import Vehiculos.Vehiculo;
 
 public class Partida {
 	
@@ -63,4 +67,28 @@ public class Partida {
 		return (this.unJugador.getCantidadDeMovimientos()>this.unNivel.getCantidadMaximaDeMovimientos());
 	}
 
+	// Serialización
+	
+	public Element serializarXML(){
+		
+		Element element = new Element("partida");
+		
+		
+		Element elementJugador = this.unJugador.serializarXML();
+		Element elementNivel = this.unNivel.serializarXML();
+		element.getChildren().add(elementJugador);
+		element.getChildren().add(elementNivel);
+		return element;
+	}
+	
+	public static Partida cargarDesdeXML(Element element) {
+		
+		Element elementJugador = (Element)element.getChildren().get(0);
+		Jugador unJugador = Jugador.cargarDesdeXML(elementJugador);
+		Element elementNivel = (Element)element.getChildren().get(1);
+		Nivel unNivel = Nivel.cargarDesdeXML(elementNivel);
+		return new Partida(unJugador, unNivel);
+	}
+	
+	
 }
