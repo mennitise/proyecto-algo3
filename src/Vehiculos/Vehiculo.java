@@ -1,5 +1,7 @@
 package Vehiculos;
 
+import org.jdom.Element;
+
 import Jugador.Jugador;
 import Obstaculos.Obstaculo;
 import Sorpresas.Sorpresa;
@@ -9,8 +11,8 @@ import GestorDeMovimientos.EstrategiaDeMovimiento;
 
 public abstract class Vehiculo {
 	
-	private Posicion posicionActual;
-	private Jugador elConductor;
+	protected Posicion posicionActual;
+	protected Jugador elConductor;
 	
 	public Vehiculo(){
 		this.posicionActual = null;
@@ -51,4 +53,21 @@ public abstract class Vehiculo {
 	
 	public abstract void interactuarCon(Sorpresa unaSorpresa);
 	
+	// Serialización
+	
+	public abstract Element serializarXML();
+	
+	public static Vehiculo cargarDesdeXML(Element element) {
+		String nombreVehiculo = element.getName();
+		if (nombreVehiculo.equals("auto")) {
+			return Auto.cargarDesdeXML(element);
+		}
+		if (nombreVehiculo.equals("cuatroxcuatro")) {
+			return CuatroXCuatro.cargarDesdeXML(element);
+		}
+		if (nombreVehiculo.equals("moto")) {
+			return Moto.cargarDesdeXML(element);
+		}
+		return null;
+	}
 }
