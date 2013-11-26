@@ -6,6 +6,7 @@ import org.jdom.Element;
 import Vehiculos.Vehiculo;
 import Excepciones.NumeroNegativoException;
 import Excepciones.StringVacioException;
+import Juego.DatoJugador;
 
 public class Jugador {
 
@@ -115,4 +116,5 @@ public class Jugador {
 		}
 		return unJugador;
 	}
+
 }
