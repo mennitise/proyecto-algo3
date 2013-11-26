@@ -22,13 +22,19 @@ public class Juego {
 	private Jugador unJugador;
 	private int cantidadDeVehiculosDisponibles;
 	
+	private ArrayList<DatoJugador> datosDeJugadoresExistentes;
+	private String nombreDeArchivoListaJugadores = "JugadoresExistentes.xml";
+	
 	public Juego(){
 		this.inicializarNiveles();
 		this.unJugador = null;
 		this.partidaActual = null;
 		this.cantidadDeVehiculosDisponibles = 3;
+		
+		// Cargar lista de jugadores anteriores
+		this.datosDeJugadoresExistentes = new ArrayList<DatoJugador>();
 	}
-
+	
 	private void inicializarNiveles(){
 		this.niveles = new ArrayList<Nivel>();
 		this.niveles.add(new NivelFacil());
@@ -41,6 +47,24 @@ public class Juego {
 	public boolean hayPartidaActiva(){
 		return (partidaActual != null);
 	}
+	
+	
+	
+	public void cargarPartida() throws Exception{
+		// Carga la partida.
+		
+		if(!this.hayJugadorActivo()){
+				
+			//Cambiar nombre excepcion
+			throw new Exception();
+		}
+		
+		
+		// Cargar partida
+		
+	}
+
+	
 	
 	public void setJugador(String nombreJugador) 
 			throws NombreInvalidoException, JugadorCargadoException{
@@ -55,6 +79,9 @@ public class Juego {
 		} catch (StringVacioException e) {
 			throw new NombreInvalidoException();
 		}
+		DatoJugador dato = new DatoJugador(nombreJugador);
+		this.datosDeJugadoresExistentes.add(dato);
+		
 	}
 
 	public void iniciarPartida(int numeroNivel, int numeroVehiculo) 

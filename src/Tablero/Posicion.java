@@ -1,6 +1,7 @@
 package Tablero;
 
-import org.jdom;
+import org.jdom.Attribute;
+import org.jdom.Element;
 
 public class Posicion{
 
