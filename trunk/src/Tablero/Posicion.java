@@ -1,6 +1,8 @@
 package Tablero;
 
-public class Posicion {
+import org.jdom;
+
+public class Posicion{
 
 	private int fila;
 	private int columna;
@@ -38,4 +40,20 @@ public class Posicion {
 		return ( ( this.columna == posicionFinal.getColumna() ) & (this.fila == posicionFinal.getFila()) );
 	}
 	
+	// Serialización 
+	
+	public static Posicion cargarDesdeXML(Element element) {
+		int fila    = Integer.parseInt(element.getAttributeValue("fila"));
+		int columna = Integer.parseInt(element.getAttributeValue("columna"));
+		return new Posicion(fila,columna);
+	}
+	
+	public Element serializarXML() {
+		Element element = new Element("posicion");
+		Attribute attFila    = new Attribute("fila",((Integer)this.fila).toString());
+		Attribute attColumna = new Attribute("columna",((Integer)this.columna).toString());
+		element.getAttributes().add(attFila);
+		element.getAttributes().add(attColumna);
+		return element;
+	}
 }
