@@ -21,6 +21,7 @@ public class VehiculoVista implements Observer {
 	private MapaVista mapaDestino;
 	private GestorDeMovimientos gestor;
 	private JLabel etiquetaRepresentativa;
+	
 	public VehiculoVista(Vehiculo unVehiculo, MapaVista mapa, GestorDeMovimientos gestor){
 		this.vehiculoActual = unVehiculo;		
 		this.etiquetaRepresentativa= new JLabel();

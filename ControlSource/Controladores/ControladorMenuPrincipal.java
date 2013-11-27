@@ -6,11 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
+import Vista.MapaJuegoVista;
 import Vista.MapaVista;
 import Vista.PanelDeInformacionVista;
 import Vista.VehiculoVista;
@@ -103,24 +106,26 @@ public class ControladorMenuPrincipal {
 			if ((nombre != null) && !(nombre.equals(""))) {
 				try {
 					Vehiculo unVehiculo = new Auto();
-					unVehiculo = this.pedirVehiculo();				
+					unVehiculo = this.pedirVehiculo();	
+					unVehiculo.setPosicion(new Posicion(0,0));
 					nivel = this.pedirNivel();
-					unVehiculo.setPosicion(nivel.getPosicionInicialDelVehiculo());
+					//unVehiculo.setPosicion(nivel.getPosicionInicialDelVehiculo());
 					
 					unJugador = new Jugador(nombre, unVehiculo);
-					Tablero tablero = nivel.inicializarTablero();
+					Tablero tablero = new Tablero(5,5);
 					GestorDeMovimientos gestor = new GestorDeMovimientos(unJugador,tablero);
 					ControladorDeMovimientos control = new ControladorDeMovimientos(gestor);
-
-					VentanaVista ventanaVista = new VentanaVista(gestor, control);        
-					ventanaVista.setVisible(true);
-			        
-					PanelDeInformacionVista panel = new PanelDeInformacionVista(ventanaVista,gestor);
-			        MapaVista mapa = new MapaVista(ventanaVista, tablero,gestor);
-					mapa.dibujarMapaConDeterminadaCantidadDePixeles(600, 600);
 					
-					VehiculoVista vehiculoVista = new VehiculoVista(unVehiculo,mapa,gestor);
-			        vehiculoVista.dibujarVehiculo();
+					MapaJuegoVista mapa = new MapaJuegoVista(control,gestor);
+				//	VentanaVista ventanaVista = new VentanaVista(gestor, control);        
+					//ventanaVista.setVisible(true);
+			        
+					//PanelDeInformacionVista panel = new PanelDeInformacionVista(ventanaVista,gestor);
+			       // MapaVista mapa = new MapaVista(ventanaVista, tablero,gestor);
+					//mapa.dibujarMapaConDeterminadaCantidadDePixeles(600, 600);
+					
+					//VehiculoVista vehiculoVista = new VehiculoVista(unVehiculo,mapa,gestor);
+			        //vehiculoVista.dibujarVehiculo();
 			        
 				}catch (StringVacioException e1) {
 					//No va a entrar Nunca
