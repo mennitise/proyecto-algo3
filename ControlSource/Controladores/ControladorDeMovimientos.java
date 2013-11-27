@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 
+import javax.swing.JOptionPane;
+
+import Excepciones.MovimientoFisicamenteInvalidoException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
 import GestorDeMovimientos.EstrategiaOeste;
@@ -25,8 +28,12 @@ public class ControladorDeMovimientos  {
 	private class EscuchaBotonSubir implements ActionListener
 	{	public void actionPerformed(ActionEvent e)
 		{	
-		gestor.moverVehiculo(new EstrategiaNorte());
-		gestor.ActualizarObservadores();
+		try {
+			gestor.moverVehiculo(new EstrategiaNorte());
+		} catch (MovimientoFisicamenteInvalidoException e1) {
+			JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
+		}
+		//gestor.ActualizarObservadores();
 		}
 	}
 	
@@ -37,8 +44,12 @@ public class ControladorDeMovimientos  {
 	private class EscuchaBotonBajar implements ActionListener
 	{	public void actionPerformed(ActionEvent e)
 		{
-		gestor.moverVehiculo(new EstrategiaSur());
-		gestor.ActualizarObservadores();
+		try {
+			gestor.moverVehiculo(new EstrategiaSur());
+		} catch (MovimientoFisicamenteInvalidoException e1) {
+			JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
+		}
+		//gestor.ActualizarObservadores();
 		}
 	}
 
@@ -49,8 +60,13 @@ public class ControladorDeMovimientos  {
 	private class EscuchaBotonIzquierda implements ActionListener
 	{	public void actionPerformed(ActionEvent e)
 		{
-		gestor.moverVehiculo(new EstrategiaOeste());
-		gestor.ActualizarObservadores();
+			try {
+				gestor.moverVehiculo(new EstrategiaOeste());
+			} catch (MovimientoFisicamenteInvalidoException e1) {
+				JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
+			}
+			//gestor.ActualizarObservadores();
+			
 		}
 	}
 	
@@ -61,16 +77,17 @@ public class ControladorDeMovimientos  {
 	private class EscuchaBotonDerecha implements ActionListener
 	{	public void actionPerformed(ActionEvent e)
 		{
-		gestor.moverVehiculo(new EstrategiaEste());
-		gestor.ActualizarObservadores();
+		try {
+			gestor.moverVehiculo(new EstrategiaEste());
+		} catch (MovimientoFisicamenteInvalidoException e1) {
+			JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
+		}
+		//gestor.ActualizarObservadores();
 		}
 	}
-
 	
 	public ActionListener getListenerBotonDerecha() {
 		return new EscuchaBotonDerecha();
 	}
-
-
 
 }

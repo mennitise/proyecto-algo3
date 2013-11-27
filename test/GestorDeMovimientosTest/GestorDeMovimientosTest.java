@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
@@ -54,7 +55,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElSurLaPosicionColumnaSeMantiene(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getColumna()==1);
 	}
@@ -63,7 +69,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElSurLaPosicionFilaCambia(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaSur);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getFila()==2);
 	}
@@ -72,7 +83,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElNorteLaPosicionColumnaSeMantiene(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getColumna()==1);
 	}
@@ -81,7 +97,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElNorteLaPosicionFilaCambia(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaNorte);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getFila()==0);
 	}
@@ -90,7 +111,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElEsteLaPosicionColumnaCambia(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaEste);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getColumna()==2);
 	}
@@ -99,7 +125,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElEsteLaPosicionFilaSeMantiene(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaEste);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaEste);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getFila()==1);
 	}
@@ -108,7 +139,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElOesteLaPosicionColumnaCambia(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getColumna()==0);
 	}
@@ -117,7 +153,12 @@ public class GestorDeMovimientosTest {
 	public void testMovimientoHaciaElOesteLaPosicionFilaSeMantiene(){
 		this.inicializarGestor();
 		this.inicializarEstrategias();
-		this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
+		try {
+			this.unGestor.moverVehiculo(this.unaEstrategiaOeste);
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Posicion laPosicion = this.unGestor.getPosicionActual();
 		assertTrue(laPosicion.getFila()==1);
 	}
