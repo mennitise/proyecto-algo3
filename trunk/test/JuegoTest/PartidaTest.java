@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaOeste;
@@ -72,7 +73,12 @@ public class PartidaTest {
 	@Test
 	public void testNoGanaConUnMovimiento() {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
-		this.unGestor.moverVehiculo(new EstrategiaSur());
+		try {
+			this.unGestor.moverVehiculo(new EstrategiaSur());
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(!this.unaPartida.ganoLaPartida());
 	}
 	
@@ -83,13 +89,23 @@ public class PartidaTest {
 		boolean ganoEnElMomentoCorrecto = false;
 		
 		for(int i=1;i<=8;i++){	
-			this.unGestor.moverVehiculo(new EstrategiaEste());
+			try {
+				this.unGestor.moverVehiculo(new EstrategiaEste());
+			} catch (MovimientoFisicamenteInvalidoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(this.unaPartida.ganoLaPartida()){
 				ganoAntes = true;
 			}
 		}
 		
-		this.unGestor.moverVehiculo(new EstrategiaEste());
+		try {
+			this.unGestor.moverVehiculo(new EstrategiaEste());
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(this.unaPartida.ganoLaPartida()){
 			ganoEnElMomentoCorrecto = true;
 		}
@@ -106,7 +122,12 @@ public class PartidaTest {
 	@Test
 	public void testNoPierdeConUnMovimiento() {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
-		this.unGestor.moverVehiculo(new EstrategiaSur());
+		try {
+			this.unGestor.moverVehiculo(new EstrategiaSur());
+		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(!this.unaPartida.perdioLaPartida());
 	}
 	
@@ -121,8 +142,18 @@ public class PartidaTest {
 		 *           iteracion sumara 6 movimientos.            *
 		 *    (6 * 6 = 36) siendo 35 en limite de movimientos   */
 		for(int i = 1; i <= 6; i++){
-			this.unGestor.moverVehiculo(new EstrategiaEste());
-			this.unGestor.moverVehiculo(new EstrategiaOeste());
+			try {
+				this.unGestor.moverVehiculo(new EstrategiaEste());
+			} catch (MovimientoFisicamenteInvalidoException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				this.unGestor.moverVehiculo(new EstrategiaOeste());
+			} catch (MovimientoFisicamenteInvalidoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		assertTrue(this.unaPartida.perdioLaPartida());
 	}

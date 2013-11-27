@@ -25,15 +25,11 @@ public class GestorDeMovimientos extends java.util.Observable {
 		return this.jugador.getVehiculo();
 	}
 
-	public void moverVehiculo(EstrategiaDeMovimiento unaEstrategia){
+	public void moverVehiculo(EstrategiaDeMovimiento unaEstrategia) throws MovimientoFisicamenteInvalidoException{
 		Posicion laPosicion = this.jugador.getVehiculo().getPosicion(); 
 		Esquina laEsquina = tablero.getEsquinaEn(laPosicion);
-		try {
-			unaEstrategia.realizarMovimiento(this.jugador.getVehiculo(), laEsquina);
-			this.ActualizarObservadores();
-		} catch (MovimientoFisicamenteInvalidoException e) {
-			//IMPLEMENTAR
-		}
+		unaEstrategia.realizarMovimiento(this.jugador.getVehiculo(), laEsquina);
+		this.ActualizarObservadores();
 		
 	}
 	

@@ -5,6 +5,7 @@ import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import GestorDeMovimientos.GestorDeMovimientos;
 import Obstaculos.Obstaculo;
@@ -22,6 +23,7 @@ public class MapaVista implements Observer{
 	private int anchoCalle;
 	private int tamanioManzanaHorizontal;
 	private int tamanioManzanaVertical;
+	private JLabel etiquetaDeLlegada;
 	private VentanaVista ventanaDestino;
 	private GestorDeMovimientos gestor;
 	private Tablero tablero;
@@ -37,15 +39,21 @@ public class MapaVista implements Observer{
 		this.gestor.addObserver(this);
 		this.tablero = tablero;
 		this.tablero.addObserver(this);
+		this.etiquetaDeLlegada = new JLabel("L");
 	}
 
 	public void dibujarMapaConDeterminadaCantidadDePixeles(int cantidadHorizontal,int cantidadVertical){
 		this.tamanioManzanaHorizontal = this.calcularTamanioManzanaHorizontal(cantidadHorizontal);
 		this.tamanioManzanaVertical = this.calcularTamanioManzanaVertical(cantidadVertical);
-
+		
 		this.localizarManzanasEnMapa();
 		this.localizarSorpresasEnMapa();
+		this.localizarPosicionDeLlegadaEnMapa();
 		
+	}
+	
+	private void localizarPosicionDeLlegadaEnMapa(){
+		//Implementar
 	}
 	
 	private void localizarManzanasEnMapa(){

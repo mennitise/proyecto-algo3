@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Controladores.ControladorDeMovimientos;
@@ -47,23 +48,15 @@ public class VentanaVista extends JFrame implements Observer{
 		this.gestor = gestor;
 		this.gestor.addObserver(this);
 		this.pixelesHorizontales = 800;
-		this.pixelesVerticales = 800;
+		this.pixelesVerticales = 620;
 		this.puntoInicialMapa = new Point(200 , 0);
 		this.control = control;
-		this.botonSubir = new JButton("S");
-		this.botonBajar = new JButton("B");
-		this.botonDerecha = new JButton("D");
-		this.botonIzquierda = new JButton ("I");
-
-		botonSubir.setBounds(665,0,50,50);
-		botonBajar.setBounds(665,55,50,50);
-		botonIzquierda.setBounds(610,55,50,50);
-		botonDerecha.setBounds(720,55,50,50);
-
+		
+		this.crearYPosicionarBotones();		
 		
 		setLayout(null); 
 		this.setBounds(0,0,this.pixelesHorizontales,this.pixelesVerticales);	
-		this.getContentPane().setBackground(Color.gray);
+		this.getContentPane().setBackground(Color.black);
 				
 		 
 		add(botonSubir);
@@ -90,17 +83,21 @@ public class VentanaVista extends JFrame implements Observer{
 		return this.puntoInicialMapa;
 	}
 	
-	public static void main(String[] ar) throws StringVacioException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-		
-      
+	private void crearYPosicionarBotones(){
+		this.botonSubir = new JButton("S");
+		this.botonBajar = new JButton("B");
+		this.botonDerecha = new JButton("D");
+		this.botonIzquierda = new JButton ("I");
+		this.botonSubir.setBounds(665,0,50,50);
+		this.botonBajar.setBounds(665,55,50,50);
+		this.botonIzquierda.setBounds(610,55,50,50);
+		this.botonDerecha.setBounds(720,55,50,50);
 	}
-
+		
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		 
-		
-	}
-
-
-	
+					
+		}
 }
+
+
