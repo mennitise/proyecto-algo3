@@ -27,6 +27,7 @@ public class NivelFacil extends Nivel {
 		this.posicionInicialVehiculo = new Posicion(5,0);
 		this.posicionLlegada = new Posicion(5,9);
 		this.laCantidadMaximaDeMovimientos = 35;
+		this.factorDePuntaje = 1;
 	}
 	
 	public void getEsquinaConCalles(Tablero unTablero, Posicion unaPos){

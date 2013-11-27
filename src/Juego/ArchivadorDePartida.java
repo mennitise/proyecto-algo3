@@ -1,11 +1,14 @@
 package Juego;
 
 import java.io.FileWriter;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
+
+import Excepciones.NoExistePartidaGuardadaException;
 
 public class ArchivadorDePartida {
 
@@ -28,7 +31,7 @@ public class ArchivadorDePartida {
 		
 	}
 	
-	public static Partida cargar(String pathArchivo) {
+	public static Partida cargar(String pathArchivo) throws NoExistePartidaGuardadaException {
 		try {
 			SAXBuilder builder = new SAXBuilder();
 			Document document = builder.build(pathArchivo);
@@ -36,7 +39,7 @@ public class ArchivadorDePartida {
 			return Partida.cargarDesdeXML(document.getRootElement());
 			
 		} catch(Exception e) {
-			throw new RuntimeException(e);
+			throw new NoExistePartidaGuardadaException();
 		}
 	}
 

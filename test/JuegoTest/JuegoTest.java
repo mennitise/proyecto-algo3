@@ -9,8 +9,8 @@ import org.junit.Test;
 import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
 import Excepciones.NombreInvalidoException;
-import Excepciones.NumeroDeNivelInvalidoException;
-import Excepciones.NumeroDeVehiculoInvalidoException;
+import Excepciones.NivelInvalidoException;
+import Excepciones.VehiculoInvalidoException;
 import Excepciones.PartidaEnJuegoException;
 import Juego.Juego;
 
@@ -46,9 +46,9 @@ public class JuegoTest {
 			this.unJuego.iniciarPartida(1, 1);
 		} catch (PartidaEnJuegoException e) {
 			// No ingresa aquí porque fué bien inicializado.
-		} catch (NumeroDeNivelInvalidoException e) {
+		} catch (NivelInvalidoException e) {
 			// No ingresa aquí porque fué bien inicializado.
-		} catch (NumeroDeVehiculoInvalidoException e) {
+		} catch (VehiculoInvalidoException e) {
 			// No ingresa aquí porque fué bien inicializado.
 		} catch (JugadorNoCargadoException e) {
 			// No ingresa aquí porque fué bien inicializado.

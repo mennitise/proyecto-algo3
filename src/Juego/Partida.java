@@ -19,10 +19,6 @@ public class Partida {
 	private Jugador unJugador;
 	private Tablero unTablero;
 	private Nivel   unNivel;
-	private EstrategiaSur unaEstrategiaSur; 
-	private EstrategiaNorte unaEstrategiaNorte; 
-	private EstrategiaOeste unaEstrategiaOeste; 
-	private EstrategiaEste unaEstrategiaEste;
 	private GestorDeMovimientos unGestor;
 	
 	public Partida(Jugador jugador, Nivel unNivel){
@@ -31,10 +27,6 @@ public class Partida {
 		this.unJugador.getVehiculo().setPosicion(this.unNivel.getPosicionInicialDelVehiculo());
 		this.unTablero = this.unNivel.inicializarTablero();
 		this.unGestor = new GestorDeMovimientos(this.unJugador, unTablero);
-		this.unaEstrategiaSur = new EstrategiaSur(); 
-		this.unaEstrategiaNorte = new EstrategiaNorte(); 
-		this.unaEstrategiaOeste = new EstrategiaOeste(); 
-		this.unaEstrategiaEste = new EstrategiaEste(); 
 	}
 
 	public String getNombreJugador() {
@@ -53,6 +45,10 @@ public class Partida {
 		return this.unTablero;
 	}
 
+	public GestorDeMovimientos getGestorDeMovimientos(){
+		return this.unGestor;
+	}
+	
 	public int getCantidadDeMovimientosMaximaEnNivelActual(){
 		return this.unNivel.getCantidadMaximaDeMovimientos();
 	}
@@ -72,8 +68,6 @@ public class Partida {
 	public Element serializarXML(){
 		
 		Element element = new Element("partida");
-		
-		
 		Element elementJugador = this.unJugador.serializarXML();
 		Element elementNivel = this.unNivel.serializarXML();
 		element.getChildren().add(elementJugador);
@@ -87,7 +81,20 @@ public class Partida {
 		Jugador unJugador = Jugador.cargarDesdeXML(elementJugador);
 		Element elementNivel = (Element)element.getChildren().get(1);
 		Nivel unNivel = Nivel.cargarDesdeXML(elementNivel);
-		return new Partida(unJugador, unNivel);
+		return Partida.cargarPartidaExistente(unJugador,unNivel);
+	}
+
+	private static Partida cargarPartidaExistente(Jugador unJugador,Nivel unNivel) {
+		
+		Posicion copiaPosicion = unJugador.getVehiculo().getPosicion().getCopiaDePosicion();
+		Partida unaPartida = new Partida(unJugador, unNivel);
+		unJugador.getVehiculo().setPosicion(copiaPosicion);
+		return unaPartida;
+	}
+
+	
+	public int calcularPuntaje(int cantidadDeMovimientos) {
+		return this.unNivel.calcularPuntaje(cantidadDeMovimientos);
 	}
 	
 	

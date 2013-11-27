@@ -5,9 +5,11 @@ import java.util.Hashtable;
 
 import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
+import Excepciones.NivelInvalidoException;
+import Excepciones.NoExistePartidaGuardadaException;
 import Excepciones.NombreInvalidoException;
 import Excepciones.NumeroDeNivelInvalidoException;
-import Excepciones.NumeroDeVehiculoInvalidoException;
+import Excepciones.VehiculoInvalidoException;
 import Excepciones.PartidaEnJuegoException;
 import Excepciones.StringVacioException;
 import Jugador.Jugador;
@@ -32,12 +34,25 @@ public class Juego {
 		this.partidaActual = null;
 		this.cantidadDeVehiculosDisponibles = 3;
 		// Cargar lista de jugadores anteriores
-		this.datosDeJugadoresExistentes = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(this.nombreDeArchivoListaJugadores);
+		this.datosDeJugadoresExistentes = this.cargarJugadoresExistentes();
+	}
+	
+	private Hashtable cargarJugadoresExistentes(){
+		try{
+			return ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(this.nombreDeArchivoListaJugadores);
+		}catch(Exception e){
+			return new Hashtable();
+		}
 	}
 	
 	private void inicializarNiveles(){
 		this.niveles = new ArrayList<Nivel>();
 		this.niveles.add(new NivelFacil());
+	}
+	
+	public void asignarPuntaje(){
+		int puntaje = partidaActual.calcularPuntaje(unJugador.getCantidadDeMovimientos());
+		((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).asignarPuntaje(puntaje);
 	}
 	
 	public boolean hayJugadorActivo(){
@@ -48,28 +63,23 @@ public class Juego {
 		return (partidaActual != null);
 	}
 	
-	public void guardarPartida() throws Exception{
-		// Carga la partida.
-		if(!this.hayPartidaActiva()){
-			//Cambiar nombre excepcion
-			throw new Exception();
-		}
+	public void guardarPartida(){
 		String pathArchivo = ((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).getNombreArchivoPartida(); 
 		ArchivadorDePartida.guardar(this.partidaActual, pathArchivo);
 	}
 	
-	public void cargarPartida() throws Exception{
-		// Carga la partida.
-		if(!this.hayJugadorActivo()){
-			//Cambiar nombre excepcion
-			throw new Exception();
-		}
-		
+	public void cargarPartida() throws NoExistePartidaGuardadaException{
 		// Verificar que el jugador tenga una partida guardada
 		DatoJugador datos = (DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre());
 		this.partidaActual = ArchivadorDePartida.cargar(datos.getNombreArchivoPartida());
 	}
 
+	public void guardarListaDeJugadoresExistentes(){
+		// Guarda en archivo los jugadores existentes hasta el momento.
+		String pathArchivo = ((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).getNombreArchivoPartida(); 
+		ArchivadorDeJugadores.guardarListaDeDatosDeJugadores(this.datosDeJugadoresExistentes, pathArchivo);
+	}
+	
 	public void setJugador(String nombreJugador) 
 			throws NombreInvalidoException, JugadorCargadoException{
 		
@@ -91,7 +101,7 @@ public class Juego {
 	}
 
 	public void iniciarPartida(int numeroNivel, int numeroVehiculo) 
-			throws PartidaEnJuegoException, NumeroDeNivelInvalidoException, NumeroDeVehiculoInvalidoException, JugadorNoCargadoException{
+			throws PartidaEnJuegoException, NivelInvalidoException, VehiculoInvalidoException, JugadorNoCargadoException{
 
 		// Verifica que no haya una partida en juego.
 		if(this.hayPartidaActiva()){
@@ -105,12 +115,12 @@ public class Juego {
 
 		// Verifica número de nivel.
 		if( (numeroNivel < 1) || (numeroNivel > niveles.size())){
-			throw new NumeroDeNivelInvalidoException();
+			throw new NivelInvalidoException();
 		}
 		
 		// Verifica número de Vehiculo. 
-		if( (numeroNivel < 1) || (numeroNivel > this.cantidadDeVehiculosDisponibles)){
-			throw new NumeroDeVehiculoInvalidoException();
+		if( (numeroVehiculo < 1) || (numeroVehiculo > this.cantidadDeVehiculosDisponibles)){
+			throw new VehiculoInvalidoException();
 		}
 		
 		Nivel unNivel = this.niveles.get(numeroNivel - 1);

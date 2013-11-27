@@ -57,4 +57,8 @@ public class Posicion{
 		element.getAttributes().add(attColumna);
 		return element;
 	}
+
+	public Posicion getCopiaDePosicion() {
+		return new Posicion(this.fila, this.columna);
+	}
 }

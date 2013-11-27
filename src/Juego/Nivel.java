@@ -9,6 +9,14 @@ public abstract class Nivel {
 	protected Posicion posicionInicialVehiculo;
 	protected Posicion posicionLlegada;
 	protected int laCantidadMaximaDeMovimientos;
+	protected int factorDePuntaje;
+	
+	public Nivel(){
+		this.posicionInicialVehiculo = null;
+		this.posicionLlegada = null;
+		this.laCantidadMaximaDeMovimientos = 0;
+		this.factorDePuntaje = 0;
+	}
 	
 	public abstract Tablero inicializarTablero();
 
@@ -28,5 +36,9 @@ public abstract class Nivel {
 			return NivelFacil.cargarDesdeXML(element);
 		}
 		return null;
+	}
+	
+	public int calcularPuntaje(int cantidadDeMovimientos) {
+		return this.factorDePuntaje * (this.laCantidadMaximaDeMovimientos - cantidadDeMovimientos);
 	}
 }
