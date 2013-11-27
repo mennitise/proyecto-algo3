@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.util.Observable;
 
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,7 @@ import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Vehiculos.Vehiculo;
 
-public class ControladorDeMovimientos  {
+public class ControladorDeMovimientos   {
 	
 	private GestorDeMovimientos gestor;
 	

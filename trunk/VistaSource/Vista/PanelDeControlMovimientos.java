@@ -7,33 +7,43 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PanelDeControlMovimientos extends JFrame {
+import Controladores.ControladorDeMovimientos;
+
+public class PanelDeControlMovimientos extends JPanel {
 	JButton botonArriba;
 	JButton botonAbajo;
 	JButton botonDerecha;
 	JButton botonIzquierda;
-	JPanel panel;
-
-	PanelDeControlMovimientos(){
-		this.botonArriba = new JButton();
-		this.botonAbajo = new JButton();
-		this.botonDerecha = new JButton();
-		this.botonIzquierda = new JButton();
-		
-		this.panel = new JPanel(new BorderLayout(2, 3));//espacio entre las regiones, horizontal y vertical
-		 
-	        this.panel.add(this.botonArriba, BorderLayout.NORTH);//boton al panel norte
-	        this.panel.add(this.botonIzquierda, BorderLayout.WEST); //boton a la region oeste
-	        this.panel.add(this.botonDerecha, BorderLayout.EAST); //boton a la region centro    
-	        //this.panel.add(this.botonAbajo, BorderLayout.CENTER); //boton a la region centro    
-	        this.setBounds(620, 620, 100, 100);
-	        this.panel.setVisible(true);
 	
+
+	public PanelDeControlMovimientos(ControladorDeMovimientos control){
+		this.botonArriba = new JButton("S");
+		this.botonArriba.addActionListener(control.getListenerBotonSubir());
+        this.botonArriba.setBounds(110,200,80,40);
+        this.botonAbajo = new JButton("B");
+        this.botonAbajo.addActionListener(control.getListenerBotonBajar());
+        this.botonAbajo.setBounds(110,50,80,40);
+        this.botonDerecha = new JButton("D");
+        this.botonDerecha.addActionListener(control.getListenerBotonDerecha());
+        this.botonDerecha.setBounds(20, 50, 80, 40);
+        this.botonIzquierda = new JButton("I");
+        this.botonIzquierda.addActionListener(control.getListenerBotonIzquierda());
+        this.botonIzquierda.setBounds(120, 50, 80, 40);
+        this.botonArriba.setBounds(0,0,50,50);
+		this.botonAbajo.setBounds(11,55,50,50);
+		this.botonIzquierda.setBounds(0,55,50,50);
+		this.botonDerecha.setBounds(0,55,50,50);
+		
+		
+		this.setSize(300, 200);
+	    this.add(this.botonArriba);//boton al panel norte
+	    this.add(this.botonIzquierda); //boton a la region oeste
+	    this.add(this.botonDerecha); //boton a la region centro    
+	    this.add(this.botonAbajo); //boton a la region centro    
+	    this.setVisible(true);
+	   
 	}
 
-	JPanel getPanel(){
-		return this.panel;
-	}
 	
 
 }

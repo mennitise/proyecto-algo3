@@ -1,36 +1,13 @@
 package Vista;
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import Controladores.ControladorDeMovimientos;
-import Excepciones.StringVacioException;
 import GestorDeMovimientos.GestorDeMovimientos;
-import Juego.Juego;
-import Jugador.Jugador;
-import Obstaculos.ControlPolicial;
-import Obstaculos.Piquete;
-import Sorpresas.Sorpresa;
-import Sorpresas.SorpresaCambioDeVehiculo;
-import Sorpresas.SorpresaDesfavorable;
-import Sorpresas.SorpresaFavorable;
-import Tablero.Calle;
-import Tablero.Posicion;
-import Tablero.Tablero;
-import Vehiculos.Auto;
-import Vehiculos.Vehiculo;
 
 public class VentanaVista extends JFrame implements Observer{
 	private int pixelesHorizontales;
@@ -51,23 +28,20 @@ public class VentanaVista extends JFrame implements Observer{
 		this.pixelesVerticales = 620;
 		this.puntoInicialMapa = new Point(200 , 0);
 		this.control = control;
-		
 		this.crearYPosicionarBotones();		
-		
 		setLayout(null); 
 		this.setBounds(0,0,this.pixelesHorizontales,this.pixelesVerticales);	
 		this.getContentPane().setBackground(Color.black);
 				
-		 
 		add(botonSubir);
 		add(botonBajar);		
 		add(botonIzquierda);
 		add(botonDerecha);
+		
 		botonSubir.addActionListener(control.getListenerBotonSubir());
 		botonBajar.addActionListener(control.getListenerBotonBajar());			
 		botonDerecha.addActionListener(control.getListenerBotonDerecha());	
 		botonIzquierda.addActionListener(control.getListenerBotonIzquierda());
-		
 		
 	}
 	

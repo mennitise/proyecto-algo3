@@ -14,17 +14,15 @@ import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 import GestorDeMovimientos.GestorDeMovimientos;
 
-public class PanelDeInformacionVista implements Observer{
-	
-	private VentanaVista ventanaDestino;
+public class PanelDeInformacionVista extends JPanel implements Observer{
 	private JPanel panel;
 	private GestorDeMovimientos gestor;
 	private JLabel etiqueta1;
 	private JLabel etiqueta2;
 	private JLabel etiqueta3;
 	
-	public PanelDeInformacionVista(VentanaVista unaVentana, GestorDeMovimientos unGestor){
-		this.ventanaDestino = unaVentana;
+	public PanelDeInformacionVista(GestorDeMovimientos unGestor){
+		
 		this.gestor = unGestor;
 		this.gestor.addObserver(this);
 		
@@ -35,14 +33,12 @@ public class PanelDeInformacionVista implements Observer{
 	    this.etiqueta3 = new JLabel(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)))	;
 	    this.asignarImagenVehiculo();
 	    //Configuracion del Panel
-	    panel.setBounds(0, 0, 100, 400);
+	    panel.setSize(100, 400);
 	    panel.add(this.etiqueta1);
 	    panel.add(this.etiqueta2);
 	    panel.add(this.etiqueta3);
-	    panel.setBounds(650,200,100,300);
 	    panel.setVisible(true);
-	     
-	    this.ventanaDestino.add(panel);
+	   
 	
 	}
 
@@ -59,6 +55,10 @@ public class PanelDeInformacionVista implements Observer{
 		if (unVehiculo.getClass() == CuatroXCuatro.class){
 			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/4x4.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
 			}
+	}
+	
+	JPanel getPanel(){
+		return this.panel;
 	}
 	
 	@Override
