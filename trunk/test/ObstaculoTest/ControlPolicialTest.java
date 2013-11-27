@@ -15,7 +15,7 @@ public class ControlPolicialTest {
 
 	@Test
 	public void testControlPolicialComprobarPorcentajeParaElAuto(){
-
+		/*Se utiliza un test de hipotesis*/
 		Auto unAuto = new Auto();
 		Jugador unJugador = null;
 		try {
@@ -45,7 +45,7 @@ public class ControlPolicialTest {
 	
 	@Test
 	public void testControlPolicialComprobarPorcentajeParaLaMoto(){
-
+		/*Se utiliza un test de hipotesis*/
 		Moto unaMoto = new Moto();
 		Jugador unJugador = null;
 		try {
@@ -71,7 +71,7 @@ public class ControlPolicialTest {
 	
 	@Test
 	public void testControlPolicialComprobarPorcentajeParaLaCuatroXCuatro(){
-
+		/*Se utiliza un test de hipotesis*/
 		CuatroXCuatro unaCuatroXCuatro = new CuatroXCuatro();
 		Jugador unJugador = null;
 		try {
