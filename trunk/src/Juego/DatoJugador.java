@@ -44,4 +44,12 @@ public class DatoJugador {
 		return this.nombreDeArchivoDeUltimaPartidaGuardada;
 	}
 
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void asignarPuntaje(int unPuntaje) {
+		this.puntaje += unPuntaje;
+	}
+
 }
