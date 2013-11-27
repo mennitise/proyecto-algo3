@@ -66,8 +66,7 @@ public class Jugador {
 			this.cantidadDeMovimientos = 0;
 		}
 	}
-	
-	
+
 	public Vehiculo getVehiculo(){
 		return this.vehiculoUtilizado;
 	}
@@ -78,7 +77,6 @@ public class Jugador {
 	}
 
 	// Serialización
-	
 	
 	public Element serializarXML() {
 		Element element = new Element("jugador");
@@ -92,8 +90,7 @@ public class Jugador {
 		element.getChildren().add(elementVehiculo);
 		return element;
 	}
-	
-	
+
 	public static Jugador cargarDesdeXML(Element element){
 		
 		String nombre           = (String)element.getAttributeValue("nombre");

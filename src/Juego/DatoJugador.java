@@ -1,7 +1,6 @@
 package Juego;
 
-import java.util.ArrayList;
-
+import org.jdom.Attribute;
 import org.jdom.Element;
 
 public class DatoJugador {
@@ -15,17 +14,34 @@ public class DatoJugador {
 		this.nombreDeArchivoDeUltimaPartidaGuardada = unNombre + ".xml";
 	}
 
+	public void setPuntuacion(int unaPuntuacion){
+		this.puntaje = unaPuntuacion;
+	}
+	
 	// Serializacion
 	
 	public Element serializarXML(){
-		// Serializa un DatoJugador();
-		return null;
+		
+		Element element = new Element("datoJugador");
+		Attribute attNombre = new Attribute("nombre",this.nombre);
+		Attribute attPuntaje = new Attribute("puntaje",((Integer)this.puntaje).toString());
+		element.getAttributes().add(attNombre);
+		element.getAttributes().add(attPuntaje);
+		
+		return element;
 	}
-	
+
 	public static DatoJugador cargarDesdeXML(Element element){
-		// Desserializa un DatoJugador();
-		return null;
+		
+		String nombre = (String)element.getAttributeValue("nombre");
+		int puntaje   = Integer.parseInt(element.getAttributeValue("puntaje"));
+		DatoJugador unDato = new DatoJugador(nombre);
+		unDato.setPuntuacion(puntaje);
+		return unDato;
 	}
-	
+
+	public String getNombreArchivoPartida() {
+		return this.nombreDeArchivoDeUltimaPartidaGuardada;
+	}
 
 }

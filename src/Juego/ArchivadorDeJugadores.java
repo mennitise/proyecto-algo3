@@ -1,6 +1,7 @@
 package Juego;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import org.jdom.Document;
 import org.jdom.Element;
@@ -44,9 +45,9 @@ public class ArchivadorDeJugadores {
 	
 	
 	
-	public static ArrayList<DatoJugador> cargarListaDeDatosDeJugadores(String nombreDeArchivoListaJugadores) {
+	public static Hashtable cargarListaDeDatosDeJugadores(String nombreDeArchivoListaJugadores) {
 		
-		ArrayList<DatoJugador> datos = new ArrayList<DatoJugador>();
+		Hashtable datos = new Hashtable();
 		
 		// Carga lista de datos de jugadores
 		

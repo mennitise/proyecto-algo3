@@ -1,6 +1,7 @@
 package Juego;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
@@ -22,7 +23,7 @@ public class Juego {
 	private Jugador unJugador;
 	private int cantidadDeVehiculosDisponibles;
 	
-	private ArrayList<DatoJugador> datosDeJugadoresExistentes;
+	private Hashtable datosDeJugadoresExistentes;
 	private String nombreDeArchivoListaJugadores = "JugadoresExistentes.xml";
 	
 	public Juego(){
@@ -30,9 +31,8 @@ public class Juego {
 		this.unJugador = null;
 		this.partidaActual = null;
 		this.cantidadDeVehiculosDisponibles = 3;
-		
 		// Cargar lista de jugadores anteriores
-		this.datosDeJugadoresExistentes = new ArrayList<DatoJugador>();
+		this.datosDeJugadoresExistentes = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(this.nombreDeArchivoListaJugadores);
 	}
 	
 	private void inicializarNiveles(){
@@ -48,24 +48,28 @@ public class Juego {
 		return (partidaActual != null);
 	}
 	
-	
+	public void guardarPartida() throws Exception{
+		// Carga la partida.
+		if(!this.hayPartidaActiva()){
+			//Cambiar nombre excepcion
+			throw new Exception();
+		}
+		String pathArchivo = ((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).getNombreArchivoPartida(); 
+		ArchivadorDePartida.guardar(this.partidaActual, pathArchivo);
+	}
 	
 	public void cargarPartida() throws Exception{
 		// Carga la partida.
-		
 		if(!this.hayJugadorActivo()){
-				
 			//Cambiar nombre excepcion
 			throw new Exception();
 		}
 		
-		
-		// Cargar partida
-		
+		// Verificar que el jugador tenga una partida guardada
+		DatoJugador datos = (DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre());
+		this.partidaActual = ArchivadorDePartida.cargar(datos.getNombreArchivoPartida());
 	}
 
-	
-	
 	public void setJugador(String nombreJugador) 
 			throws NombreInvalidoException, JugadorCargadoException{
 		
@@ -79,8 +83,10 @@ public class Juego {
 		} catch (StringVacioException e) {
 			throw new NombreInvalidoException();
 		}
+		
+		// Agrego dato de nuevo jugador existente.
 		DatoJugador dato = new DatoJugador(nombreJugador);
-		this.datosDeJugadoresExistentes.add(dato);
+		this.datosDeJugadoresExistentes.put(nombreJugador, dato);
 		
 	}
 
