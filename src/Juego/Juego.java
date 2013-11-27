@@ -8,7 +8,6 @@ import Excepciones.JugadorNoCargadoException;
 import Excepciones.NivelInvalidoException;
 import Excepciones.NoExistePartidaGuardadaException;
 import Excepciones.NombreInvalidoException;
-import Excepciones.NumeroDeNivelInvalidoException;
 import Excepciones.VehiculoInvalidoException;
 import Excepciones.PartidaEnJuegoException;
 import Excepciones.StringVacioException;

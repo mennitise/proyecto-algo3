@@ -3,7 +3,6 @@ package Juego;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
-import Excepciones.TerminoLaPartidaException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
 import GestorDeMovimientos.EstrategiaOeste;
