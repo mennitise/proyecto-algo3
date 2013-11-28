@@ -52,4 +52,8 @@ public class DatoJugador {
 		this.puntaje += unPuntaje;
 	}
 
+	public int getPuntaje() {
+		return this.puntaje;
+	}
+
 }

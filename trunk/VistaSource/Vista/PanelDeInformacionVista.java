@@ -29,7 +29,7 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 		this.panel = new JPanel(new GridLayout(3,1,10,10));
 	       
 		this.etiqueta1 =  new JLabel("Nombre:"+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
-	    this.etiqueta2 = new JLabel("Puntaje:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
+	    this.etiqueta2 = new JLabel("Movimientos:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
 	    this.etiqueta3 = new JLabel(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)))	;
 	    this.asignarImagenVehiculo();
 	    //Configuracion del Panel

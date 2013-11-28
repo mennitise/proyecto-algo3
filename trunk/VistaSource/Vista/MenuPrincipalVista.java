@@ -14,8 +14,7 @@ import GestorDeMovimientos.GestorDeMovimientos;
 public class MenuPrincipalVista extends JFrame    {
 	private JPanel panelInicial;
 	private JButton botonJugadorNuevo;
-	private JButton botonJugadorExistente;
-	private JButton botonPuntajes;
+	private JButton botonVerPuntajes;
 	private GestorDeMovimientos gestor;
 	
 	
@@ -27,18 +26,18 @@ public class MenuPrincipalVista extends JFrame    {
 		
 		//le agrego el control al boton
 		this.botonJugadorNuevo.addActionListener(control.getListenerBotonJugadorNuevo());
-		this.botonJugadorExistente.addActionListener(control.getListenerBotonJugadorExistente());
+		this.botonVerPuntajes.addActionListener(control.getListenerBotonVerPuntajes());
 		this.add(panelInicial);
 		this.setVisible(true);	
 	}
 	
 	private void crearPanelInicial(){
-		this.botonJugadorExistente = new JButton ("Jugador Existente");
-		this.botonJugadorNuevo = new JButton("Jugador Nuevo");
+		this.botonJugadorNuevo = new JButton ("Jugador Nuevo");
+		this.botonVerPuntajes = new JButton("Ver Puntajes");
 		this.panelInicial = new JPanel();
 		this.panelInicial.setSize(200,200);		
 		this.panelInicial.add(this.botonJugadorNuevo);
-		this.panelInicial.add(this.botonJugadorExistente);
+		this.panelInicial.add(this.botonVerPuntajes);
 		this.panelInicial.setVisible(true);
 		
 	}
