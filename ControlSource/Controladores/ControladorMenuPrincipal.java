@@ -33,7 +33,7 @@ public class ControladorMenuPrincipal {
 	
 	private class EscuchaBotonJugadorNuevo implements ActionListener{	
 	
-		 private int pedirVehiculo(){
+		private int pedirVehiculo(){
 		 
 			Object[] posibilidades = {"Auto", "CuatroXCuatro", "Moto"};
 			String autoElegido = (String)JOptionPane.showInputDialog(
@@ -90,9 +90,8 @@ public class ControladorMenuPrincipal {
 		
 		public void actionPerformed(ActionEvent e){	
 			 
-			Jugador unJugador = null;
-			String nombre = new String("");
 			
+			String nombre = new String("");			
 			nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
 							
 			int nivel = this.pedirNivel();
@@ -114,20 +113,9 @@ public class ControladorMenuPrincipal {
 						e1.printStackTrace();
 					}
 
-					ControladorDeMovimientos control = new ControladorDeMovimientos(juego.getPartida().getGestorDeMovimientos());
-					
+					ControladorDeMovimientos control = new ControladorDeMovimientos(juego.getPartida().getGestorDeMovimientos());					
 					MapaJuegoVista mapa = new MapaJuegoVista(control,juego);
-					
-					//	VentanaVista ventanaVista = new VentanaVista(gestor, control);        
-					//ventanaVista.setVisible(true);
-			        
-					//PanelDeInformacionVista panel = new PanelDeInformacionVista(ventanaVista,gestor);
-			       // MapaVista mapa = new MapaVista(ventanaVista, tablero,gestor);
-					//mapa.dibujarMapaConDeterminadaCantidadDePixeles(600, 600);
-					
-					//VehiculoVista vehiculoVista = new VehiculoVista(unVehiculo,mapa,gestor);
-			        //vehiculoVista.dibujarVehiculo();
-			        
+								        
 				}catch (NombreInvalidoException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
