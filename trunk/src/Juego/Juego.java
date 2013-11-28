@@ -49,13 +49,22 @@ public class Juego {
 		this.niveles.add(new NivelFacil());
 	}
 	
+	public static String getNombreArchivoDeJugadores(){
+		return nombreDeArchivoListaJugadores;
+	}
+
+	
+	
+	
 	public void asignarPuntaje(){
 		int puntaje = partidaActual.calcularPuntaje(unJugador.getCantidadDeMovimientos());
 		((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).asignarPuntaje(puntaje);
 	}
 	
-	public Partida getPartida(){
-		return this.partidaActual;
+	public int obtenerPuntaje(){
+
+		int puntaje = partidaActual.calcularPuntaje(unJugador.getCantidadDeMovimientos());
+		return puntaje;
 	}
 	
 	public boolean hayJugadorActivo(){
@@ -66,13 +75,13 @@ public class Juego {
 		return (partidaActual != null);
 	}
 	
-	public static String getNombreArchivoDeJugadores(){
-		return nombreDeArchivoListaJugadores;
-	}
-	
 	public void guardarPartida(){
 		String pathArchivo = ((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).getNombreArchivoPartida(); 
 		ArchivadorDePartida.guardar(this.partidaActual, pathArchivo);
+	}
+	
+	public Partida getPartida(){
+		return this.partidaActual;
 	}
 	
 	public void cargarPartida() throws NoExistePartidaGuardadaException{
@@ -83,8 +92,7 @@ public class Juego {
 
 	public void guardarListaDeJugadoresExistentes(){
 		// Guarda en archivo los jugadores existentes hasta el momento.
-		String pathArchivo = ((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).getNombreArchivoPartida(); 
-		ArchivadorDeJugadores.guardarListaDeDatosDeJugadores(this.datosDeJugadoresExistentes, pathArchivo);
+		ArchivadorDeJugadores.guardarListaDeDatosDeJugadores(this.datosDeJugadoresExistentes, this.nombreDeArchivoListaJugadores);
 	}
 	
 	public void setJugador(String nombreJugador) 
@@ -178,10 +186,9 @@ public class Juego {
 		}
 		return unVehiculo;
 	}
+	
+	
 
-	public int obtenerPuntaje() {
-		int puntaje = partidaActual.calcularPuntaje(unJugador.getCantidadDeMovimientos());
-		return puntaje;
-	}
-
+	
 }
+

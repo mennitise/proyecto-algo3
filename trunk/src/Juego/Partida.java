@@ -32,6 +32,10 @@ public class Partida {
 		return this.unJugador.getNombre();
 	}
 	
+	public Posicion getPosicionDeLlegada(){
+		return this.unNivel.getPosicionDeLaLlegada();
+	}
+	
 	public Posicion getPosicionJugador(){
 		return this.unJugador.getVehiculo().getPosicion();
 	}

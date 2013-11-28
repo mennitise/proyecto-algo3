@@ -25,7 +25,7 @@ public class NivelFacil extends Nivel {
 	public NivelFacil(){
 		super();
 		this.posicionInicialVehiculo = new Posicion(5,0);
-		this.posicionLlegada = new Posicion(5,9);
+		this.posicionLlegada = new Posicion(7,9);
 		this.laCantidadMaximaDeMovimientos = 35;
 		this.factorDePuntaje = 1;
 	}
