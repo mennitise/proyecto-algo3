@@ -16,48 +16,28 @@ import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 
-public class VehiculoVista implements Observer {
-	private Vehiculo vehiculoActual;
-	private MapaVista mapaDestino;
-	private GestorDeMovimientos gestor;
-	private JLabel etiquetaRepresentativa;
+public class VehiculoVista {
 	
-	public VehiculoVista(Vehiculo unVehiculo, MapaVista mapa, GestorDeMovimientos gestor){
-		this.vehiculoActual = unVehiculo;		
-		this.etiquetaRepresentativa= new JLabel();
-		this.etiquetaRepresentativa.setSize(10,10);
-		this.etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)))	;
-		this.mapaDestino = mapa;
-		this.gestor = gestor;
-		this.gestor.addObserver(this);
+	public VehiculoVista(Vehiculo unVehiculo, JLabel etiquetaRepresentativa){
+		this.actualizarImagenDelVehiculo(unVehiculo, etiquetaRepresentativa);
 	}
 	
-	public void dibujarVehiculo(){
-		this.actualizarImagenDelVehiculo();
-		this.mapaDestino.localizarVehiculoEnMapa(etiquetaRepresentativa, this.vehiculoActual);
-	}
+	
 
-	private void actualizarImagenDelVehiculo(){
-		Vehiculo unVehiculo = this.gestor.getVehiculoEnPosicionActual();
+	private void actualizarImagenDelVehiculo(Vehiculo unVehiculo, JLabel etiquetaRepresentativa){
 		if (unVehiculo.getClass() == Auto.class){
-			this.etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+			etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 		if (unVehiculo.getClass() == Moto.class){
-			this.etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Moto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+			etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Moto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 		if (unVehiculo.getClass() == CuatroXCuatro.class){
-			this.etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/4x4.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+			etiquetaRepresentativa.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/4x4.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 	}
 	
-	@Override
-	public void update(Observable arg0, Object arg1) {	
-
-		this.actualizarImagenDelVehiculo();
-		this.dibujarVehiculo();
 	
-	}
 }

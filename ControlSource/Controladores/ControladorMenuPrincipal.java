@@ -2,26 +2,24 @@ package Controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Tablero.Posicion;
-import Tablero.Tablero;
-import Vehiculos.Auto;
-import Vehiculos.CuatroXCuatro;
-import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 import Vista.MapaJuegoVista;
-import Vista.MapaVista;
-import Vista.PanelDeInformacionVista;
-import Vista.VehiculoVista;
-import Vista.VentanaVista;
-import Excepciones.StringVacioException;
+import Excepciones.JugadorCargadoException;
+import Excepciones.JugadorNoCargadoException;
+import Excepciones.NivelInvalidoException;
+import Excepciones.NombreInvalidoException;
+import Excepciones.PartidaEnJuegoException;
+import Excepciones.VehiculoInvalidoException;
 import GestorDeMovimientos.GestorDeMovimientos;
-import Juego.Nivel;
-import Juego.NivelFacil;
+import Juego.ArchivadorDeJugadores;
+import Juego.DatoJugador;
+import Juego.Juego;
 import Jugador.Jugador;
 
 public class ControladorMenuPrincipal {
@@ -35,10 +33,8 @@ public class ControladorMenuPrincipal {
 	
 	private class EscuchaBotonJugadorNuevo implements ActionListener{	
 	
-		 private Vehiculo pedirVehiculo(){
+		 private int pedirVehiculo(){
 		 
-			
-			Vehiculo unVehiculo = null;
 			Object[] posibilidades = {"Auto", "CuatroXCuatro", "Moto"};
 			String autoElegido = (String)JOptionPane.showInputDialog(
 			                    new JFrame(),
@@ -51,22 +47,21 @@ public class ControladorMenuPrincipal {
 
 		if (autoElegido == null){
 			JOptionPane.showMessageDialog(null,"Se elige Auto por Default","Aviso",JOptionPane.WARNING_MESSAGE);
-			unVehiculo = new Auto();
+			return 1;
 		}else{
 		
 			switch (autoElegido){
-				case "Auto": unVehiculo = new Auto();  break;
-				case "CuatroXCuatro": unVehiculo = new CuatroXCuatro(); break;
-				case "Moto": unVehiculo = new Moto(); break;
+				case "Auto": return 1;
+				case "CuatroXCuatro": return 3;
+				case "Moto": return 2;
 			};
 		}
-			
-			return unVehiculo;	
+
+		return 1;
 		}
 		
-		private Nivel pedirNivel(){
+		private int pedirNivel(){
 
-			Nivel unNivel = null;
 			Object[] posibilidades = {"Facil", "Intermedio", "Dificil"};
 			String nivelElegido = (String)JOptionPane.showInputDialog(
 			                    new JFrame(),
@@ -79,17 +74,17 @@ public class ControladorMenuPrincipal {
 
 		if (nivelElegido == null){
 			JOptionPane.showMessageDialog(null,"Se elige Nivel Facil por Default","Aviso",JOptionPane.WARNING_MESSAGE);
-			unNivel = new NivelFacil();
+			return 1;
 		}else{
 		
 			switch (nivelElegido){
-				case "Facil": unNivel = new NivelFacil();  break;
+				case "Facil": return 1;
 				/*case "CuatroXCuatro": IMPLEMENTAR   ; break;
 				case "Moto": unNivel = IMPLEMENTAR ; break;*/
 			};
 		}
 			
-			return unNivel;	
+			return 1;	
 			
 		}
 		
@@ -100,24 +95,30 @@ public class ControladorMenuPrincipal {
 			
 			nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
 							
-			Nivel nivel = null;
+			int nivel = this.pedirNivel();
+			int vehiculo = this.pedirVehiculo();
 			
 			//Solo se ejecuta esta Pieza cuando el nombre es valido, es para que no se salga del menu
 			if ((nombre != null) && !(nombre.equals(""))) {
 				try {
-					Vehiculo unVehiculo = new Auto();
-					unVehiculo = this.pedirVehiculo();	
-					unVehiculo.setPosicion(new Posicion(0,0));
-					nivel = this.pedirNivel();
-					//unVehiculo.setPosicion(nivel.getPosicionInicialDelVehiculo());
 					
-					unJugador = new Jugador(nombre, unVehiculo);
-					Tablero tablero = new Tablero(5,5);
-					GestorDeMovimientos gestor = new GestorDeMovimientos(unJugador,tablero);
-					ControladorDeMovimientos control = new ControladorDeMovimientos(gestor);
 					
-					MapaJuegoVista mapa = new MapaJuegoVista(control,gestor);
-				//	VentanaVista ventanaVista = new VentanaVista(gestor, control);        
+					Juego juego = new Juego();
+					juego.setJugador(nombre);
+					try {
+						juego.iniciarPartida(nivel, vehiculo);
+					} catch (PartidaEnJuegoException | NivelInvalidoException
+							| VehiculoInvalidoException
+							| JugadorNoCargadoException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+					ControladorDeMovimientos control = new ControladorDeMovimientos(juego.getPartida().getGestorDeMovimientos());
+					
+					MapaJuegoVista mapa = new MapaJuegoVista(control,juego);
+					
+					//	VentanaVista ventanaVista = new VentanaVista(gestor, control);        
 					//ventanaVista.setVisible(true);
 			        
 					//PanelDeInformacionVista panel = new PanelDeInformacionVista(ventanaVista,gestor);
@@ -127,28 +128,45 @@ public class ControladorMenuPrincipal {
 					//VehiculoVista vehiculoVista = new VehiculoVista(unVehiculo,mapa,gestor);
 			        //vehiculoVista.dibujarVehiculo();
 			        
-				}catch (StringVacioException e1) {
-					//No va a entrar Nunca
+				}catch (NombreInvalidoException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (JugadorCargadoException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		}	
 	
 	}
 		
-	
 	public ActionListener getListenerBotonJugadorNuevo() {
 		return new EscuchaBotonJugadorNuevo();
 	}
 
-	private class EscuchaBotonJugadorExistente implements ActionListener
+	private class EscuchaBotonVerPuntajes implements ActionListener
 	{	public void actionPerformed(ActionEvent e)
 		{	
-		//Implementar
+			Hashtable unHashDatosJugadores = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(Juego.getNombreArchivoDeJugadores());
+			Enumeration datosJugador = unHashDatosJugadores.elements(); 
+			String unstring = "";
+			
+			if(!datosJugador.hasMoreElements()){
+				unstring = "NO HAY NINGUN JUGADOR CREADO";
+			}
+			
+			while(datosJugador.hasMoreElements()){
+				DatoJugador datoJugadorActual = (DatoJugador)datosJugador.nextElement();
+				unstring = unstring + datoJugadorActual.getNombre() + ": "+ datoJugadorActual.getPuntaje() + System.getProperty("line.separator") ;
+			}
+			
+			JOptionPane.showMessageDialog(null,	unstring ,"Puntajes",JOptionPane.WARNING_MESSAGE);
+			
 		}
 	}
 	
-	public ActionListener getListenerBotonJugadorExistente() {
-		return new EscuchaBotonJugadorExistente();
+	public ActionListener getListenerBotonVerPuntajes() {
+		return new EscuchaBotonVerPuntajes();
 	}
 }
 

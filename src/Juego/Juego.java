@@ -25,7 +25,7 @@ public class Juego {
 	private int cantidadDeVehiculosDisponibles;
 	
 	private Hashtable datosDeJugadoresExistentes;
-	private String nombreDeArchivoListaJugadores = "JugadoresExistentes.xml";
+	private static String nombreDeArchivoListaJugadores = "JugadoresExistentes.xml";
 	
 	public Juego(){
 		this.inicializarNiveles();
@@ -54,12 +54,20 @@ public class Juego {
 		((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).asignarPuntaje(puntaje);
 	}
 	
+	public Partida getPartida(){
+		return this.partidaActual;
+	}
+	
 	public boolean hayJugadorActivo(){
 		return (unJugador != null);
 	}
 	
 	public boolean hayPartidaActiva(){
 		return (partidaActual != null);
+	}
+	
+	public static String getNombreArchivoDeJugadores(){
+		return nombreDeArchivoListaJugadores;
 	}
 	
 	public void guardarPartida(){
@@ -169,6 +177,11 @@ public class Juego {
 			break;
 		}
 		return unVehiculo;
+	}
+
+	public int obtenerPuntaje() {
+		int puntaje = partidaActual.calcularPuntaje(unJugador.getCantidadDeMovimientos());
+		return puntaje;
 	}
 
 }

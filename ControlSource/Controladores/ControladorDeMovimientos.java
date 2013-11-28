@@ -15,11 +15,13 @@ import GestorDeMovimientos.EstrategiaNorte;
 import GestorDeMovimientos.EstrategiaOeste;
 import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
+import Juego.Juego;
 import Vehiculos.Vehiculo;
 
 public class ControladorDeMovimientos   {
 	
 	private GestorDeMovimientos gestor;
+	private Juego juego;
 	
 	public ControladorDeMovimientos(GestorDeMovimientos unGestor)
 	{
@@ -34,7 +36,6 @@ public class ControladorDeMovimientos   {
 		} catch (MovimientoFisicamenteInvalidoException e1) {
 			JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
 		}
-		//gestor.ActualizarObservadores();
 		}
 	}
 	
@@ -50,7 +51,7 @@ public class ControladorDeMovimientos   {
 		} catch (MovimientoFisicamenteInvalidoException e1) {
 			JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
 		}
-		//gestor.ActualizarObservadores();
+		
 		}
 	}
 
@@ -66,7 +67,6 @@ public class ControladorDeMovimientos   {
 			} catch (MovimientoFisicamenteInvalidoException e1) {
 				JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
 			}
-			//gestor.ActualizarObservadores();
 			
 		}
 	}
@@ -83,7 +83,6 @@ public class ControladorDeMovimientos   {
 		} catch (MovimientoFisicamenteInvalidoException e1) {
 			JOptionPane.showMessageDialog(null,"Movimiento Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
 		}
-		//gestor.ActualizarObservadores();
 		}
 	}
 	
