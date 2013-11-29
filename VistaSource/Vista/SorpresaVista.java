@@ -1,54 +1,114 @@
 package Vista;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 
+import GestorDeMovimientos.GestorDeMovimientos;
+import Obstaculos.Obstaculo;
 import Sorpresas.Sorpresa;
-import Sorpresas.SorpresaCambioDeVehiculo;
-import Sorpresas.SorpresaDesfavorable;
-import Sorpresas.SorpresaFavorable;
-import Tablero.Tablero;
+import Tablero.Calle;
+import Tablero.Esquina;
+import Tablero.Posicion;
 
-public class SorpresaVista implements Observer {
-	
-	private VentanaVista ventanaDestino;
 
-	private ArrayList<JLabel> etiquetasRepresentativas;
+public class SorpresaVista {
+	private int tamanioManzana;
+	private int anchoCalle;
+	private GestorDeMovimientos unGestor;
+
+	public SorpresaVista(int tamanioManzana, int anchoCalle){
+		this.tamanioManzana = tamanioManzana;
+		this.anchoCalle = anchoCalle;
+		this.unGestor = unGestor;
+	}
 	
-	SorpresaVista(VentanaVista unaVentana){
-		this.etiquetasRepresentativas = new ArrayList<JLabel>();	
-		this.ventanaDestino = unaVentana;
+	public void actualizarSorpresas(Graphics g, Posicion unaPosicion, Esquina unaEsquina, JPanel panelDeDondeViene){
+		
+		
+		
+		int filaActual = unaPosicion.getFila();
+		int columnaActual = unaPosicion.getColumna();
+		int pixelHorizontal = 0 ;
+		int pixelVertical = 0;
+		
+		this.ponerSorpresaEnCalleEste(unaEsquina, filaActual, columnaActual, g, panelDeDondeViene);
+		this.ponerSorpresaEnCalleNorte(unaEsquina,filaActual,columnaActual,g,panelDeDondeViene);
+		this.ponerSorpresaEnCalleSur(unaEsquina,filaActual,columnaActual,g,panelDeDondeViene);
+		this.ponerSorpresaEnCalleOeste(unaEsquina,filaActual,columnaActual,g,panelDeDondeViene);
+}
+
+	private void ponerSorpresaEnCalleOeste(Esquina unaEsquina, int filaActual,
+			int columnaActual, Graphics g, JPanel panelDeDondeViene) {
+		
+		if (unaEsquina.tieneCalleAlOeste()){
+			int pixelHorizontal = (columnaActual)*this.tamanioManzana+ this.anchoCalle*(columnaActual) ;
+			int pixelVertical = (filaActual+1)*this.tamanioManzana + this.anchoCalle*(filaActual);
+			
+			Calle unaCalle = unaEsquina.getCalleOeste();
+			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
+			
+			}
+						
+		}	
 		
 	}
-	
-	public void dibujarSorpresaEn(Sorpresa unaSorpresa, int fila, int columna){
-		JLabel etiqueta=new JLabel();
-		this.etiquetasRepresentativas.add(etiqueta);
-        etiqueta.setBounds(fila,columna,20,10);
-        if (unaSorpresa.getClass() == SorpresaFavorable.class ) {
-        	etiqueta.setText("SF");
-        }
-        if (unaSorpresa.getClass() == SorpresaDesfavorable.class ) {
-        	etiqueta.setText("SD");
-        }
-        if (unaSorpresa.getClass() == SorpresaCambioDeVehiculo.class ) {
-        	etiqueta.setText("SV");
-        }
-        this.ventanaDestino.add(etiqueta);      
 
+	private void ponerSorpresaEnCalleSur(Esquina unaEsquina, int filaActual,
+			int columnaActual, Graphics g, JPanel panelDeDondeViene) {
+
+		if (unaEsquina.tieneCalleAlSur()){
+			int pixelHorizontal = (columnaActual+1)*this.tamanioManzana + this.anchoCalle*(columnaActual) ;
+			int pixelVertical = (filaActual+2)*this.tamanioManzana + this.anchoCalle*(filaActual);
+			
+			Calle unaCalle = unaEsquina.getCalleSur();
+			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
+			
+			}
+		
+		
+			
+		}	
 	}
 
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
+	private void ponerSorpresaEnCalleNorte(Esquina unaEsquina, int filaActual,
+			int columnaActual, Graphics g, JPanel panelDeDondeViene) {
+		if (unaEsquina.tieneCalleAlNorte()){
+			int pixelHorizontal = (columnaActual+1)*this.tamanioManzana+ this.anchoCalle*(columnaActual) ;
+			int pixelVertical = (filaActual)*this.tamanioManzana + this.anchoCalle*(filaActual);
+			
+			Calle unaCalle = unaEsquina.getCalleNorte();
+			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
+			}
+		
+		}	
+		
 		
 	}
-	
-	
+
+	private void ponerSorpresaEnCalleEste(Esquina unaEsquina, int filaActual, int columnaActual, Graphics g, JPanel panelDeDondeViene){
+		if (unaEsquina.tieneCalleAlEste()){
+			int pixelHorizontal = (columnaActual+1)*this.tamanioManzana+ this.anchoCalle*(columnaActual+1) ;
+			int pixelVertical = (filaActual+1)*this.tamanioManzana + this.anchoCalle*(filaActual);
+		
+			Calle unaCalle = unaEsquina.getCalleEste();
+			
+			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
+			
+			}
+			
+			
+		}	
+		
+	}
 }

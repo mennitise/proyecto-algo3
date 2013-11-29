@@ -13,6 +13,7 @@ import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 import GestorDeMovimientos.GestorDeMovimientos;
+import Juego.Juego;
 
 public class PanelDeInformacionVista extends JPanel implements Observer{
 	private JPanel panel;
@@ -20,41 +21,43 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	private JLabel etiqueta1;
 	private JLabel etiqueta2;
 	private JLabel etiqueta3;
+	private JLabel cantidadMaximaDeMovimientos;
 	
-	public PanelDeInformacionVista(GestorDeMovimientos unGestor){
+	public PanelDeInformacionVista(Juego unJuego){
 		
-		this.gestor = unGestor;
+		this.gestor = unJuego.getPartida().getGestorDeMovimientos();
 		this.gestor.addObserver(this);
 		
-		this.panel = new JPanel(new GridLayout(3,1,10,10));
+		this.panel = new JPanel(new GridLayout(4,1,10,10));
 	       
 		this.etiqueta1 =  new JLabel("Nombre:"+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
 	    this.etiqueta2 = new JLabel("Movimientos:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
-	    this.etiqueta3 = new JLabel(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)))	;
+	    this.etiqueta3 = new JLabel(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)))	;
+	    this.cantidadMaximaDeMovimientos = new JLabel ("Cantidad Maxima: " + unJuego.getPartida().getCantidadDeMovimientosMaximaEnNivelActual());
 	    this.asignarImagenVehiculo();
 	    //Configuracion del Panel
 	    panel.setSize(100, 400);
 	    panel.add(this.etiqueta1);
+	    panel.add(this.cantidadMaximaDeMovimientos);
 	    panel.add(this.etiqueta2);
 	    panel.add(this.etiqueta3);
-	    panel.setVisible(true);
-	   
-	
+	    panel.setVisible(true);	   	
 	}
 
 	private void asignarImagenVehiculo(){
 		Vehiculo unVehiculo = this.gestor.getVehiculoEnPosicionActual();
 		if (unVehiculo.getClass() == Auto.class){
-			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 		if (unVehiculo.getClass() == Moto.class){
-			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Moto.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Moto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 		if (unVehiculo.getClass() == CuatroXCuatro.class){
-			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/4x4.png")).getImage()).getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/4x4.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
 			}
+		
 	}
 	
 	JPanel getPanel(){
