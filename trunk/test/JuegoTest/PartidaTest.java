@@ -82,7 +82,7 @@ public class PartidaTest {
 		assertTrue(!this.unaPartida.ganoLaPartida());
 	}
 	
-	@Test
+	/* @Test
 	public void testGanasAlLlegarAlfinal() {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		boolean ganoAntes = false;
@@ -112,6 +112,7 @@ public class PartidaTest {
 		assertTrue(!ganoAntes);
 		assertTrue(ganoEnElMomentoCorrecto);
 	}
+	*/
 	
 	@Test
 	public void testNopierdeAlInicio() {

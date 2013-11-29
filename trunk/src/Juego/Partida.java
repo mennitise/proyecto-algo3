@@ -1,5 +1,7 @@
 package Juego;
 
+import java.util.Observable;
+
 import org.jdom.Attribute;
 import org.jdom.Element;
 
@@ -13,7 +15,7 @@ import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Vehiculo;
 
-public class Partida {
+public class Partida extends Observable{
 	
 	private Jugador unJugador;
 	private Tablero unTablero;
@@ -59,7 +61,13 @@ public class Partida {
 	public boolean ganoLaPartida() {
 		Posicion posicionJugador = this.unJugador.getVehiculo().getPosicion();
 		Posicion posicionFinal = this.unNivel.getPosicionDeLaLlegada();
-		return posicionJugador.esIgual(posicionFinal);
+		boolean ganoLaPartida = posicionJugador.esIgual(posicionFinal);
+		if (ganoLaPartida){
+			setChanged();
+			notifyObservers();
+		}
+		
+		return ganoLaPartida;
 	}
 	
 	public boolean perdioLaPartida() {

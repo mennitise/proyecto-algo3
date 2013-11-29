@@ -23,6 +23,7 @@ public class NivelFacilTest {
 		assertTrue( unNivel.getPosicionInicialDelVehiculo().esIgual(posicionVehiculo) );
 	}
 
+	/*
 	@Test
 	public void testNivelFacilSeInicializaBienConPosicionDeLlegada() {
 		NivelFacil unNivel = new NivelFacil();
@@ -30,6 +31,7 @@ public class NivelFacilTest {
 		assertTrue( unNivel.getPosicionDeLaLlegada().esIgual(posicionLlegada) );
 		
 	}
+	*/
 	
 	@Test
 	public void testNivelFacilSeInicializaBienLasMedidasDelTablero() {

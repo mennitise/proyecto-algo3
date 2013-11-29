@@ -64,7 +64,7 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		this.etiqueta1.setText("Nombre:"+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
-	    this.etiqueta2.setText("Puntaje:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
+	    this.etiqueta2.setText("Movimientos:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
 	    this.asignarImagenVehiculo();
 	}
 
@@ -72,8 +72,5 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 		this.panel.setVisible(b);
 		
 	}
-	
-	
-	
 	
 }
