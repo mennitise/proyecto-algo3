@@ -30,9 +30,13 @@ public class Calle {
 	}
 	
 	public void procesarVehiculo(Vehiculo unVehiculo) throws PasoImpedidoException{
-		for(int i=0; i<this.lasSorpresas.size();i++){
-			unVehiculo.interactuarCon(this.lasSorpresas.get(i));
-		}
+		if (this.lasSorpresas.size()!=0){
+			for(int i=0; i<this.lasSorpresas.size();i++){
+				unVehiculo.interactuarCon(this.lasSorpresas.get(i));
+			}
+			this.eliminarSorpresas();
+			}
+	
 		for(int i=0; i<this.losObstaculos.size();i++){
 			unVehiculo.interactuarCon(this.losObstaculos.get(i));
 		}
@@ -45,4 +49,11 @@ public class Calle {
 	public ArrayList<Obstaculo> getObstaculos(){
 		return this.losObstaculos;
 	}
+
+	private void eliminarSorpresas(){
+		for (int i=0; i<this.lasSorpresas.size(); i++){
+			this.lasSorpresas.remove(i);
+		}
+	}
+	
 }

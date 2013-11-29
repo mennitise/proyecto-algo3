@@ -52,9 +52,6 @@ public class Juego {
 	public static String getNombreArchivoDeJugadores(){
 		return nombreDeArchivoListaJugadores;
 	}
-
-	
-	
 	
 	public void asignarPuntaje(){
 		int puntaje = partidaActual.calcularPuntaje(unJugador.getCantidadDeMovimientos());
@@ -186,8 +183,6 @@ public class Juego {
 		}
 		return unVehiculo;
 	}
-	
-	
 
 	
 }
