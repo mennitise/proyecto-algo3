@@ -3,10 +3,15 @@ package Vista;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,6 +32,10 @@ import Sorpresas.SorpresaFavorable;
 import Tablero.Calle;
 import Tablero.Esquina;
 import Tablero.Posicion;
+import Vehiculos.Auto;
+import Vehiculos.CuatroXCuatro;
+import Vehiculos.Moto;
+import Vehiculos.Vehiculo;
 
 public class MapaJuegoVista extends JPanel implements Observer  {
     
@@ -44,14 +53,15 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 	private int esquinasHorizontales;
 	private int anchoCalle = 20;
 	private int tamanioPanel = 600;
+	private VehiculoVista vehiculoVista;
+	private SorpresaVista sorpresaVista;
     
 	//Otros
     private GestorDeMovimientos unGestor;
     private JPanel panelDeBotones;    
     private JFrame frame;
-    private JLabel coche;
-    private Juego juego;
 
+    private Juego juego;
 	
 	public MapaJuegoVista(ControladorDeMovimientos controlador, Juego unJuego) {
 		this.juego = unJuego;
@@ -77,10 +87,10 @@ public class MapaJuegoVista extends JPanel implements Observer  {
         this.calcularCentroImagenDelVehiculo();
         this.calcularEsquinaSuperiorDelCirculo();
         this.calcularEsquinaSuperiorImagenDelVehiculo();
-    	coche = new JLabel(); 
-    	this.add(coche);
 
-	SwingUtilities.invokeLater(new Runnable() {
+    	this.vehiculoVista = new VehiculoVista(this.unGestor.getVehiculoEnPosicionActual(),this.tamanioManzanaHorizontal,this.anchoCalle);
+    	this.sorpresaVista = new SorpresaVista(this.tamanioManzanaHorizontal,this.anchoCalle);
+    	SwingUtilities.invokeLater(new Runnable() {
         public void run() {
         
         }
@@ -100,7 +110,6 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		g.setColor(Color.WHITE);
  
 		g.fillOval(this.columnaPixelCirculo, this.filaPixelCirculo ,2*this.radio,2*this.radio);
-
 		
 		int filaPixelPosicionLlegada =  (-1)*this.radio/2 + (this.juego.getPartida().getPosicionDeLlegada().getFila()+1)*tamanioManzanaHorizontal
 									+ this.juego.getPartida().getPosicionDeLlegada().getFila()*this.anchoCalle+this.anchoCalle/2 ;
@@ -108,19 +117,18 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 									+ this.juego.getPartida().getPosicionDeLlegada().getColumna()*this.anchoCalle+this.anchoCalle/2;
 		
 		g.fillOval(columnaPixelPosicionLlegada, filaPixelPosicionLlegada , this.radio, this.radio);
-		
+				
 		g.setColor(Color.black);
-		
-
-        VehiculoVista unaVista = new VehiculoVista(this.unGestor.getVehiculoEnPosicionActual(),this.coche);
-		
-        coche.setBounds(this.columnaPixelVehiculo, this.filaPixelVehiculo, 2*this.anchoCalle, 2*this.anchoCalle);
-		
-		this.add(coche);
 		
 		this.dibujarManzanas(g);
 		
-		this.ponerSorpresasYObstaculosHorizontales(g);
+		this.vehiculoVista.actualizarImagenDelVehiculo(this.unGestor.getVehiculoEnPosicionActual(), g, this);
+		
+		Posicion unaPosicion = this.unGestor.getPosicionActual();
+		Esquina unaEsquina = this.juego.getPartida().getTablero().getEsquinaEn(unaPosicion);
+		this.sorpresaVista.actualizarSorpresas(g, unaPosicion, unaEsquina, this);
+		
+		//this.ponerSorpresasYObstaculosHorizontales(g);
 		
 		this.ponerSorpresasYObstaculosVerticales(g);
 	
@@ -137,13 +145,13 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 			this.juego.asignarPuntaje();
 			this.juego.guardarListaDeJugadoresExistentes();
 			int puntaje = this.juego.obtenerPuntaje();
-			JOptionPane.showMessageDialog(null,"Ganaste la partida con " + puntaje + " puntos","Aviso",JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Ganaste la partida con " + puntaje + " puntos","Felicitaciones",JOptionPane.WARNING_MESSAGE);
 			this.frame.dispose();
 		} else if(this.juego.getPartida().perdioLaPartida()){
 			this.juego.asignarPuntaje();
 			this.juego.getPartida().getPosicionDeLlegada();
 			this.juego.guardarListaDeJugadoresExistentes();
-			JOptionPane.showMessageDialog(null,"Ouch! Perdiste!!" ,"Aviso",JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Ouch! Perdiste!!" ,"Game Over",JOptionPane.WARNING_MESSAGE);
 			this.frame.dispose();
 		}
 		
@@ -180,7 +188,7 @@ public class MapaJuegoVista extends JPanel implements Observer  {
         this.frame.setSize(800,600);
         this.frame.setVisible(true);
         this.panelDeBotones.setBounds(600,0,180,200);
-        JPanel panelDeInformacionJugador = (new PanelDeInformacionVista(this.unGestor)).getPanel();
+        JPanel panelDeInformacionJugador = (new PanelDeInformacionVista(this.juego)).getPanel();
         panelDeInformacionJugador.setBounds(600,200,200,300);
         this.frame.add(panelDeInformacionJugador);
 	}
@@ -198,13 +206,18 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 	}
 
 	private void ponerSorpresasYObstaculosHorizontales(Graphics g){
-		for (int i=0; i<=this.esquinasVerticales-1;i++){
-			for (int j=0; j<=this.esquinasHorizontales-1;j++){
-				Posicion unaPosicion = new Posicion(i,j);
-				Esquina unaEsquina = this.juego.getPartida().getTablero().getEsquinaEn(unaPosicion);
-				int pixelHorizontal = (j+1)*this.tamanioManzanaHorizontal+ this.anchoCalle*j+this.anchoCalle+this.tamanioManzanaHorizontal/2 ;
-				int pixelVertical = (i+1)*this.tamanioManzanaVertical + this.anchoCalle*i+10;
+		
+	/*	
+				
+				int filaActual = unaPosicion.getFila();
+				int columnaActual = unaPosicion.getColumna();
+				int pixelHorizontal = 0 ;
+				int pixelVertical = 0;
+				
 				if (unaEsquina.tieneCalleAlEste()){
+					pixelHorizontal = (columnaActual+1)*this.tamanioManzanaHorizontal+ this.anchoCalle*(columnaActual+1) ;
+					pixelVertical = (filaActual+1)*this.tamanioManzanaVertical + this.anchoCalle*(filaActual);
+				
 					Calle unaCalle = unaEsquina.getCalleEste();
 					if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
 						Sorpresa primerSorpresa = unaEsquina.getCalleEste().getSorpresas().get(0);						
@@ -214,6 +227,27 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 					
 					if((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
 						Obstaculo unObstaculo  = unaEsquina.getCalleEste().getObstaculos().get(0);
+						pixelHorizontal += this.anchoCalle/2;
+						this.dibujarObstaculosEn(unObstaculo, pixelHorizontal, pixelVertical,g);
+					
+					}
+				
+					
+				}	
+				
+				if (unaEsquina.tieneCalleAlNorte()){
+					pixelHorizontal = (columnaActual+1)*this.tamanioManzanaHorizontal+ this.anchoCalle*(columnaActual) ;
+					pixelVertical = (filaActual)*this.tamanioManzanaVertical + this.anchoCalle*(filaActual);
+					
+					Calle unaCalle = unaEsquina.getCalleNorte();
+					if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+						Sorpresa primerSorpresa = unaEsquina.getCalleNorte().getSorpresas().get(0);		
+						this.dibujarSorpresaEn(primerSorpresa, pixelHorizontal, pixelVertical, g);
+					
+					}
+					
+					if((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
+						Obstaculo unObstaculo  = unaEsquina.getCalleNorte().getObstaculos().get(0);
 						pixelVertical += this.anchoCalle/2;
 						this.dibujarObstaculosEn(unObstaculo, pixelHorizontal, pixelVertical,g);
 					
@@ -222,12 +256,55 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 					
 				}	
 				
-			}
-		}
+				if (unaEsquina.tieneCalleAlOeste()){
+					pixelHorizontal = (columnaActual)*this.tamanioManzanaHorizontal+ this.anchoCalle*(columnaActual) ;
+					pixelVertical = (filaActual+1)*this.tamanioManzanaVertical + this.anchoCalle*(filaActual);
+					
+					Calle unaCalle = unaEsquina.getCalleOeste();
+					if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+						Sorpresa primerSorpresa = unaEsquina.getCalleOeste().getSorpresas().get(0);		
+						this.dibujarSorpresaEn(primerSorpresa, pixelHorizontal, pixelVertical, g);
+					
+					}
+					
+					if((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
+						Obstaculo unObstaculo  = unaEsquina.getCalleOeste().getObstaculos().get(0);
+						pixelHorizontal += this.anchoCalle/2;
+						this.dibujarObstaculosEn(unObstaculo, pixelHorizontal, pixelVertical,g);
+					
+					}
+				
+					
+				}	
+				
+				if (unaEsquina.tieneCalleAlSur()){
+					pixelHorizontal = (columnaActual+1)*this.tamanioManzanaHorizontal+ this.anchoCalle*(columnaActual) ;
+					pixelVertical = (filaActual+2)*this.tamanioManzanaVertical + this.anchoCalle*(filaActual);
+					
+					Calle unaCalle = unaEsquina.getCalleSur();
+					if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
+						Sorpresa primerSorpresa = unaEsquina.getCalleSur().getSorpresas().get(0);		
+						this.dibujarSorpresaEn(primerSorpresa, pixelHorizontal, pixelVertical, g);
+					
+					}
+					
+					if((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
+						Obstaculo unObstaculo  = unaEsquina.getCalleSur().getObstaculos().get(0);
+						pixelVertical -= this.anchoCalle/2;
+						this.dibujarObstaculosEn(unObstaculo, pixelHorizontal, pixelVertical,g);
+					
+					}
+				
+					
+				}	
+			
+		*/
 	}
 	
 	private void ponerSorpresasYObstaculosVerticales(Graphics g){
-		for (int i=0; i<=this.esquinasVerticales-1;i++){
+		
+		
+		/*for (int i=0; i<=this.esquinasVerticales-1;i++){
 			for (int j=0; j<=this.esquinasHorizontales-1;j++){
 				Posicion unaPosicion = new Posicion(i,j);
 				Esquina unaEsquina = this.juego.getPartida().getTablero().getEsquinaEn(unaPosicion);
@@ -251,37 +328,34 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 						
 				}
 			}
-		}
+		}*/
+		
+		
 		
 	}
 	
 	private void dibujarSorpresaEn(Sorpresa unaSorpresa, int fila, int columna, Graphics g){
 	
-        if (unaSorpresa.getClass() == SorpresaFavorable.class ) {
-        	g.drawString("SF",fila,columna);
-        }
-        if (unaSorpresa.getClass() == SorpresaDesfavorable.class ) {
-        	g.drawString("SD",fila,columna);
-        }
-        if (unaSorpresa.getClass() == SorpresaCambioDeVehiculo.class ) {
-        	g.drawString("SV",fila,columna);
-        }
-     
+		
+        	Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+			g.drawImage(img1,fila,columna,this);
+        
 
 	}
 	
 	private void dibujarObstaculosEn(Obstaculo unObstaculo, int fila, int columna, Graphics g){
-		
 
 		if (unObstaculo.getClass() == Piquete.class ) {
-			g.drawString("Pi", fila, columna);
-			
+			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/piquete.png");
+			g.drawImage(img1,fila,columna,this);
 		}
 		if (unObstaculo.getClass() == ControlPolicial.class ) {
-			g.drawString("C",fila,columna);
+			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/controlPolicial.png");
+			g.drawImage(img1,fila,columna,this);
 		}
 		if (unObstaculo.getClass() == Pozo.class ) {
-			g.drawString("Po",fila,columna);
+			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/pozo.png");
+			g.drawImage(img1,fila,columna,this);		
 		}
 			
 	}
