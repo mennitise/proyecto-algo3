@@ -23,16 +23,100 @@ import Juego.Juego;
 import Jugador.Jugador;
 
 public class ControladorMenuPrincipal {
-	private GestorDeMovimientos gestor;
 	
 	public ControladorMenuPrincipal(){
-		this.gestor = null;	
+			
 	}
 	
+	
+	private class EscuchaBotonJugadorExistente implements ActionListener{
 
+		private DatoJugador pedirJugador(){
+
+			
+			Hashtable unHashDatosJugadores = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(Juego.getNombreArchivoDeJugadores());
+			Enumeration datosJugador = unHashDatosJugadores.elements(); 
+			int cantidadDeJugadores = unHashDatosJugadores.size();
+			String unstring = "";
+			Object[] nombresDeLosJugadores = new Object[cantidadDeJugadores];
+			
+			if(!datosJugador.hasMoreElements()){
+				unstring = "NO HAY NINGUN JUGADOR CREADO";
+			}
+			
+			int posicion = 0;
+			while(datosJugador.hasMoreElements()){
+				DatoJugador datoJugadorActual = (DatoJugador)datosJugador.nextElement();
+				nombresDeLosJugadores[posicion]  = datoJugadorActual.getNombre();
+				posicion++;
+			}
+			
+			String jugadorElegido = (String)JOptionPane.showInputDialog(
+                    new JFrame(),
+                    "Elegir Jugador",
+                    "Jugador",
+                    JOptionPane.PLAIN_MESSAGE,
+                    new ImageIcon(),
+                    nombresDeLosJugadores,
+                    "Jugador");
+
+			if (jugadorElegido == null){
+				return null;	
+				//IMPLEMENTAR
+			}else{
+				return (DatoJugador)unHashDatosJugadores.get(jugadorElegido);
+				
+			}
+
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+				DatoJugador unDatoDeJugador = this.pedirJugador();
+				if (unDatoDeJugador!= null){
+					try {				
+						Juego juego = new Juego();
+						juego.setJugador(unDatoDeJugador.getNombre());
+						try {
+							juego.iniciarPartida(1, 1);
+						} catch (PartidaEnJuegoException | NivelInvalidoException
+								| VehiculoInvalidoException
+								| JugadorNoCargadoException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+
+						ControladorDeMovimientos control = new ControladorDeMovimientos(juego.getPartida().getGestorDeMovimientos());					
+						try {
+							MapaJuegoVista mapa = new MapaJuegoVista(control,juego);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+									        
+					}catch (NombreInvalidoException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (JugadorCargadoException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
+					
+				}
+				
+		}
+		
+	}
+	
+	public ActionListener getListenerBotonJugadorExistente() {
+		return new EscuchaBotonJugadorExistente();
+	}
 	
 	private class EscuchaBotonJugadorNuevo implements ActionListener{	
 	
+		
+		
 		private int pedirVehiculo(){
 		 
 			Object[] posibilidades = {"Auto", "CuatroXCuatro", "Moto"};
@@ -114,7 +198,12 @@ public class ControladorMenuPrincipal {
 					}
 
 					ControladorDeMovimientos control = new ControladorDeMovimientos(juego.getPartida().getGestorDeMovimientos());					
-					MapaJuegoVista mapa = new MapaJuegoVista(control,juego);
+					try {
+						MapaJuegoVista mapa = new MapaJuegoVista(control,juego);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 								        
 				}catch (NombreInvalidoException e1) {
 					// TODO Auto-generated catch block
