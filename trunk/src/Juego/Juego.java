@@ -2,6 +2,7 @@ package Juego;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Observable;
 
 import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
@@ -17,7 +18,7 @@ import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
 
-public class Juego {
+public class Juego extends Observable {
 
 	private ArrayList<Nivel> niveles;
 	private Partida partidaActual;
@@ -47,6 +48,8 @@ public class Juego {
 	private void inicializarNiveles(){
 		this.niveles = new ArrayList<Nivel>();
 		this.niveles.add(new NivelFacil());
+		this.niveles.add(new NivelMedio());
+		this.niveles.add(new NivelDificil());
 	}
 	
 	public static String getNombreArchivoDeJugadores(){
@@ -93,12 +96,9 @@ public class Juego {
 	}
 	
 	public void setJugador(String nombreJugador) 
-			throws NombreInvalidoException, JugadorCargadoException{
+			throws NombreInvalidoException{
 		
-		if(this.hayJugadorActivo()){
-			throw new JugadorCargadoException();
-		}
-		
+				
 		// Intenta crear un jugador sin vehículo.
 		try {
 			this.unJugador = new Jugador(nombreJugador, null);
@@ -139,6 +139,27 @@ public class Juego {
 		Vehiculo unVehiculo = this.getVehiculo(numeroVehiculo);
 		this.unJugador.setVehiculo(unVehiculo);
 		this.partidaActual = new Partida(this.unJugador, unNivel);
+		setChanged();
+		notifyObservers();
+	}
+	
+	public void nuevaPartida(int numeroNivel, int numeroVehiculo) throws NivelInvalidoException, VehiculoInvalidoException{
+		// Verifica número de nivel.
+				if( (numeroNivel < 1) || (numeroNivel > niveles.size())){
+					throw new NivelInvalidoException();
+				}
+				
+				// Verifica número de Vehiculo. 
+				if( (numeroVehiculo < 1) || (numeroVehiculo > this.cantidadDeVehiculosDisponibles)){
+					throw new VehiculoInvalidoException();
+				}
+				
+				Nivel unNivel = this.niveles.get(numeroNivel - 1);
+				Vehiculo unVehiculo = this.getVehiculo(numeroVehiculo);
+				this.unJugador.setVehiculo(unVehiculo);
+				this.partidaActual = new Partida(this.unJugador, unNivel);
+				setChanged();
+				notifyObservers();
 	}
 
 	public ArrayList<String> getListaNombreNivelesConNumero() {

@@ -19,7 +19,6 @@ public class MenuPrincipalVista extends JFrame    {
 	private GestorDeMovimientos gestor;
 	
 	
-	
 	MenuPrincipalVista(ControladorMenuPrincipal control){
 		this.setLayout(null);
 		this.setBounds(100, 100, 200, 300);
@@ -47,8 +46,10 @@ public class MenuPrincipalVista extends JFrame    {
 	}
 	
 	public static void main(String[] ar){
-		ControladorMenuPrincipal control = new ControladorMenuPrincipal();
-		MenuPrincipalVista menu = new MenuPrincipalVista(control);
+//		ControladorMenuPrincipal control = new ControladorMenuPrincipal();
+//		MenuPrincipalVista menu = new MenuPrincipalVista(control);
+		
+
 	}
 
 	

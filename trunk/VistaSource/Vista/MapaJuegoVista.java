@@ -18,6 +18,7 @@ import javax.swing.SwingUtilities;
 
 import Controladores.ControladorDeFlechas;
 import Controladores.ControladorDeMovimientos;
+import Controladores.ControladorMenuPrincipal;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
 import Tablero.Esquina;
@@ -60,7 +61,7 @@ public class MapaJuegoVista extends JPanel implements Observer  {
     	this.tamanioManzanaVertical = this.calcularTamanioManzanaVertical(this.tamanioPanel);
     	
     	
-       // this.panelDeBotones = new PanelDeControlMovimientos(controlador);
+    	// this.panelDeBotones = new PanelDeControlMovimientos(controlador);
     	this.setBackground(Color.black);
     	this.calcularRadio();	        
     	this.setBorder(BorderFactory.createLineBorder(Color.gray));
@@ -173,6 +174,8 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		this.frame = new JFrame();
         this.frame.setLayout(null);
         this.frame.add(this);
+        Juego unJuego = null;
+       // this.frame.add(new MenuPrincipalVista(new ControladorMenuPrincipal(unJuego)));
      //   this.frame.add(panelDeBotones);
         this.frame.setSize(800,600);
         this.frame.setVisible(true);
