@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import GestorDeMovimientos.EstrategiaEste;
@@ -48,6 +49,7 @@ public class ControladorDeFlechas implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			try {
 				this.gestor.moverVehiculo(new EstrategiaEste());
+			
 			} catch (MovimientoFisicamenteInvalidoException e1) {
 				this.vibrar();
 			}

@@ -28,11 +28,124 @@ import Jugador.Jugador;
 public class ControladorMenuPrincipal {
 	
 	private Juego juegoActual;
+	private MapaJuegoVista mapaJuegoActual;
 	
-	public ControladorMenuPrincipal(Juego unJuego){
+	public ControladorMenuPrincipal(Juego unJuego, MapaJuegoVista unMapa){
 		this.juegoActual = unJuego;
+		this.mapaJuegoActual = unMapa;
 	}
 	
+	private int pedirVehiculo() throws CanceloJuegoException{
+		 
+		Object[] posibilidades = {"Auto", "CuatroXCuatro", "Moto"};
+		String autoElegido = (String)JOptionPane.showInputDialog(
+		                    new JFrame(),
+		                    "Elegir Vehiculo",
+		                    "Vehiculo",
+		                    JOptionPane.PLAIN_MESSAGE,
+		                    new ImageIcon(),
+		                    posibilidades,
+		                    "Auto");
+
+	if (autoElegido == null){
+		throw new CanceloJuegoException();
+	}else{
+	
+		switch (autoElegido){
+			case "Auto": return 1;
+			case "CuatroXCuatro": return 3;
+			case "Moto": return 2;
+		};
+	}
+
+	return 1;
+	}
+	
+	private int pedirNivel() throws CanceloJuegoException{
+		Object[] posibilidades = {"Facil", "Intermedio", "Dificil"};
+		String nivelElegido = (String)JOptionPane.showInputDialog(
+		                    new JFrame(),
+		                    "Elegir Nivel",
+		                    "Nivel",
+		                    JOptionPane.PLAIN_MESSAGE,
+		                    new ImageIcon(),
+		                    posibilidades,
+		                    "Facil");
+
+		if (nivelElegido == null){
+			throw new CanceloJuegoException(); //significa que cancelo el juego
+		}else{
+		
+			switch (nivelElegido){
+				case "Facil": return 1;
+				case "Intermedio": return 2;
+				case "Dificil": return 3;
+			};
+		}
+			
+		return 1;	
+		
+	}
+		
+	private void cargarJuego(String nombreDelJugador){
+		int nivel = 0;
+		int vehiculo = 0;
+		ControladorDeMovimientos control = null; //se inicializa si se puede crear el juego, sino no...
+		
+		if ((nombreDelJugador != null) && (nivel != -1) && (vehiculo != -1)) {
+				try {
+					juegoActual.setJugador(nombreDelJugador);
+					nivel = this.pedirNivel();
+					vehiculo = this.pedirVehiculo();
+					juegoActual.iniciarPartida(nivel, vehiculo);
+					
+					control = new ControladorDeMovimientos (juegoActual.getPartida().getGestorDeMovimientos());
+					mapaJuegoActual.inicializarCon(control, juegoActual);
+					//					MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
+				} catch (NombreInvalidoException e1) {
+					JOptionPane.showMessageDialog(null,"Nombre Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
+				} catch (PartidaEnJuegoException e1) {
+						try {
+							juegoActual.nuevaPartida(nivel, vehiculo);
+							control = new ControladorDeMovimientos (juegoActual.getPartida().getGestorDeMovimientos());
+							mapaJuegoActual.inicializarCon(control, juegoActual);
+							//							mapaJuegoActual.setControlador(control);
+//							mapaJuegoActual.setJuegoActual(juegoActual);
+//							MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
+						} catch (NivelInvalidoException| VehiculoInvalidoException e2) {} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					
+				} catch (NivelInvalidoException e1) {}
+				catch (VehiculoInvalidoException e1) {}
+				catch (JugadorNoCargadoException e1) {}
+				catch (InterruptedException e1) {} 
+				catch (CanceloJuegoException e1) {}
+			
+		}
+		
+	}
+	
+	private void cargarPartidaExistente(String nombreDelJugador){
+		
+		try {
+			juegoActual.setJugador(nombreDelJugador);
+			juegoActual.cargarPartida();
+			System.out.println("Carga la partida");
+			ControladorDeMovimientos control = new ControladorDeMovimientos (juegoActual.getPartida().getGestorDeMovimientos());
+			mapaJuegoActual.inicializarCon(control, juegoActual);
+			//			mapaJuegoActual.setControlador(control);
+//			mapaJuegoActual.setJuegoActual(juegoActual);
+			//			mapaJuegoActual = new MapaJuegoVista(control,juegoActual);
+//			MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
+		} catch (NoExistePartidaGuardadaException e1) {
+			JOptionPane.showMessageDialog(null,"Lo lamento. No tienes una partida guardada","Aviso",JOptionPane.WARNING_MESSAGE);
+		} catch (NombreInvalidoException e1) {} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	private class EscuchaBotonJugadorExistente implements ActionListener{
 
@@ -100,17 +213,24 @@ public class ControladorMenuPrincipal {
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-				
+			DatoJugador datoDelJugador = this.pedirJugador();
+			if (datoDelJugador != null){ //es decir, si no se puso cancelar entonces hacer ..
+
 			String opcionElegida;
 				try {
 					opcionElegida = this.pedirOpcion();
 					if (opcionElegida == "Nuevo Juego"){
-						(new EscuchaBotonJugadorNuevo()).actionPerformed(e);;
+						cargarJuego(datoDelJugador.getNombre());
+						
+					}else if (opcionElegida == "Cargar Partida"){
+						
+						cargarPartidaExistente(datoDelJugador.getNombre());
 					}
 				} catch (CanceloJuegoException e) {
 					
 				}
-				
+			
+			}	
 				
 		}
 		
@@ -182,35 +302,7 @@ public class ControladorMenuPrincipal {
 			String nombre = new String("");			
 			nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
 			
-			int nivel = 0;
-			int vehiculo = 0;
-			ControladorDeMovimientos control = null; //se inicializa si se puede crear el juego, sino no...
-			
-			if ((nombre != null) && (nivel != -1) && (vehiculo != -1)) {
-					try {
-						juegoActual.setJugador(nombre);
-						nivel = this.pedirNivel();
-						vehiculo = this.pedirVehiculo();
-						juegoActual.iniciarPartida(nivel, vehiculo);
-						
-						control = new ControladorDeMovimientos (juegoActual.getPartida().getGestorDeMovimientos());
-						MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
-					} catch (NombreInvalidoException e1) {
-						JOptionPane.showMessageDialog(null,"Nombre Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
-					} catch (PartidaEnJuegoException e1) {
-							try {
-								juegoActual.nuevaPartida(nivel, vehiculo);
-								control = new ControladorDeMovimientos (juegoActual.getPartida().getGestorDeMovimientos());
-							} catch (NivelInvalidoException
-									| VehiculoInvalidoException e2) {}
-						
-					} catch (NivelInvalidoException e1) {}
-					catch (VehiculoInvalidoException e1) {}
-					catch (JugadorNoCargadoException e1) {}
-					catch (InterruptedException e1) {} 
-					catch (CanceloJuegoException e1) {}
-				
-			}
+			cargarJuego(nombre);
 						
 			//Solo se ejecuta esta Pieza cuando el nombre es valido, es para que no se salga del menu
 //			
@@ -288,47 +380,6 @@ public class ControladorMenuPrincipal {
 		return new EscuchaBotonVerPuntajes();
 	}
 
-	private class EscuchaBotonGuardarPartida implements ActionListener{
-				
-		@Override
-		public void actionPerformed(ActionEvent arg0) {				
-				juegoActual.guardarPartida();
-		
-		}
-	}
-		
-	public ActionListener getListenerBotonGuardarPartida() {
-			return new EscuchaBotonGuardarPartida();
-
-		}
-
-	private class EscuchaBotonCargarPartida implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-			try {
-				juegoActual.setJugador("JuanLaura");
-				juegoActual.cargarPartida();
-				System.out.println("Carga la partida");
-				ControladorDeMovimientos control = new ControladorDeMovimientos (juegoActual.getPartida().getGestorDeMovimientos());
-				MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
-			} catch (NoExistePartidaGuardadaException e1) {
-			} catch (NombreInvalidoException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-		}
-		
-	}
-	
-	public ActionListener getListenerBotonCargarPartida(){
-		return new EscuchaBotonCargarPartida();
-	}
 
 	
 }

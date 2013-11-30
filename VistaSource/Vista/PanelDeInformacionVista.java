@@ -13,12 +13,13 @@ import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
+import Controladores.ControladorGuardarPartida;
 import Controladores.ControladorMenuPrincipal;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
 
 public class PanelDeInformacionVista extends JPanel implements Observer{
-	private JPanel panel;
+
 	private GestorDeMovimientos gestor;
 	private JLabel etiqueta1;
 	private JLabel etiqueta2;
@@ -30,25 +31,24 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 		
 		this.gestor = unJuego.getPartida().getGestorDeMovimientos();
 		this.gestor.addObserver(this);
+		this.setLayout(new GridLayout(5,1));
 		
-		this.panel = new JPanel(new GridLayout(4,1,10,10));
-	       
-		this.etiqueta1 =  new JLabel("Nombre:"+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
-	    this.etiqueta2 = new JLabel("Movimientos:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
+		this.etiqueta1 =  new JLabel("Nombre: "+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
+		this.etiqueta2 = new JLabel("Movimientos: " + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
 	    this.etiqueta3 = new JLabel(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)))	;
 	    this.botonGuardar = new JButton ("Guardar Partida");
-	    this.botonGuardar.addActionListener( (new ControladorMenuPrincipal(unJuego)).getListenerBotonGuardarPartida());
+	    this.botonGuardar.addActionListener((new ControladorGuardarPartida(unJuego)).getListenerBotonGuardarPartida());
 	   
 	    this.cantidadMaximaDeMovimientos = new JLabel ("Cantidad Maxima: " + unJuego.getPartida().getCantidadDeMovimientosMaximaEnNivelActual());
 	    this.asignarImagenVehiculo();
 	    //Configuracion del Panel
-	    panel.setSize(100, 400);
-	    panel.add(this.etiqueta1);
-	    panel.add(this.cantidadMaximaDeMovimientos);
-	    panel.add(this.etiqueta2);
-	    panel.add(this.etiqueta3);
-	    panel.add(this.botonGuardar);
-	    panel.setVisible(true);	   	
+	    this.setSize(100, 400);
+	    this.add(this.etiqueta1);
+	    this.add(this.cantidadMaximaDeMovimientos);
+	    this.add(this.etiqueta2);
+	    this.add(this.etiqueta3);
+	    this.add(this.botonGuardar);
+	    this.setVisible(true);	   	
 	}
 
 	private void asignarImagenVehiculo(){
@@ -68,19 +68,19 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	}
 	
 	JPanel getPanel(){
-		return this.panel;
+		return this;
 	}
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		this.etiqueta1.setText("Nombre:"+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
-	    this.etiqueta2.setText("Movimientos:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
+		this.etiqueta1.setText("Nombre: "+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
+	    this.etiqueta2.setText("Movimientos: " + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
 	    this.asignarImagenVehiculo();
 	}
 
-	public void setVisible(boolean b) {
-		this.panel.setVisible(b);
-		
-	}
-	
+//	public void setVisible(boolean b) {
+//		this.setVisible(b);
+//		
+//	}
+//	
 }

@@ -5,8 +5,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -18,10 +16,8 @@ import javax.swing.SwingUtilities;
 
 import Controladores.ControladorDeFlechas;
 import Controladores.ControladorDeMovimientos;
-import Controladores.ControladorMenuPrincipal;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
-import Tablero.Esquina;
 import Tablero.Posicion;
 
 public class MapaJuegoVista extends JPanel implements Observer  {
@@ -47,11 +43,16 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 	//Otros
     private GestorDeMovimientos unGestor;
    // private JPanel panelDeBotones;    
-    private JFrame frame;
+
 
     private Juego juego;
+	private Object controlador;
 	
-	public MapaJuegoVista(ControladorDeMovimientos controlador, Juego unJuego) throws InterruptedException {
+	public MapaJuegoVista(){
+    	
+	}
+	
+	public void inicializarCon(ControladorDeMovimientos controlador, Juego unJuego) throws InterruptedException {
 		this.juego = unJuego;
 		this.unGestor = unJuego.getPartida().getGestorDeMovimientos();
 		this.unGestor.addObserver(this); //Las acciones que realice el gestor se veran reflejadas en esta Vista     
@@ -66,7 +67,7 @@ public class MapaJuegoVista extends JPanel implements Observer  {
     	this.calcularRadio();	        
     	this.setBorder(BorderFactory.createLineBorder(Color.gray));
 
-        this.crearYAbrirFrame();
+//        this.crearYAbrirFrame();
 
         this.setBounds(0, 0,600, 600);
 
@@ -80,11 +81,13 @@ public class MapaJuegoVista extends JPanel implements Observer  {
     	this.sorpresaVista = new SorpresaVista(this.tamanioManzanaHorizontal,this.anchoCalle,this.juego.getPartida().getTablero());
     	this.obstaculoVista = new ObstaculoVista(this.tamanioManzanaHorizontal,this.anchoCalle,this.juego.getPartida().getTablero());
     	
-    	ControladorDeFlechas unListener = new ControladorDeFlechas(this.unGestor, this.frame);
-    	this.frame.addKeyListener(unListener);
-    	
-    	this.frame.setFocusable(true);
-    	
+    //	ControladorDeFlechas unListener = new ControladorDeFlechas(this.unGestor, this);
+//    	this.addKeyListener(unListener);
+//    	this.setFocusable(true);
+//    	this.addKeyListener(unListener);
+//    	
+//    	this.frame.setFocusable(true);
+//    	
     	 
     	
     	SwingUtilities.invokeLater(new Runnable() {
@@ -93,9 +96,8 @@ public class MapaJuegoVista extends JPanel implements Observer  {
         }
         
     });
-	
-	}
-	    
+    	
+}
 	public Dimension getPreferredSize() {
 		return new Dimension(this.tamanioPanel,this.tamanioPanel);
 	}
@@ -144,16 +146,23 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 			this.juego.getPartida().getPosicionDeLlegada();
 			this.juego.guardarListaDeJugadoresExistentes();
 			JOptionPane.showMessageDialog(null,"Ouch! Perdiste!!" ,"Game Over",JOptionPane.WARNING_MESSAGE);
-			this.frame.dispose();
 		} else if (this.juego.getPartida().ganoLaPartida()){
 			this.juego.asignarPuntaje();
 			this.juego.guardarListaDeJugadoresExistentes();
 			int puntaje = this.juego.obtenerPuntaje();
 			JOptionPane.showMessageDialog(null,"Ganaste la partida con " + puntaje + " puntos","Felicitaciones",JOptionPane.WARNING_MESSAGE);
-			this.frame.dispose();
 		}
 		
-	}  
+		
+	}
+	
+	public void setControlador(ControladorDeMovimientos unControlador){
+		this.controlador = unControlador;
+	}
+	
+	public void setJuegoActual(Juego juegoActual){
+		this.juego = juegoActual;
+	}
 	
 	private void moveSquare(int x, int y) { //Se encarga de mover el circulo de vision
 	        int OFFSET = 1;
@@ -178,22 +187,22 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		
 	}
 	
-	private void crearYAbrirFrame(){
-		this.frame = new JFrame();
-        this.frame.setLayout(null);
-        this.frame.add(this);
-        Juego unJuego = null;
-       // this.frame.add(new MenuPrincipalVista(new ControladorMenuPrincipal(unJuego)));
-     //   this.frame.add(panelDeBotones);
-        this.frame.setSize(800,600);
-        this.frame.setVisible(true);
-      //  this.panelDeBotones.setBounds(600,0,180,200);
-        JPanel panelDeInformacionJugador = (new PanelDeInformacionVista(this.juego)).getPanel();
-        panelDeInformacionJugador.setBounds(600,200,200,300);
-        this.frame.add(panelDeInformacionJugador);
-        
-       
-	}
+//	private void crearYAbrirFrame(){
+//		this.frame = new JFrame();
+//        this.frame.setLayout(null);
+//        this.frame.add(this);
+//        Juego unJuego = null;
+//       // this.frame.add(new MenuPrincipalVista(new ControladorMenuPrincipal(unJuego)));
+//     //   this.frame.add(panelDeBotones);
+//        this.frame.setSize(800,600);
+//        this.frame.setVisible(true);
+//      //  this.panelDeBotones.setBounds(600,0,180,200);
+//        JPanel panelDeInformacionJugador = new PanelDeInformacionVista(this.juego);
+//        panelDeInformacionJugador.setBounds(600,0,200,500);
+//        this.frame.add(panelDeInformacionJugador);
+//        
+//       
+//	}
 		
 	private int calcularTamanioManzanaHorizontal(int cantidadHorizontal){
 		return (cantidadHorizontal - this.anchoCalle*this.esquinasHorizontales)/(this.esquinasHorizontales+1);		
@@ -246,5 +255,6 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		this.filaPixelCirculo = this.filaPixel - this.radio;
 		this.columnaPixelCirculo = this.columnaPixel - this.radio;
 		}
+
 }
 
