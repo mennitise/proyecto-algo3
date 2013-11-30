@@ -37,6 +37,7 @@ public class VehiculoVista {
 	public void actualizarImagenDelVehiculo(Vehiculo vehiculo, Graphics g, JPanel panelQueContieneEstaVista){
 		this.calcularPosiciones(vehiculo.getPosicion().getFila(), vehiculo.getPosicion().getColumna());
 		if (vehiculo.getClass() == Auto.class){
+			System.out.println("llego aca");
 			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/Auto-20x20p.png");
 			g.drawImage(img1,posicionHorizontalDeLaImagen,posicionVerticalDeLaImagen, panelQueContieneEstaVista);
 		}

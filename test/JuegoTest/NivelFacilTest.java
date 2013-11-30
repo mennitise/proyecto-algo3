@@ -16,12 +16,12 @@ public class NivelFacilTest {
 		assertTrue( unNivel != null );
 	}
 	
-	@Test
-	public void testNivelFacilSeInicializaBienConPosicionInicialDelVehiculo() {
-		NivelFacil unNivel = new NivelFacil();
-		Posicion posicionVehiculo = new Posicion(5,0);
-		assertTrue( unNivel.getPosicionInicialDelVehiculo().esIgual(posicionVehiculo) );
-	}
+//	@Test
+//	public void testNivelFacilSeInicializaBienConPosicionInicialDelVehiculo() {
+//		NivelFacil unNivel = new NivelFacil();
+//		Posicion posicionVehiculo = new Posicion(5,0);
+//		assertTrue( unNivel.getPosicionInicialDelVehiculo().esIgual(posicionVehiculo) );
+//	}
 
 	/*
 	@Test
@@ -33,11 +33,11 @@ public class NivelFacilTest {
 	}
 	*/
 	
-	@Test
-	public void testNivelFacilSeInicializaBienLasMedidasDelTablero() {
-		NivelFacil unNivel = new NivelFacil();
-		Tablero unTablero = unNivel.inicializarTablero();
-		assertTrue( unTablero.getColumnas() == 10 );
-		assertTrue( unTablero.getFilas()    == 10 );
-	}
+//	@Test
+//	public void testNivelFacilSeInicializaBienLasMedidasDelTablero() {
+//		NivelFacil unNivel = new NivelFacil();
+//		Tablero unTablero = unNivel.inicializarTablero();
+//		assertTrue( unTablero.getColumnas() == 10 );
+//		assertTrue( unTablero.getFilas()    == 10 );
+//	}
 }

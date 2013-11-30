@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Vista.MapaJuegoVista;
+import Vista.PanelInicial;
 import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
 import Excepciones.NivelInvalidoException;
@@ -24,16 +25,16 @@ import Jugador.Jugador;
 
 public class ControladorMenuPrincipal {
 	
-	public ControladorMenuPrincipal(){
-			
+	private Juego juegoActual;
+	
+	public ControladorMenuPrincipal(Juego unJuego){
+		this.juegoActual = unJuego;
 	}
 	
 	
 	private class EscuchaBotonJugadorExistente implements ActionListener{
 
 		private DatoJugador pedirJugador(){
-
-			
 			Hashtable unHashDatosJugadores = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(Juego.getNombreArchivoDeJugadores());
 			Enumeration datosJugador = unHashDatosJugadores.elements(); 
 			int cantidadDeJugadores = unHashDatosJugadores.size();
@@ -97,9 +98,6 @@ public class ControladorMenuPrincipal {
 					}catch (NombreInvalidoException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					} catch (JugadorCargadoException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
 					}
 				
 					
@@ -108,7 +106,7 @@ public class ControladorMenuPrincipal {
 		}
 		
 	}
-	
+
 	public ActionListener getListenerBotonJugadorExistente() {
 		return new EscuchaBotonJugadorExistente();
 	}
@@ -163,8 +161,8 @@ public class ControladorMenuPrincipal {
 		
 			switch (nivelElegido){
 				case "Facil": return 1;
-				/*case "CuatroXCuatro": IMPLEMENTAR   ; break;
-				case "Moto": unNivel = IMPLEMENTAR ; break;*/
+				case "Intermedio": return 2;
+				case "Dificil": return 3;
 			};
 		}
 			
@@ -177,38 +175,39 @@ public class ControladorMenuPrincipal {
 			
 			String nombre = new String("");			
 			nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
-							
-			int nivel = this.pedirNivel();
-			int vehiculo = this.pedirVehiculo();
 			
+						
 			//Solo se ejecuta esta Pieza cuando el nombre es valido, es para que no se salga del menu
 			if ((nombre != null) && !(nombre.equals(""))) {
+				int nivel = this.pedirNivel();
+				int vehiculo = this.pedirVehiculo();
+
 				try {
-					
-					
-					Juego juego = new Juego();
-					juego.setJugador(nombre);
+					//juegoActual = new Juego();
+					juegoActual.setJugador(nombre);
 					try {
-						juego.iniciarPartida(nivel, vehiculo);
+						juegoActual.iniciarPartida(nivel, vehiculo);
 					} catch (PartidaEnJuegoException | NivelInvalidoException
 							| VehiculoInvalidoException
 							| JugadorNoCargadoException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+						try {
+							juegoActual.nuevaPartida(nivel, vehiculo);
 
-					ControladorDeMovimientos control = new ControladorDeMovimientos(juego.getPartida().getGestorDeMovimientos());					
+						} catch (NivelInvalidoException
+								| VehiculoInvalidoException e2) {
+							// TODO Auto-generated catch block
+						}
+					}
+					System.out.println(juegoActual);
+					ControladorDeMovimientos control = new ControladorDeMovimientos(juegoActual.getPartida().getGestorDeMovimientos());					
 					try {
-						MapaJuegoVista mapa = new MapaJuegoVista(control,juego);
+						MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 								        
 				}catch (NombreInvalidoException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (JugadorCargadoException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

@@ -12,7 +12,7 @@ public abstract class Nivel {
 	protected Posicion posicionLlegada;
 	protected int laCantidadMaximaDeMovimientos;
 	protected int factorDePuntaje;
-	String pathArchivoTablero = "TableroNivelDificil.xml";
+	protected String pathArchivoTablero;
 	
 	public Nivel(){
 		this.posicionInicialVehiculo = null;

@@ -25,8 +25,6 @@ public class JuegoTest {
 			this.unJuego.setJugador("Pepe");
 		} catch (NombreInvalidoException e) {
 			// No ingresa aquí porque fué bien inicializado.
-		} catch (JugadorCargadoException e) {
-			// No ingresa aquí porque fué bien inicializado.
 		}
 		
 	}
@@ -37,8 +35,6 @@ public class JuegoTest {
 		try {
 			this.unJuego.setJugador("Pepe");
 		} catch (NombreInvalidoException e1) {
-			// No ingresa aquí porque fué bien inicializado.
-		} catch (JugadorCargadoException e1) {
 			// No ingresa aquí porque fué bien inicializado.
 		}
 		
