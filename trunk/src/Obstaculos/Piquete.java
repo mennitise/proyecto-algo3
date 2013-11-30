@@ -1,5 +1,7 @@
 package Obstaculos;
 
+import org.jdom.Element;
+
 import Excepciones.NumeroNegativoException;
 import Excepciones.PasoImpedidoException;
 import Vehiculos.Auto;
@@ -31,5 +33,17 @@ public class Piquete extends Obstaculo {
 		throw new PasoImpedidoException();
 	}
 
+	
+	//SERIALIZACION
+	
+	@Override
+	public Element serializarXML() {
+		Element element = new Element("ObstaculoPiquete");
+		return element;
+	}
+	
+	public static Obstaculo cargarDesdeXML(Element element){
+		return new Piquete();
+	}
 
 }

@@ -29,6 +29,14 @@ public class Calle {
 		this.lasSorpresas.add(unaSorpresa);
 	}
 	
+	public boolean tieneAlgunaSorpresa(){
+		return (this.lasSorpresas.size() != 0);
+	}
+	
+	public boolean tieneAlgunObstaculo(){
+		return (this.losObstaculos.size() != 0);
+	}
+	
 	public void procesarVehiculo(Vehiculo unVehiculo) throws PasoImpedidoException{
 		if (this.lasSorpresas.size()!=0){
 			for(int i=0; i<this.lasSorpresas.size();i++){

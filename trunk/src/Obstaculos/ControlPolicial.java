@@ -2,6 +2,8 @@ package Obstaculos;
 
 import java.util.Random;
 
+import org.jdom.Element;
+
 import Excepciones.NumeroNegativoException;
 import Excepciones.PasoImpedidoException;
 import Vehiculos.Auto;
@@ -50,6 +52,19 @@ public class ControlPolicial extends Obstaculo{
 		if(rn.nextDouble() < this.probabilidadDeFrenarALaCuatroXCuatro){
 			this.DetenerAlvehiculo(unaCuatroXCuatro);
 		}
+	}
+	
+	
+	//SERIALIZACION
+	
+	@Override
+	public Element serializarXML() {
+		Element element = new Element("ObstaculoControlPolicial");
+		return element;
+	}
+	
+	public static Obstaculo cargarDesdeXML(Element element){
+		return new ControlPolicial();
 	}
 	
 }
