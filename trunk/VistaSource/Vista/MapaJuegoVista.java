@@ -77,8 +77,8 @@ public class MapaJuegoVista extends JPanel implements Observer  {
         this.calcularEsquinaSuperiorImagenDelVehiculo();
 
     	this.vehiculoVista = new VehiculoVista(this.unGestor.getVehiculoEnPosicionActual(),this.tamanioManzanaHorizontal,this.anchoCalle);
-    	this.sorpresaVista = new SorpresaVista(this.tamanioManzanaHorizontal,this.anchoCalle);
-    	this.obstaculoVista = new ObstaculoVista(this.tamanioManzanaHorizontal,this.anchoCalle);
+    	this.sorpresaVista = new SorpresaVista(this.tamanioManzanaHorizontal,this.anchoCalle,this.juego.getPartida().getTablero());
+    	this.obstaculoVista = new ObstaculoVista(this.tamanioManzanaHorizontal,this.anchoCalle,this.juego.getPartida().getTablero());
     	
     	ControladorDeFlechas unListener = new ControladorDeFlechas(this.unGestor, this.frame);
     	this.frame.addKeyListener(unListener);
@@ -116,32 +116,40 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		
 		this.vehiculoVista.actualizarImagenDelVehiculo(this.unGestor.getVehiculoEnPosicionActual(), g, this);
 		
-		Posicion unaPosicion = this.unGestor.getPosicionActual();
-		Esquina unaEsquina = this.juego.getPartida().getTablero().getEsquinaEn(unaPosicion);
-		this.sorpresaVista.actualizarSorpresas(g, unaPosicion, unaEsquina, this);
-		this.obstaculoVista.actualizarObstaculos(g, unaPosicion, unaEsquina, this);
-	
-	
+		Posicion unaCopiaPosicion = this.unGestor.getPosicionActual().getCopiaDePosicion();
+		unaCopiaPosicion.moverAlNorte();
+		unaCopiaPosicion.moverAlOeste();
+		Posicion posicionIteracion;
+		for(int i=0; i<3 ; i++){
+			posicionIteracion = unaCopiaPosicion.getCopiaDePosicion();
+			for(int j=0; j<3 ; j++){
+				if(this.juego.getPartida().getTablero().posicionValida(posicionIteracion)){
+					this.sorpresaVista.actualizarSorpresas(g, posicionIteracion, this);
+					this.obstaculoVista.actualizarObstaculos(g, posicionIteracion, this);
+				}
+				posicionIteracion.moverAlEste();
+			}
+			unaCopiaPosicion.moverAlSur();
+		}	
 		
-}
+	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		int fila = this.unGestor.getVehiculoEnPosicionActual().getPosicion().getFila();
 		int columna = this.unGestor.getVehiculoEnPosicionActual().getPosicion().getColumna();
 		moveSquare(fila,columna);
-		
-		if (this.juego.getPartida().ganoLaPartida()){
-			this.juego.asignarPuntaje();
-			this.juego.guardarListaDeJugadoresExistentes();
-			int puntaje = this.juego.obtenerPuntaje();
-			JOptionPane.showMessageDialog(null,"Ganaste la partida con " + puntaje + " puntos","Felicitaciones",JOptionPane.WARNING_MESSAGE);
-			this.frame.dispose();
-		} else if(this.juego.getPartida().perdioLaPartida()){
+		if(this.juego.getPartida().perdioLaPartida()){
 			this.juego.asignarPuntaje();
 			this.juego.getPartida().getPosicionDeLlegada();
 			this.juego.guardarListaDeJugadoresExistentes();
 			JOptionPane.showMessageDialog(null,"Ouch! Perdiste!!" ,"Game Over",JOptionPane.WARNING_MESSAGE);
+			this.frame.dispose();
+		} else if (this.juego.getPartida().ganoLaPartida()){
+			this.juego.asignarPuntaje();
+			this.juego.guardarListaDeJugadoresExistentes();
+			int puntaje = this.juego.obtenerPuntaje();
+			JOptionPane.showMessageDialog(null,"Ganaste la partida con " + puntaje + " puntos","Felicitaciones",JOptionPane.WARNING_MESSAGE);
 			this.frame.dispose();
 		}
 		
@@ -197,12 +205,12 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 	
 	private void ponerPosicionDeLlegada(Graphics g){
 		
-		int filaPixelPosicionLlegada =  (-1)*this.radio/2 + (this.juego.getPartida().getPosicionDeLlegada().getFila()+1)*tamanioManzanaHorizontal
+		int filaPixelPosicionLlegada =  (-1)*this.radio/4 + (this.juego.getPartida().getPosicionDeLlegada().getFila()+1)*tamanioManzanaHorizontal
 				+ this.juego.getPartida().getPosicionDeLlegada().getFila()*this.anchoCalle+this.anchoCalle/2 ;
-		int columnaPixelPosicionLlegada =  (-1)*this.radio/2 + (this.juego.getPartida().getPosicionDeLlegada().getColumna()+1)*tamanioManzanaVertical 
+		int columnaPixelPosicionLlegada =  (-1)*this.radio/4 + (this.juego.getPartida().getPosicionDeLlegada().getColumna()+1)*tamanioManzanaVertical 
 				+ this.juego.getPartida().getPosicionDeLlegada().getColumna()*this.anchoCalle+this.anchoCalle/2;
 
-		g.fillOval(columnaPixelPosicionLlegada, filaPixelPosicionLlegada , this.radio, this.radio);
+		g.fillOval(columnaPixelPosicionLlegada, filaPixelPosicionLlegada , this.radio/2, this.radio/2);
 	
 		
 		//Para la bandera adquieren nuevos valores porque es una imagen cuadrada, no circular como arriba
@@ -216,7 +224,7 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 	}
 	
 	private void calcularRadio(){
-		this.radio = 2*this.tamanioManzanaHorizontal+ 2*this.anchoCalle;
+		this.radio = (int)(2*this.tamanioManzanaHorizontal + 2*this.anchoCalle);
 	}
 
 	private void calcularCentroImagenDelVehiculo(){

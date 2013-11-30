@@ -15,6 +15,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	private Juego juego;
 	
 	public VentanaPrincipal(){
+
 		
 		this.juego = new Juego(); //el controlador se encargara de iniciarlo
 		
@@ -34,10 +35,12 @@ public class VentanaPrincipal extends JFrame implements Observer{
 				
 		this.configurarFrame();
 		
+		
 	}
 	
 	private void configurarFrame(){
 		this.setLayout(null);
+		this.setTitle("GPS Challenge");
 		this.setBounds(300,100,800,600);
 		this.setVisible(true);
 	}
@@ -50,23 +53,22 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		if (this.juego.hayPartidaActiva()){
+			if (this.juego.hayPartidaActiva()){	
+				this.panelInicial.setVisible(false);
+				this.juego.getPartida().getGestorDeMovimientos().addObserver(this);
+			}
 			
-			this.panelInicial.setVisible(false);
-			this.juego.getPartida().getGestorDeMovimientos().addObserver(this);
-		
-		}
-		if (juego.hayPartidaActiva()){
-			this.juego.getPartida().getGestorDeMovimientos().addObserver(this.panelInicial);
-		}
-		
-		if (this.juego.getPartida().ganoLaPartida()|| this.juego.getPartida().perdioLaPartida()){
-			
-			ControladorMenuPrincipal controlador = new ControladorMenuPrincipal(this.juego);
-			PanelInicial unpanelInicial = new PanelInicial(controlador);
-			unpanelInicial.setBounds(250,150,300,300);	
-			unpanelInicial.setVisible(true);
-			this.add(unpanelInicial);
+//			if (juego.hayPartidaActiva()){
+//				this.juego.getPartida().getGestorDeMovimientos().addObserver(this.panelInicial);
+//			}
+//			
+			if (this.juego.terminoLaPartida()){				
+				this.panelInicial.setVisible(true);
+//				ControladorMenuPrincipal controlador = new ControladorMenuPrincipal(this.juego);
+//				PanelInicial unpanelInicial = new PanelInicial(controlador);
+//				unpanelInicial.setBounds(250,150,300,300);	
+//				unpanelInicial.setVisible(true);
+//				this.add(unpanelInicial);
 			}
 	}
 

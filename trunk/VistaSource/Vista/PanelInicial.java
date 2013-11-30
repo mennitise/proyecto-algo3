@@ -14,24 +14,27 @@ public class PanelInicial extends JPanel implements Observer {
 	private JButton botonJugadorNuevo;
 	private JButton botonVerPuntajes;
 	private JButton botonJugadorExistente;
+	private JButton botonCargarPartida;
 
 	public PanelInicial(ControladorMenuPrincipal control){
 		
 		this.botonJugadorNuevo = new JButton ("Jugador Nuevo");			
 		this.botonVerPuntajes = new JButton("Ver Puntajes");
-		this.botonJugadorExistente = new JButton ("JugadorExistente");
+		this.botonJugadorExistente = new JButton ("Jugador Existente");
+		this.botonCargarPartida = new JButton ("Cargar Partida");
 		this.botonJugadorNuevo.addActionListener(control.getListenerBotonJugadorNuevo());
 		this.botonVerPuntajes.addActionListener(control.getListenerBotonVerPuntajes());
 		this.botonJugadorExistente.addActionListener(control.getListenerBotonJugadorExistente());
-		
+		this.botonCargarPartida.addActionListener(control.getListenerBotonCargarPartida());
 		this.botonJugadorExistente.setVisible(true);
 		this.botonJugadorNuevo.setVisible(true);
 		this.botonVerPuntajes.setVisible(true);
-		this.setLayout(new GridLayout(3,1));
+		this.setLayout(new GridLayout(4,1));
 		this.setSize(250,250);		
 		this.add(this.botonJugadorNuevo);
 		this.add(this.botonVerPuntajes);
 		this.add(this.botonJugadorExistente);
+		this.add(this.botonCargarPartida);
 		this.setVisible(true);
 	}
 

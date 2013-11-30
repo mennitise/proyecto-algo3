@@ -11,28 +11,25 @@ import Obstaculos.Obstaculo;
 import Tablero.Calle;
 import Tablero.Esquina;
 import Tablero.Posicion;
+import Tablero.Tablero;
 
 public class ObstaculoVista {
 
 	private int tamanioManzana;
 	private int anchoCalle;
-	private GestorDeMovimientos unGestor;
+	private Tablero tablero;
 
-	public ObstaculoVista(int tamanioManzana, int anchoCalle){
+	public ObstaculoVista(int tamanioManzana, int anchoCalle, Tablero unTablero){
 		this.tamanioManzana = tamanioManzana;
 		this.anchoCalle = anchoCalle;
-		this.unGestor = unGestor;
+		this.tablero = unTablero;
 	}
 	
-	public void actualizarObstaculos(Graphics g, Posicion unaPosicion, Esquina unaEsquina,
-			JPanel panelDeDondeViene){
+	public void actualizarObstaculos(Graphics g, Posicion unaPosicion, JPanel panelDeDondeViene){
 		
-		
-		
+		Esquina unaEsquina = tablero.getEsquinaEn(unaPosicion);
 		int filaActual = unaPosicion.getFila();
 		int columnaActual = unaPosicion.getColumna();
-		int pixelHorizontal = 0 ;
-		int pixelVertical = 0;
 		
 		this.ponerObstaculoEnCalleEste(unaEsquina, filaActual, columnaActual, g, panelDeDondeViene);
 		this.ponerObstaculoEnCalleNorte(unaEsquina,filaActual,columnaActual,g,panelDeDondeViene);
@@ -63,7 +60,7 @@ public class ObstaculoVista {
 
 		if (unaEsquina.tieneCalleAlSur()){
 			int pixelHorizontal = (columnaActual+1)*this.tamanioManzana + this.anchoCalle*(columnaActual) ;
-			int pixelVertical = (filaActual+2)*this.tamanioManzana + this.anchoCalle*(filaActual) - this.anchoCalle/2;
+			int pixelVertical = (filaActual+1)*this.tamanioManzana + this.anchoCalle*(filaActual+1) + this.anchoCalle/2;
 			
 			Calle unaCalle = unaEsquina.getCalleSur();
 			if ((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
