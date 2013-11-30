@@ -205,6 +205,10 @@ public class Juego extends Observable {
 		return unVehiculo;
 	}
 
+	public boolean terminoLaPartida() {
+		return (this.getPartida().ganoLaPartida()|| this.getPartida().perdioLaPartida());
+	}
+
 	
 }
 

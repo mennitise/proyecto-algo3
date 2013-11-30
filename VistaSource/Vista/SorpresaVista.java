@@ -12,27 +12,24 @@ import Sorpresas.Sorpresa;
 import Tablero.Calle;
 import Tablero.Esquina;
 import Tablero.Posicion;
+import Tablero.Tablero;
 
 
 public class SorpresaVista {
 	private int tamanioManzana;
 	private int anchoCalle;
-	private GestorDeMovimientos unGestor;
+	private Tablero tablero;
 
-	public SorpresaVista(int tamanioManzana, int anchoCalle){
+	public SorpresaVista(int tamanioManzana, int anchoCalle, Tablero unTablero){
 		this.tamanioManzana = tamanioManzana;
 		this.anchoCalle = anchoCalle;
-		this.unGestor = unGestor;
+		this.tablero = unTablero;
 	}
 	
-	public void actualizarSorpresas(Graphics g, Posicion unaPosicion, Esquina unaEsquina, JPanel panelDeDondeViene){
-		
-		
-		
+	public void actualizarSorpresas(Graphics g, Posicion unaPosicion, JPanel panelDeDondeViene){
+		Esquina unaEsquina = tablero.getEsquinaEn(unaPosicion);
 		int filaActual = unaPosicion.getFila();
 		int columnaActual = unaPosicion.getColumna();
-		int pixelHorizontal = 0 ;
-		int pixelVertical = 0;
 		
 		this.ponerSorpresaEnCalleEste(unaEsquina, filaActual, columnaActual, g, panelDeDondeViene);
 		this.ponerSorpresaEnCalleNorte(unaEsquina,filaActual,columnaActual,g,panelDeDondeViene);
@@ -63,7 +60,7 @@ public class SorpresaVista {
 
 		if (unaEsquina.tieneCalleAlSur()){
 			int pixelHorizontal = (columnaActual+1)*this.tamanioManzana + this.anchoCalle*(columnaActual) ;
-			int pixelVertical = (filaActual+2)*this.tamanioManzana + this.anchoCalle*(filaActual);
+			int pixelVertical = (filaActual+1)*this.tamanioManzana + this.anchoCalle*(filaActual+1);
 			
 			Calle unaCalle = unaEsquina.getCalleSur();
 			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){

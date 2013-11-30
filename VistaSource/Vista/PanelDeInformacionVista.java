@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -12,6 +13,7 @@ import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
+import Controladores.ControladorMenuPrincipal;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
 
@@ -21,6 +23,7 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	private JLabel etiqueta1;
 	private JLabel etiqueta2;
 	private JLabel etiqueta3;
+	private JButton botonGuardar;
 	private JLabel cantidadMaximaDeMovimientos;
 	
 	public PanelDeInformacionVista(Juego unJuego){
@@ -33,6 +36,9 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 		this.etiqueta1 =  new JLabel("Nombre:"+ this.gestor.getVehiculoEnPosicionActual().getConductor().getNombre());
 	    this.etiqueta2 = new JLabel("Movimientos:" + Integer.toString(this.gestor.getVehiculoEnPosicionActual().getConductor().getCantidadDeMovimientos()));
 	    this.etiqueta3 = new JLabel(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)))	;
+	    this.botonGuardar = new JButton ("Guardar Partida");
+	    this.botonGuardar.addActionListener( (new ControladorMenuPrincipal(unJuego)).getListenerBotonGuardarPartida());
+	   
 	    this.cantidadMaximaDeMovimientos = new JLabel ("Cantidad Maxima: " + unJuego.getPartida().getCantidadDeMovimientosMaximaEnNivelActual());
 	    this.asignarImagenVehiculo();
 	    //Configuracion del Panel
@@ -41,6 +47,7 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	    panel.add(this.cantidadMaximaDeMovimientos);
 	    panel.add(this.etiqueta2);
 	    panel.add(this.etiqueta3);
+	    panel.add(this.botonGuardar);
 	    panel.setVisible(true);	   	
 	}
 
