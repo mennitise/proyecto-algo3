@@ -1,8 +1,11 @@
 package Sorpresas;
 
+import org.jdom.Element;
+
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
+import Vehiculos.Vehiculo;
 
 public abstract class Sorpresa {
 	
@@ -21,5 +24,23 @@ public abstract class Sorpresa {
 	public abstract void interactuarCon(Moto unaMoto);
 	public abstract void interactuarCon(Auto unAuto);
 	public abstract void interactuarCon(CuatroXCuatro unaCuatroXCuatro);
+	
+	// Serialización
+	
+	public abstract Element serializarXML();
+	
+	public static Sorpresa cargarDesdeXML(Element element) {
+		String nombreSorpresa = element.getName();
+		if (nombreSorpresa.equals("SorpresaFavorable")) {
+			return SorpresaFavorable.cargarDesdeXML(element);
+		}
+		if (nombreSorpresa.equals("SorpresaDesfavorable")) {
+			return SorpresaDesfavorable.cargarDesdeXML(element);
+		}
+		if (nombreSorpresa.equals("SorpresaCambioDeVehiculo")) {
+			return SorpresaCambioDeVehiculo.cargarDesdeXML(element);
+		}
+		return null;
+	}
 
 }

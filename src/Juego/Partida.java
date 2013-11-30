@@ -29,6 +29,13 @@ public class Partida extends Observable{
 		this.unTablero = this.unNivel.inicializarTablero();
 		this.unGestor = new GestorDeMovimientos(this.unJugador, unTablero);
 	}
+	
+	public Partida(Jugador jugador, Nivel unNivel, Tablero unTablero){
+		this.unJugador = jugador;
+		this.unNivel = unNivel;
+		this.unTablero = unTablero;
+		this.unGestor = new GestorDeMovimientos(this.unJugador, this.unTablero);
+	}
 
 	public String getNombreJugador() {
 		return this.unJugador.getNombre();
@@ -74,6 +81,10 @@ public class Partida extends Observable{
 		return (this.unJugador.getCantidadDeMovimientos()>this.unNivel.getCantidadMaximaDeMovimientos());
 	}
 
+	public int calcularPuntaje(int cantidadDeMovimientos) {
+		return this.unNivel.calcularPuntaje(cantidadDeMovimientos);
+	}
+	
 	// Serialización
 	
 	public Element serializarXML(){
@@ -81,8 +92,10 @@ public class Partida extends Observable{
 		Element element = new Element("partida");
 		Element elementJugador = this.unJugador.serializarXML();
 		Element elementNivel = this.unNivel.serializarXML();
+		Element elementTablero = this.unTablero.serializarXML();
 		element.getChildren().add(elementJugador);
 		element.getChildren().add(elementNivel);
+		element.getChildren().add(elementTablero);
 		return element;
 	}
 	
@@ -92,21 +105,8 @@ public class Partida extends Observable{
 		Jugador unJugador = Jugador.cargarDesdeXML(elementJugador);
 		Element elementNivel = (Element)element.getChildren().get(1);
 		Nivel unNivel = Nivel.cargarDesdeXML(elementNivel);
-		return Partida.cargarPartidaExistente(unJugador,unNivel);
+		Element elementTablero = (Element)element.getChildren().get(2);
+		Tablero unTablero = Tablero.cargarDesdeXML(elementTablero);
+		return new Partida(unJugador, unNivel, unTablero);
 	}
-
-	private static Partida cargarPartidaExistente(Jugador unJugador,Nivel unNivel) {
-		
-		Posicion copiaPosicion = unJugador.getVehiculo().getPosicion().getCopiaDePosicion();
-		Partida unaPartida = new Partida(unJugador, unNivel);
-		unJugador.getVehiculo().setPosicion(copiaPosicion);
-		return unaPartida;
-	}
-
-	
-	public int calcularPuntaje(int cantidadDeMovimientos) {
-		return this.unNivel.calcularPuntaje(cantidadDeMovimientos);
-	}
-	
-	
 }

@@ -1,5 +1,7 @@
 package Sorpresas;
 
+import org.jdom.Element;
+
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
@@ -26,6 +28,19 @@ public class SorpresaCambioDeVehiculo extends Sorpresa{
 		Moto unaMoto = new Moto(unaCuatroXCuatro.getPosicion()); 
 		unaCuatroXCuatro.getConductor().setVehiculo(unaMoto);
 		
+	}
+
+	
+	//SERIALIZACION
+	
+	@Override
+	public Element serializarXML() {
+		Element element = new Element("SorpresaCambioDeVehiculo");
+		return element;
+	}
+	
+	public static Sorpresa cargarDesdeXML(Element element){
+		return new SorpresaCambioDeVehiculo();
 	}
 
 }

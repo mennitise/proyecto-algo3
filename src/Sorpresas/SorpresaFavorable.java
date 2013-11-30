@@ -1,5 +1,7 @@
 package Sorpresas;
 
+import org.jdom.Element;
+
 import Excepciones.NumeroNegativoException;
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
@@ -36,6 +38,19 @@ public class SorpresaFavorable extends Sorpresa {
 	@Override
 	public void interactuarCon(CuatroXCuatro unaCuatroXCuatro) {
 		this.aplicarA(unaCuatroXCuatro);
+	}
+	
+	
+	//SERIALIZACION
+	
+	@Override
+	public Element serializarXML() {
+		Element element = new Element("SorpresaFavorable");
+		return element;
+	}
+	
+	public static Sorpresa cargarDesdeXML(Element element){
+		return new SorpresaFavorable();
 	}
 
 }

@@ -1,5 +1,7 @@
 package Obstaculos;
 
+import org.jdom.Element;
+
 import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
@@ -35,4 +37,16 @@ public class Pozo extends Obstaculo {
 		//No Les hace nada
 	}
 	
+	//SERIALIZACION
+	
+	@Override
+	public Element serializarXML() {
+		Element element = new Element("ObstaculoPozo");
+		return element;
+	}
+	
+	public static Obstaculo cargarDesdeXML(Element element){
+		return new Pozo();
+	}
+
 }
