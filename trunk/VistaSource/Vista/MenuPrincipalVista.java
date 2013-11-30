@@ -45,13 +45,7 @@ public class MenuPrincipalVista extends JFrame    {
 		
 	}
 	
-	public static void main(String[] ar){
-//		ControladorMenuPrincipal control = new ControladorMenuPrincipal();
-//		MenuPrincipalVista menu = new MenuPrincipalVista(control);
-		
-
-	}
-
+	
 	
 }
 
