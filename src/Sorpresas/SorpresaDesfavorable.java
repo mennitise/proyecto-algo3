@@ -1,6 +1,6 @@
 package Sorpresas;
 
-import org.jdom.Element;
+import org.jdom.*;
 
 import Excepciones.NumeroNegativoException;
 import Vehiculos.Auto;

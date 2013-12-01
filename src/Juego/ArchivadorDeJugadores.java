@@ -1,19 +1,12 @@
 package Juego;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
-
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
-
-import Jugador.Jugador;
-
+import org.jdom.*;
+import org.jdom.input.*;
+import org.jdom.output.*;
 
 
 public class ArchivadorDeJugadores {

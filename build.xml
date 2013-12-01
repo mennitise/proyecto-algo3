@@ -37,7 +37,6 @@
 
 	<target name="compilar.aplicacion" depends="setup">
 		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.6">
-		<classpath refid="classpath" />
 		</javac>
 	</target>
 	
@@ -129,12 +128,10 @@
 	</target>
 
 	<target name="empaquetar" depends="compilar.paquete">
-		<jar destfile="${build}/jar/VentanaPrincipal.jar" basedir="${build}/classes"/>
+		<jar destfile="${build}/dist/titiritero.jar" basedir="${build}/classes"/>
 	</target>
 
 	<target name="integracion-continua" depends="coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
-
-
 
 
 </project>

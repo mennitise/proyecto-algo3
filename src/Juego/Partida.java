@@ -1,19 +1,11 @@
 package Juego;
 
 import java.util.Observable;
-
-import org.jdom.Attribute;
 import org.jdom.Element;
-
-import GestorDeMovimientos.EstrategiaEste;
-import GestorDeMovimientos.EstrategiaNorte;
-import GestorDeMovimientos.EstrategiaOeste;
-import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Jugador.Jugador;
 import Tablero.Posicion;
 import Tablero.Tablero;
-import Vehiculos.Vehiculo;
 
 public class Partida extends Observable{
 	

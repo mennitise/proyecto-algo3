@@ -3,8 +3,6 @@ package Juego;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Observable;
-
-import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
 import Excepciones.NivelInvalidoException;
 import Excepciones.NoExistePartidaGuardadaException;
@@ -17,6 +15,7 @@ import Vehiculos.Auto;
 import Vehiculos.CuatroXCuatro;
 import Vehiculos.Moto;
 import Vehiculos.Vehiculo;
+import Vista.VentanaPrincipal;
 
 public class Juego extends Observable {
 
@@ -78,6 +77,9 @@ public class Juego extends Observable {
 	public void guardarPartida(){
 		String pathArchivo = ((DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre())).getNombreArchivoPartida(); 
 		ArchivadorDePartida.guardar(this.partidaActual, pathArchivo);
+		this.partidaActual = null;
+		setChanged();
+		notifyObservers();
 	}
 	
 	public Partida getPartida(){
@@ -88,7 +90,10 @@ public class Juego extends Observable {
 		// Verificar que el jugador tenga una partida guardada
 		DatoJugador datos = (DatoJugador) this.datosDeJugadoresExistentes.get(this.unJugador.getNombre());
 		this.partidaActual = ArchivadorDePartida.cargar(datos.getNombreArchivoPartida());
+		setChanged();
+		notifyObservers();
 	}
+	
 
 	public void guardarListaDeJugadoresExistentes(){
 		// Guarda en archivo los jugadores existentes hasta el momento.
@@ -209,6 +214,11 @@ public class Juego extends Observable {
 		return (this.getPartida().ganoLaPartida()|| this.getPartida().perdioLaPartida());
 	}
 
+	
+	public static void main(String[] args){
+		System.out.println("Hola Mundo");
+		VentanaPrincipal ventana = new VentanaPrincipal();
+	}
 	
 }
 

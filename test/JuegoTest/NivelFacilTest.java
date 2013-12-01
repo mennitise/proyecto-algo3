@@ -3,11 +3,7 @@ package JuegoTest;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
 import Juego.NivelFacil;
-import Tablero.Posicion;
-import Tablero.Tablero;
-
 public class NivelFacilTest {
 
 	@Test

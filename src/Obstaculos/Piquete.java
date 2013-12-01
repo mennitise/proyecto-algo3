@@ -1,7 +1,6 @@
 package Obstaculos;
 
 import org.jdom.Element;
-
 import Excepciones.NumeroNegativoException;
 import Excepciones.PasoImpedidoException;
 import Vehiculos.Auto;

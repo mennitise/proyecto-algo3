@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <listaDeJugadores>
-  <datoJugador nombre="fasf" puntaje="-2" />
-  <datoJugador nombre="mm" puntaje="2" />
-  <datoJugador nombre="kkk" puntaje="13" />
-  <datoJugador nombre="cs" puntaje="-9" />
-  <datoJugador nombre="ffff" puntaje="-3" />
-  <datoJugador nombre="asd" puntaje="8" />
-  <datoJugador nombre="gasgdsg" puntaje="-1" />
-  <datoJugador nombre="hhh" puntaje="12" />
-  <datoJugador nombre="Seba" puntaje="23" />
+  <datoJugador nombre="Papa" puntaje="32" />
+  <datoJugador nombre="A" puntaje="0" />
+  <datoJugador nombre="asdad" puntaje="0" />
+  <datoJugador nombre="ASD" puntaje="19" />
+  <datoJugador nombre="Juan Pepe" puntaje="0" />
+  <datoJugador nombre="Jose" puntaje="0" />
+  <datoJugador nombre="Dalambert" puntaje="120" />
+  <datoJugador nombre="Santiago " puntaje="22" />
+  <datoJugador nombre="Juan" puntaje="0" />
+  <datoJugador nombre="Pepe" puntaje="15" />
+  <datoJugador nombre="Pepe2" puntaje="17" />
+  <datoJugador nombre="ASDAD" puntaje="0" />
 </listaDeJugadores>
 

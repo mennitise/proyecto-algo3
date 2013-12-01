@@ -1,12 +1,8 @@
 package JuegoTest;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
-
 import org.junit.Test;
-
-import Excepciones.JugadorCargadoException;
 import Excepciones.JugadorNoCargadoException;
 import Excepciones.NombreInvalidoException;
 import Excepciones.NivelInvalidoException;
