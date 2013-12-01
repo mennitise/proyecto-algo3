@@ -1,13 +1,9 @@
 package JuegoTest;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.StringVacioException;
-import GestorDeMovimientos.EstrategiaEste;
-import GestorDeMovimientos.EstrategiaOeste;
 import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.NivelFacil;

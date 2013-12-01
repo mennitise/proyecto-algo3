@@ -3,16 +3,10 @@ package Tablero;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-
 import org.jdom.Attribute;
 import org.jdom.Element;
-
 import Obstaculos.Obstaculo;
 import Sorpresas.Sorpresa;
-import Vehiculos.Auto;
-import Vehiculos.CuatroXCuatro;
-import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 
 public class Tablero extends Observable{
 	

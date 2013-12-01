@@ -1,7 +1,6 @@
 package Juego;
 
 import org.jdom.Element;
-
 import Archivadores.ArchivadorDeTablero;
 import Tablero.Posicion;
 import Tablero.Tablero;
