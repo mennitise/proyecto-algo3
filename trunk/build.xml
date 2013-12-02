@@ -133,5 +133,8 @@
 
 	<target name="integracion-continua" depends="coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
 
+	<target name="clean">
+        <delete dir="build"/>
+    </target>
 
 </project>
