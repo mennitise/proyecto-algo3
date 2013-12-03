@@ -17,6 +17,23 @@ public class DatoJugador {
 	public void setPuntuacion(int unaPuntuacion){
 		this.puntaje = unaPuntuacion;
 	}
+
+	public String getNombreArchivoPartida() {
+		return this.nombreDeArchivoDeUltimaPartidaGuardada;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void asignarPuntaje(int unPuntaje) {
+		this.puntaje += unPuntaje;
+		if(this.puntaje < 0) this.puntaje = 0; 
+	}
+
+	public int getPuntaje() {
+		return this.puntaje;
+	}
 	
 	// Serializacion
 	
@@ -39,21 +56,4 @@ public class DatoJugador {
 		unDato.setPuntuacion(puntaje);
 		return unDato;
 	}
-
-	public String getNombreArchivoPartida() {
-		return this.nombreDeArchivoDeUltimaPartidaGuardada;
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void asignarPuntaje(int unPuntaje) {
-		this.puntaje += unPuntaje;
-	}
-
-	public int getPuntaje() {
-		return this.puntaje;
-	}
-
 }

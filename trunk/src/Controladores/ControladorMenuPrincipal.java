@@ -100,7 +100,7 @@ public class ControladorMenuPrincipal {
 					nivel = this.pedirNivel();
 					vehiculo = this.pedirVehiculo();
 					juegoActual.iniciarPartida(nivel, vehiculo);
-					mapaJuegoActual.inicializarCon( juegoActual);
+					mapaJuegoActual.inicializarCon(juegoActual);
 					//					MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
 				} catch (NombreInvalidoException e1) {
 					JOptionPane.showMessageDialog(null,"Nombre Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
@@ -155,6 +155,8 @@ public class ControladorMenuPrincipal {
 			
 			if(!datosJugador.hasMoreElements()){
 				unstring = "NO HAY NINGUN JUGADOR CREADO";
+				JOptionPane.showMessageDialog(null,	unstring ,"Jugadores Creados",JOptionPane.WARNING_MESSAGE);
+				return null;
 			}
 			
 			int posicion = 0;

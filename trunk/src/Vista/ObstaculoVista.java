@@ -113,9 +113,6 @@ public class ObstaculoVista {
 	private Image getImagen(Obstaculo unObstaculo){
 		
 		String nombreObstaculo = unObstaculo.getClass().getSimpleName();
-		
-		System.out.println(nombreObstaculo);
-		
 		if (nombreObstaculo.equals("Piquete")){
 			return Toolkit.getDefaultToolkit().getImage("src/imagenes/piquete.png");
 		}
