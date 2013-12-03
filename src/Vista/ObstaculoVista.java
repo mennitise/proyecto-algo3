@@ -111,11 +111,26 @@ public class ObstaculoVista {
 	}
 	
 	private Image getImagen(Obstaculo unObstaculo){
-		switch (unObstaculo.getClass().getSimpleName()){
-			case "Piquete": return Toolkit.getDefaultToolkit().getImage("src/imagenes/piquete.png"); 
-			case "ControlPolicial": return Toolkit.getDefaultToolkit().getImage("src/imagenes/controlPolicial.png");
-			case "Pozo": return Toolkit.getDefaultToolkit().getImage("src/imagenes/pozo.png");
+		
+		String nombreObstaculo = unObstaculo.getClass().getSimpleName();
+		
+		System.out.println(nombreObstaculo);
+		
+		if (nombreObstaculo.equals("Piquete")){
+			return Toolkit.getDefaultToolkit().getImage("src/imagenes/piquete.png");
 		}
+		if (nombreObstaculo.equals("ControlPolicial")){
+			return Toolkit.getDefaultToolkit().getImage("src/imagenes/controlPolicial.png");
+		}
+		if (nombreObstaculo.equals("Pozo")){
+			return Toolkit.getDefaultToolkit().getImage("src/imagenes/pozo.png");
+		}
+		
+//		switch (unObstaculo.getClass().getSimpleName()){
+//			case "Piquete": return Toolkit.getDefaultToolkit().getImage("src/imagenes/piquete.png"); 
+//			case "ControlPolicial": return Toolkit.getDefaultToolkit().getImage("src/imagenes/controlPolicial.png");
+//			case "Pozo": return Toolkit.getDefaultToolkit().getImage("src/imagenes/pozo.png");
+//		}
 		return Toolkit.getDefaultToolkit().getImage("Ninguna imagen"); //nunca va a llegar a esta instancia porque el obstaculo que le paso siempre existe
 	}
 }

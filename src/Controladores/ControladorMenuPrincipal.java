@@ -46,11 +46,16 @@ public class ControladorMenuPrincipal {
 		throw new CanceloJuegoException();
 	}else{
 	
-		switch (autoElegido){
+		if (autoElegido.equals("Auto")) return 1;
+		if (autoElegido.equals("CuatroXCuatro")) return 3;
+		if (autoElegido.equals("Moto")) return 2;
+		
+/*		switch (autoElegido){
 			case "Auto": return 1;
 			case "CuatroXCuatro": return 3;
 			case "Moto": return 2;
 		};
+*/
 	}
 
 	return 1;
@@ -71,11 +76,14 @@ public class ControladorMenuPrincipal {
 			throw new CanceloJuegoException(); //significa que cancelo el juego
 		}else{
 		
-			switch (nivelElegido){
-				case "Facil": return 1;
-				case "Intermedio": return 2;
-				case "Dificil": return 3;
-			};
+			if (nivelElegido.equals("Facil")) return 1;
+			if (nivelElegido.equals("Intermedio")) return 2;
+			if (nivelElegido.equals("Dificil")) return 3;
+//			switch (nivelElegido){
+//				case "Facil": return 1;
+//				case "Intermedio": return 2;
+//				case "Dificil": return 3;
+//			};
 		}
 			
 		return 1;	
@@ -100,7 +108,7 @@ public class ControladorMenuPrincipal {
 						try {
 							juegoActual.nuevaPartida(nivel, vehiculo);
 							mapaJuegoActual.inicializarCon(juegoActual);
-							//							mapaJuegoActual.setControlador(control);
+//							mapaJuegoActual.setControlador(control);
 //							mapaJuegoActual.setJuegoActual(juegoActual);
 //							MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
 						} catch (NivelInvalidoException e){
@@ -189,11 +197,14 @@ public class ControladorMenuPrincipal {
 		if (opcionElegida == null){
 			throw new CanceloJuegoException();
 		}else{
+			
+			if (opcionElegida.equals("Nuevo Juego")) return "Nuevo Juego";
+			if (opcionElegida.equals("Cargar Partida")) return "Cargar Partida";
 		
-			switch (opcionElegida){
-				case "Nuevo Juego": return "Nuevo Juego";
-				case "Cargar Partida": return "Cargar Partida";
-				};
+			//switch (opcionElegida){
+			//	case "Nuevo Juego": return "Nuevo Juego";
+			//	case "Cargar Partida": return "Cargar Partida";
+			//	};
 		}
 
 		return "Nuevo Juego";
@@ -248,12 +259,15 @@ public class ControladorMenuPrincipal {
 		if (autoElegido == null){
 			throw new CanceloJuegoException();
 		}else{
-		
-			switch (autoElegido){
-				case "Auto": return 1;
-				case "CuatroXCuatro": return 3;
-				case "Moto": return 2;
-			};
+
+			if (autoElegido.equals("Auto")) return 1;
+			if (autoElegido.equals("CuatroXCuatro")) return 3;
+			if (autoElegido.equals("Moto")) return 2;
+			//switch (autoElegido){
+			//	case "Auto": return 1;
+			//	case "CuatroXCuatro": return 3;
+			//	case "Moto": return 2;
+			//};
 		}
 
 		return 1;
@@ -273,12 +287,15 @@ public class ControladorMenuPrincipal {
 			if (nivelElegido == null){
 				throw new CanceloJuegoException(); //significa que cancelo el juego
 			}else{
-			
-				switch (nivelElegido){
-					case "Facil": return 1;
-					case "Intermedio": return 2;
-					case "Dificil": return 3;
-				};
+				
+				if (nivelElegido.equals("Facil")) return 1;
+				if (nivelElegido.equals("Intermedio")) return 2;
+				if (nivelElegido.equals("Dificil")) return 3;
+				//switch (nivelElegido){
+				//	case "Facil": return 1;
+				//	case "Intermedio": return 2;
+				//	case "Dificil": return 3;
+				//};
 			}
 				
 			return 1;	
