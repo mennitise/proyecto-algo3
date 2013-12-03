@@ -24,7 +24,7 @@ public class PanelInicial extends JPanel implements Observer {
 		this.botonJugadorExistente.setVisible(true);
 		this.botonJugadorNuevo.setVisible(true);
 		this.botonVerPuntajes.setVisible(true);
-		this.setLayout(new GridLayout(4,1));
+		this.setLayout(new GridLayout(3,1));
 		this.setSize(250,250);		
 		this.add(this.botonJugadorNuevo);
 		this.add(this.botonVerPuntajes);

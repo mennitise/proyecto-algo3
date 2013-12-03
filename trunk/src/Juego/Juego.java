@@ -216,7 +216,6 @@ public class Juego extends Observable {
 
 	
 	public static void main(String[] args){
-		System.out.println("Hola Mundo");
 		VentanaPrincipal ventana = new VentanaPrincipal();
 	}
 	
