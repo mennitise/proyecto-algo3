@@ -76,7 +76,7 @@ public class ArchivadorDeJugadores {
 			element = document.getRootElement();
 			
 		} catch(Exception e) {
-			throw new RuntimeException(e);
+			return new Hashtable();
 		}
 		
 		ArchivadorDeJugadores arch = new ArchivadorDeJugadores();
