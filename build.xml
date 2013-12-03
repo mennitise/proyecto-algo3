@@ -132,6 +132,28 @@
 		<jar destfile="${build}/dist/titiritero.jar" basedir="${build}/classes"/>
 	</target>
 
+	<target name="jar">
+        	<mkdir dir="build/jar"/>
+        	<jar destfile="build/jar/GPS.jar" basedir="build/classes">
+            	<manifest>
+                	<attribute name="Main-Class" value="Juego.Juego"/>
+            	</manifest>
+        	</jar>
+    	</target>
+
+	<target name="jugar">
+        		<java classname="Juego.Juego" fork="true">
+			<classpath refid="classpath"/>
+			<classpath location="${build}/dist/GPS.jar" />
+		</java>
+    	</target>
+
+	<target name = "clean">
+		<delete dir = "build" />
+	</target>	
+
+
+
 	<target name="integracion-continua" depends="coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
 
 

@@ -4,13 +4,14 @@
   <datoJugador nombre="A" puntaje="0" />
   <datoJugador nombre="asdad" puntaje="0" />
   <datoJugador nombre="ASD" puntaje="19" />
+  <datoJugador nombre="ASDad" puntaje="0" />
   <datoJugador nombre="Juan Pepe" puntaje="0" />
-  <datoJugador nombre="Jose" puntaje="0" />
+  <datoJugador nombre="Jose" puntaje="17" />
   <datoJugador nombre="Dalambert" puntaje="120" />
+  <datoJugador nombre="Juan" puntaje="16" />
   <datoJugador nombre="Santiago " puntaje="22" />
-  <datoJugador nombre="Juan" puntaje="0" />
-  <datoJugador nombre="Pepe" puntaje="15" />
   <datoJugador nombre="Pepe2" puntaje="17" />
+  <datoJugador nombre="Pepe" puntaje="15" />
   <datoJugador nombre="ASDAD" puntaje="0" />
 </listaDeJugadores>
 
