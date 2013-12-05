@@ -7,13 +7,10 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import Controladores.ControladorDeFlechas;
 import GestorDeMovimientos.GestorDeMovimientos;
 import Juego.Juego;
 import Tablero.Posicion;
@@ -168,22 +165,6 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		
 	}
 	
-//	private void crearYAbrirFrame(){
-//		this.frame = new JFrame();
-//        this.frame.setLayout(null);
-//        this.frame.add(this);
-//        Juego unJuego = null;
-//       // this.frame.add(new MenuPrincipalVista(new ControladorMenuPrincipal(unJuego)));
-//     //   this.frame.add(panelDeBotones);
-//        this.frame.setSize(800,600);
-//        this.frame.setVisible(true);
-//      //  this.panelDeBotones.setBounds(600,0,180,200);
-//        JPanel panelDeInformacionJugador = new PanelDeInformacionVista(this.juego);
-//        panelDeInformacionJugador.setBounds(600,0,200,500);
-//        this.frame.add(panelDeInformacionJugador);
-//        
-//       
-//	}
 		
 	private int calcularTamanioManzanaHorizontal(int cantidadHorizontal){
 		return (cantidadHorizontal - this.anchoCalle*this.esquinasHorizontales)/(this.esquinasHorizontales+1);		

@@ -2,9 +2,11 @@ package Controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.Hashtable;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -49,13 +51,7 @@ public class ControladorMenuPrincipal {
 		if (autoElegido.equals("Auto")) return 1;
 		if (autoElegido.equals("CuatroXCuatro")) return 3;
 		if (autoElegido.equals("Moto")) return 2;
-		
-/*		switch (autoElegido){
-			case "Auto": return 1;
-			case "CuatroXCuatro": return 3;
-			case "Moto": return 2;
-		};
-*/
+
 	}
 
 	return 1;
@@ -79,11 +75,7 @@ public class ControladorMenuPrincipal {
 			if (nivelElegido.equals("Facil")) return 1;
 			if (nivelElegido.equals("Intermedio")) return 2;
 			if (nivelElegido.equals("Dificil")) return 3;
-//			switch (nivelElegido){
-//				case "Facil": return 1;
-//				case "Intermedio": return 2;
-//				case "Dificil": return 3;
-//			};
+			
 		}
 			
 		return 1;	
@@ -101,16 +93,14 @@ public class ControladorMenuPrincipal {
 					vehiculo = this.pedirVehiculo();
 					juegoActual.iniciarPartida(nivel, vehiculo);
 					mapaJuegoActual.inicializarCon(juegoActual);
-					//					MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
+				
 				} catch (NombreInvalidoException e1) {
 					JOptionPane.showMessageDialog(null,"Nombre Invalido","Aviso",JOptionPane.WARNING_MESSAGE);
 				} catch (PartidaEnJuegoException e1) {
 						try {
 							juegoActual.nuevaPartida(nivel, vehiculo);
 							mapaJuegoActual.inicializarCon(juegoActual);
-//							mapaJuegoActual.setControlador(control);
-//							mapaJuegoActual.setJuegoActual(juegoActual);
-//							MapaJuegoVista mapa = new MapaJuegoVista(control,juegoActual);
+
 						} catch (NivelInvalidoException e){
 							
 						} catch (VehiculoInvalidoException e2) {
@@ -203,10 +193,6 @@ public class ControladorMenuPrincipal {
 			if (opcionElegida.equals("Nuevo Juego")) return "Nuevo Juego";
 			if (opcionElegida.equals("Cargar Partida")) return "Cargar Partida";
 		
-			//switch (opcionElegida){
-			//	case "Nuevo Juego": return "Nuevo Juego";
-			//	case "Cargar Partida": return "Cargar Partida";
-			//	};
 		}
 
 		return "Nuevo Juego";
@@ -265,11 +251,7 @@ public class ControladorMenuPrincipal {
 			if (autoElegido.equals("Auto")) return 1;
 			if (autoElegido.equals("CuatroXCuatro")) return 3;
 			if (autoElegido.equals("Moto")) return 2;
-			//switch (autoElegido){
-			//	case "Auto": return 1;
-			//	case "CuatroXCuatro": return 3;
-			//	case "Moto": return 2;
-			//};
+			
 		}
 
 		return 1;
@@ -293,11 +275,7 @@ public class ControladorMenuPrincipal {
 				if (nivelElegido.equals("Facil")) return 1;
 				if (nivelElegido.equals("Intermedio")) return 2;
 				if (nivelElegido.equals("Dificil")) return 3;
-				//switch (nivelElegido){
-				//	case "Facil": return 1;
-				//	case "Intermedio": return 2;
-				//	case "Dificil": return 3;
-				//};
+			
 			}
 				
 			return 1;	
@@ -306,13 +284,18 @@ public class ControladorMenuPrincipal {
 		
 		public void actionPerformed(ActionEvent e){	
 			 
-			
 			String nombre = new String("");			
+			while ((nombre != null) && (nombre.equals(""))){
 			nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
-			
+			if ((nombre != null) && (nombre.equals(""))){
+				JOptionPane.showMessageDialog(null,"Usted no ingreso un nombre","Aviso",JOptionPane.WARNING_MESSAGE);
+
+			}
+			}
 			cargarJuego(nombre);					
 
 		}	
+		
 	
 	}
 		
@@ -326,26 +309,49 @@ public class ControladorMenuPrincipal {
 			
 			Hashtable unHashDatosJugadores = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(Juego.getNombreArchivoDeJugadores());
 			Enumeration datosJugador = unHashDatosJugadores.elements(); 
-			String unstring = "";
 			
-			if(!datosJugador.hasMoreElements()){
-				unstring = "NO HAY NINGUN JUGADOR CREADO";
-			}
-			
+					
+			ArrayList<DatoJugador> listaDeJugadores = new ArrayList<DatoJugador>();
 			while(datosJugador.hasMoreElements()){
 				DatoJugador datoJugadorActual = (DatoJugador)datosJugador.nextElement();
-				unstring = unstring + datoJugadorActual.getNombre() + ": "+ datoJugadorActual.getPuntaje() + System.getProperty("line.separator") ;
+				listaDeJugadores.add(datoJugadorActual);
+				
 			}
 			
-			JOptionPane.showMessageDialog(null,	unstring ,"Puntajes",JOptionPane.WARNING_MESSAGE);
-
+			this.ordenarLista(listaDeJugadores);
 		
+			this.mostrarVentanaDePuntajes(listaDeJugadores);		
+			
 		}
-	}
+
+		private void ordenarLista (ArrayList<DatoJugador> listaDeJugadores){
+			Collections.sort(listaDeJugadores, new Comparator<DatoJugador>(){
+			    public int compare(DatoJugador d1, DatoJugador d2) {
+			        if (d1.getPuntaje()<d2.getPuntaje()){
+			        	return 1;
+			        } else if (d1.getPuntaje()== d2.getPuntaje()){
+			        	return 0;
+			        }
+			        return -1;
+			    }
+			});
+		}
 	
-	public ActionListener getListenerBotonVerPuntajes() {
-		return new EscuchaBotonVerPuntajes();
+
+		private void mostrarVentanaDePuntajes(ArrayList<DatoJugador> listaDeJugadores){
+			String unstring = "";
+			if (listaDeJugadores.size() == 0){
+				unstring = "No hay puntajes existentes";
+			} else {
+				for (int i=0; i<listaDeJugadores.size(); i++){
+					unstring = unstring + listaDeJugadores.get(i).getNombre() + ": "+ listaDeJugadores.get(i).getPuntaje() + System.getProperty("line.separator");		
+				}
+			}
+			JOptionPane.showMessageDialog(null,	unstring ,"Puntajes",JOptionPane.WARNING_MESSAGE);
+		}	
+	
 	}
+
 
 
 	

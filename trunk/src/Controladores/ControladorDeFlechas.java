@@ -2,10 +2,7 @@ package Controladores;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;

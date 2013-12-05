@@ -64,6 +64,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	
 	private void configurarFrame(){
 		this.setLayout(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().setBackground(Color.blue);
 		this.setTitle("GPS Challenge");
 		this.setBounds(300,100,800,600);
