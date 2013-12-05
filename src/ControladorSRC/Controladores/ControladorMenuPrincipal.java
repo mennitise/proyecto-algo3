@@ -176,7 +176,7 @@ public class ControladorMenuPrincipal {
 		}
 		
 		private String pedirOpcion() throws CanceloJuegoException{
-			Object[] posibilidades = {"Nuevo Juego", "Cargar Partida"};
+			Object[] posibilidades = {"Nuevo Juego", "Cargar Partida", "Ver Puntajes"};
 			String opcionElegida = (String)JOptionPane.showInputDialog(
 			                    new JFrame(),
 			                    "Elegir una opcion",
@@ -192,7 +192,7 @@ public class ControladorMenuPrincipal {
 			
 			if (opcionElegida.equals("Nuevo Juego")) return "Nuevo Juego";
 			if (opcionElegida.equals("Cargar Partida")) return "Cargar Partida";
-		
+			if (opcionElegida.equals("Ver Puntajes")) return "Ver Puntajes";
 		}
 
 		return "Nuevo Juego";
@@ -213,6 +213,8 @@ public class ControladorMenuPrincipal {
 					}else if (opcionElegida == "Cargar Partida"){
 						
 						cargarPartidaExistente(datoDelJugador.getNombre());
+					} else if (opcionElegida == "Ver Puntajes"){
+						(new EscuchaBotonVerPuntajes()).actionPerformed(null);
 					}
 				} catch (CanceloJuegoException e) {
 					
