@@ -75,9 +75,4 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	    this.asignarImagenVehiculo();
 	}
 
-//	public void setVisible(boolean b) {
-//		this.setVisible(b);
-//		
-//	}
-//	
 }
