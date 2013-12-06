@@ -26,17 +26,17 @@ public class VehiculoVista {
 	public void actualizarImagenDelVehiculo(Vehiculo vehiculo, Graphics g, JPanel panelQueContieneEstaVista){
 		this.calcularPosiciones(vehiculo.getPosicion().getFila(), vehiculo.getPosicion().getColumna());
 		if (vehiculo.getClass() == Auto.class){
-			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/Auto-20x20p.png");
+			Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/Auto-20x20p.png");
 			g.drawImage(img1,posicionHorizontalDeLaImagen,posicionVerticalDeLaImagen, panelQueContieneEstaVista);
 		}
 		
 		if (vehiculo.getClass() == Moto.class){
-			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/Moto-20x20p.png");
+			Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/Moto-20x20p.png");
 			g.drawImage(img1,posicionHorizontalDeLaImagen,posicionVerticalDeLaImagen,panelQueContieneEstaVista);
 			}
 		
 		if (vehiculo.getClass() == CuatroXCuatro.class){
-			Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/4x4-20x20p.png");
+			Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/4x4-20x20p.png");
 			g.drawImage(img1,posicionHorizontalDeLaImagen,posicionVerticalDeLaImagen, panelQueContieneEstaVista);
 			}
 		

@@ -1,30 +1,62 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 import Controladores.ControladorDeFlechas;
 import Controladores.ControladorMenuPrincipal;
+import Juego.ArchivadorDeJugadores;
+import Juego.DatoJugador;
 import Juego.Juego;
 
 public class VentanaPrincipal extends JFrame implements Observer{
 	
-	private PanelInicial panelInicial;
+	private JPanel panelInicial;
 	private Juego juego;
 	private MapaJuegoVista mapaJuegoActual;
 	private PanelDeInformacionVista panelDeInformacionDelJugador;
 	private ControladorDeFlechas controladorDeFlechas;
+	private ArrayList<JPanel> paneles;
+	private PanelJugadorExistenteVista panelJugadorExistente;
+	private JButton botonVolver;
 	
 	public VentanaPrincipal(){
 			
 		this.juego = new Juego(); 
 		this.configurarMapaJuegoActual();
+		this.panelJugadorExistente = new PanelJugadorExistenteVista();
 		this.controladorDeFlechas = null; //Si estuviera creado, estaría leyendo las teclas. Se crea a la hora de jugar
 		this.configurarPanelInicial();
 		this.juego.addObserver(this); //Cada vez que el juego notifique a los obbservadores, esta clase se actualizara segun el metodo update
-		this.juego.addObserver(this.panelInicial); //Idem para el panelIinicial	
 		this.configurarFrame();
+		this.botonVolver = new JButton("Volver al menu principal");
+		this.botonVolver.setBounds(500,500,100,100);
+		this.botonVolver.setVisible(false);
+		this.add(this.botonVolver);
+		this.botonVolver.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panelJugadorExistente.setVisible(false);
+				panelInicial.setVisible(true);
+				botonVolver.setVisible(false);
+				}
+			
+		});
+
+		
 	}
 				
 	@Override
@@ -38,13 +70,23 @@ public class VentanaPrincipal extends JFrame implements Observer{
 			this.ponerVentanaEnEstadoDeJuego();
 	
 		if (this.juego.terminoLaPartida()){
-			this.ponerVentanaEnEstadoInicial();
+			this.ponerVentanaEnCuentaDelJugador();
+			//this.ponerVentanaEnEstadoInicial();
 				}
 		} else { // aqui resulta que no hay partida activa y que no termino la partida
-			this.ponerVentanaEnEstadoInicial();
+			this.ponerVentanaEnCuentaDelJugador();
 			}
 	}
 	
+	private void ponerVentanaEnCuentaDelJugador(){
+		this.panelInicial.setVisible(false);
+		this.mapaJuegoActual.setVisible(false);
+		this.removeKeyListener(this.controladorDeFlechas);
+		this.controladorDeFlechas = null;
+		this.panelDeInformacionDelJugador.setVisible(false);
+		this.panelJugadorExistente.setVisible(true);
+		System.out.println("Si, termino la partida");
+	}
 	
 	private void configurarVentanaParaJugar(){
 		this.controladorDeFlechas = new ControladorDeFlechas (this.juego.getPartida().getGestorDeMovimientos(), this);
@@ -58,6 +100,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
     private void ponerVentanaEnEstadoDeJuego(){
 		this.panelInicial.setVisible(false);
 		this.juego.getPartida().getGestorDeMovimientos().addObserver(this);
+		this.panelJugadorExistente.setVisible(false);
 		this.mapaJuegoActual.setVisible(true);
 
     }
@@ -82,7 +125,76 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	
 	private void configurarPanelInicial(){
 		ControladorMenuPrincipal control = new ControladorMenuPrincipal(this.juego, this.mapaJuegoActual);		
-		this.panelInicial = new PanelInicial(control);	
+		
+		//this.panelInicial = new PanelInicial(control);	
+		this.panelInicial = new JPanel();
+		this.panelInicial.setLayout(new GridLayout(3,1));
+		JButton botonJugadorNuevo = new JButton("Jugador Nuevo");
+		JButton botonJugadorExistente = new JButton("Jugador Existente");
+		JButton botonSalir = new JButton("Salir");
+			botonSalir.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+				
+			});
+		botonJugadorNuevo.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nombre = new String("");			
+				while ((nombre != null) && (nombre.equals(""))){
+				nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
+				if ((nombre != null) && (nombre.equals(""))){
+					JOptionPane.showMessageDialog(null,"Usted no ingreso un nombre","Aviso",JOptionPane.WARNING_MESSAGE);
+
+				}
+								
+				
+				}
+				if (nombre!= null){
+	            	ControladorMenuPrincipal control = new ControladorMenuPrincipal(juego, mapaJuegoActual);		
+	            		
+	            	panelJugadorExistente = new PanelJugadorExistenteVista(juego, control, nombre);
+	            	panelJugadorExistente.setBounds(250,100,300,400);
+	            	add(panelJugadorExistente);
+	            	botonVolver.setVisible(true);
+	            	botonVolver.setBounds(0, 0, 200, 100);
+	            	panelInicial.setVisible(false); 
+	                panelJugadorExistente.setVisible(true);
+		            invalidate(); // Changed here
+	                repaint(); // Changed here
+	            	}		
+			}
+			
+		});
+		botonJugadorExistente.addActionListener(new ActionListener() {
+		
+       
+			@Override
+            public void actionPerformed(ActionEvent e) {
+            	
+            	DatoJugador unDato = pedirJugador();
+            	if (unDato!= null){
+            	ControladorMenuPrincipal control = new ControladorMenuPrincipal(juego, mapaJuegoActual);		
+            		
+            	panelJugadorExistente = new PanelJugadorExistenteVista(juego, control, unDato.getNombre());
+            	panelJugadorExistente.setBounds(250,100,300,400);
+            	add(panelJugadorExistente);
+            	botonVolver.setVisible(true);
+            	botonVolver.setBounds(0, 0, 200, 100);
+            	panelInicial.setVisible(false); 
+                panelJugadorExistente.setVisible(true);
+	            invalidate(); // Changed here
+                repaint(); // Changed here
+            	}
+            }
+        });
+		this.panelInicial.add(botonJugadorNuevo);
+		this.panelInicial.add(botonJugadorExistente);
+		this.panelInicial.add(botonSalir);
 		this.panelInicial.setBounds(250,150,300,300);	
 		this.panelInicial.setVisible(true);
 		this.add(this.panelInicial);
@@ -94,6 +206,44 @@ public class VentanaPrincipal extends JFrame implements Observer{
 		this.removeKeyListener(this.controladorDeFlechas);
 		this.controladorDeFlechas = null;
 		this.panelDeInformacionDelJugador.setVisible(false);
+	}
+	
+	private DatoJugador pedirJugador(){
+		Hashtable unHashDatosJugadores = ArchivadorDeJugadores.cargarListaDeDatosDeJugadores(Juego.getNombreArchivoDeJugadores());
+		Enumeration datosJugador = unHashDatosJugadores.elements(); 
+		int cantidadDeJugadores = unHashDatosJugadores.size();
+		String unstring = "";
+		Object[] nombresDeLosJugadores = new Object[cantidadDeJugadores];
+		
+		if(!datosJugador.hasMoreElements()){
+			unstring = "NO HAY NINGUN JUGADOR CREADO";
+			JOptionPane.showMessageDialog(null,	unstring ,"Jugadores Creados",JOptionPane.WARNING_MESSAGE);
+			return null;
+		}
+		
+		int posicion = 0;
+		while(datosJugador.hasMoreElements()){
+			DatoJugador datoJugadorActual = (DatoJugador)datosJugador.nextElement();
+			nombresDeLosJugadores[posicion]  = datoJugadorActual.getNombre();
+			posicion++;
+		}
+		
+		String jugadorElegido = (String)JOptionPane.showInputDialog(
+                new JFrame(),
+                "Elegir Jugador",
+                "Jugador",
+                JOptionPane.PLAIN_MESSAGE,
+                new ImageIcon(),
+                nombresDeLosJugadores,
+                "Jugador");
+
+		if (jugadorElegido == null){
+			return null;	
+			//IMPLEMENTAR
+		}else{
+			return (DatoJugador)unHashDatosJugadores.get(jugadorElegido);
+			
+		}
 	}
 	
 }

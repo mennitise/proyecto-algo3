@@ -125,7 +125,8 @@ public class ControladorMenuPrincipal {
 		try {
 			juegoActual.setJugador(nombreDelJugador);
 			juegoActual.cargarPartida();
-			mapaJuegoActual.inicializarCon( juegoActual);
+			juegoActual.setJugador(juegoActual.getPartida().getGestorDeMovimientos().getVehiculoEnPosicionActual().getConductor());
+			mapaJuegoActual.inicializarCon( juegoActual);	
 		} catch (NoExistePartidaGuardadaException e1) {
 			JOptionPane.showMessageDialog(null,"Lo lamento. No tienes una partida guardada","Aviso",JOptionPane.WARNING_MESSAGE);
 		} catch (NombreInvalidoException e1) {} catch (InterruptedException e) {
@@ -304,6 +305,42 @@ public class ControladorMenuPrincipal {
 	public ActionListener getListenerBotonJugadorNuevo() {
 		return new EscuchaBotonJugadorNuevo();
 	}
+	
+	private class EscuchaBotonNuevoJuego implements ActionListener
+	{
+		private String nombreDelJugador;
+		
+		EscuchaBotonNuevoJuego(String nombreDelJugador){
+			this.nombreDelJugador = nombreDelJugador;
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			cargarJuego(this.nombreDelJugador);
+			
+		}
+	}
+	
+	public ActionListener getListenerBotonNuevoJuego(String nombreDelJugador){
+		return new EscuchaBotonNuevoJuego(nombreDelJugador);
+	}
+	
+	
+	private class EscuchaBotonCargarPartida implements ActionListener
+	{	
+		String nombreDelJugador;
+		EscuchaBotonCargarPartida(String nombre){
+			nombreDelJugador = nombre;
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			cargarPartidaExistente(nombreDelJugador);
+		}
+	}
+	
+	public ActionListener getListenerBotonCargarPartida(String nombre){
+		return new EscuchaBotonCargarPartida(nombre);
+	}
 
 	private class EscuchaBotonVerPuntajes implements ActionListener
 	{	public void actionPerformed(ActionEvent e)
@@ -354,6 +391,9 @@ public class ControladorMenuPrincipal {
 	
 	}
 
+	public ActionListener getListenerBotonVerPuntajes() {
+		return new EscuchaBotonVerPuntajes();
+	}
 
 
 	

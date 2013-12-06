@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Excepciones.MovimientoFisicamenteInvalidoException;
+import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
@@ -52,7 +53,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElSurLaPosicionColumnaSeMantiene(){
+	public void testMovimientoHaciaElSurLaPosicionColumnaSeMantiene() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -66,7 +67,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElSurLaPosicionFilaCambia(){
+	public void testMovimientoHaciaElSurLaPosicionFilaCambia() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -80,7 +81,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElNorteLaPosicionColumnaSeMantiene(){
+	public void testMovimientoHaciaElNorteLaPosicionColumnaSeMantiene() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -94,7 +95,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElNorteLaPosicionFilaCambia(){
+	public void testMovimientoHaciaElNorteLaPosicionFilaCambia() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -108,7 +109,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElEsteLaPosicionColumnaCambia(){
+	public void testMovimientoHaciaElEsteLaPosicionColumnaCambia() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -122,7 +123,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElEsteLaPosicionFilaSeMantiene(){
+	public void testMovimientoHaciaElEsteLaPosicionFilaSeMantiene() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -136,7 +137,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElOesteLaPosicionColumnaCambia(){
+	public void testMovimientoHaciaElOesteLaPosicionColumnaCambia() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {
@@ -150,7 +151,7 @@ public class GestorDeMovimientosTest {
 	}
 	
 	@Test
-	public void testMovimientoHaciaElOesteLaPosicionFilaSeMantiene(){
+	public void testMovimientoHaciaElOesteLaPosicionFilaSeMantiene() throws PasoImpedidoException{
 		this.inicializarGestor();
 		this.inicializarEstrategias();
 		try {

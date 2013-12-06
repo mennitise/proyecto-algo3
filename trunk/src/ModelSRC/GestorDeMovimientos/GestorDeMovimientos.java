@@ -5,6 +5,7 @@ import Tablero.Posicion;
 import Tablero.Tablero;
 import Vehiculos.Vehiculo;
 import Excepciones.MovimientoFisicamenteInvalidoException;
+import Excepciones.PasoImpedidoException;
 import Jugador.Jugador;
 
 public class GestorDeMovimientos extends java.util.Observable {
@@ -25,7 +26,7 @@ public class GestorDeMovimientos extends java.util.Observable {
 		return this.jugador.getVehiculo();
 	}
 
-	public void moverVehiculo(EstrategiaDeMovimiento unaEstrategia) throws MovimientoFisicamenteInvalidoException{
+	public void moverVehiculo(EstrategiaDeMovimiento unaEstrategia) throws MovimientoFisicamenteInvalidoException, PasoImpedidoException{
 		Posicion laPosicion = this.jugador.getVehiculo().getPosicion(); 
 		Esquina laEsquina = tablero.getEsquinaEn(laPosicion);
 		unaEstrategia.realizarMovimiento(this.jugador.getVehiculo(), laEsquina);

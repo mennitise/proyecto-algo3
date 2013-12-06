@@ -117,6 +117,10 @@ public class Juego extends Observable {
 		
 	}
 
+	public void setJugador(Jugador unJug){
+		this.unJugador = unJug;
+	}
+	
 	public void iniciarPartida(int numeroNivel, int numeroVehiculo) 
 			throws PartidaEnJuegoException, NivelInvalidoException, VehiculoInvalidoException, JugadorNoCargadoException{
 

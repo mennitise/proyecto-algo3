@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import Excepciones.MovimientoFisicamenteInvalidoException;
+import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaOeste;
 import Jugador.Jugador;
@@ -18,7 +19,7 @@ public class EstrategiaOesteTest {
 	private Posicion unaPosicion;
 	
 	@Test
-	public void testEstrategiaOesteMantuvoLaPosicionFila(){
+	public void testEstrategiaOesteMantuvoLaPosicionFila() throws PasoImpedidoException{
 		EstrategiaOeste unaEstrategia = new EstrategiaOeste();
 		Tablero unTablero = new Tablero(4,4);
 		this.inicializarJugadorConMotoYPosicion11();
@@ -31,7 +32,7 @@ public class EstrategiaOesteTest {
 	}
 	
 	@Test
-	public void testEstrategiaEsteCambioPosicionColumna(){
+	public void testEstrategiaEsteCambioPosicionColumna() throws PasoImpedidoException{
 		EstrategiaOeste unaEstrategia = new EstrategiaOeste();
 		Tablero unTablero = new Tablero(4,4);
 		this.inicializarJugadorConMotoYPosicion11();

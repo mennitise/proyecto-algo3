@@ -51,15 +51,15 @@ public class PanelDeInformacionVista extends JPanel implements Observer{
 	private void asignarImagenVehiculo(){
 		Vehiculo unVehiculo = this.gestor.getVehiculoEnPosicionActual();
 		if (unVehiculo.getClass() == Auto.class){
-			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Auto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
+			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/ModelSRC/imagenes/Auto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 		if (unVehiculo.getClass() == Moto.class){
-			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/Moto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
+			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/ModelSRC/imagenes/Moto.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 		if (unVehiculo.getClass() == CuatroXCuatro.class){
-			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/imagenes/4x4.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
+			this.etiqueta3.setIcon(new ImageIcon(((new ImageIcon("src/ModelSRC/imagenes/4x4.png")).getImage()).getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH)));
 			}
 		
 	}

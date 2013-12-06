@@ -46,7 +46,7 @@ public class SorpresaVista {
 			
 			Calle unaCalle = unaEsquina.getCalleOeste();
 			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
-				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/sorpresa.png");
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			
 			}
@@ -64,7 +64,7 @@ public class SorpresaVista {
 			
 			Calle unaCalle = unaEsquina.getCalleSur();
 			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
-				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/sorpresa.png");
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			
 			}
@@ -82,7 +82,7 @@ public class SorpresaVista {
 			
 			Calle unaCalle = unaEsquina.getCalleNorte();
 			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
-				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/sorpresa.png");
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			}
 		
@@ -99,7 +99,7 @@ public class SorpresaVista {
 			Calle unaCalle = unaEsquina.getCalleEste();
 			
 			if ((unaCalle.getSorpresas()!=null)&&(unaCalle.getSorpresas().size()!=0)){
-				Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/sorpresa.png");
+				Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/sorpresa.png");
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			
 			}

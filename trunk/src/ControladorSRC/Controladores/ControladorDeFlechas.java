@@ -1,9 +1,16 @@
 package Controladores;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import javax.swing.JFrame;
+
 import Excepciones.MovimientoFisicamenteInvalidoException;
+import Excepciones.PasoImpedidoException;
 import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaNorte;
 import GestorDeMovimientos.EstrategiaOeste;
@@ -34,12 +41,16 @@ public class ControladorDeFlechas implements KeyListener {
 				this.gestor.moverVehiculo(new EstrategiaNorte());
 			} catch (MovimientoFisicamenteInvalidoException e1) {
 				this.vibrar();
+			} catch (PasoImpedidoException e1) {
+				this.vibrar();
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			try {
 				this.gestor.moverVehiculo(new EstrategiaSur());
 			} catch (MovimientoFisicamenteInvalidoException e1) {
+				this.vibrar();
+			} catch (PasoImpedidoException e1) {
 				this.vibrar();
 			}
 		}
@@ -49,12 +60,16 @@ public class ControladorDeFlechas implements KeyListener {
 			
 			} catch (MovimientoFisicamenteInvalidoException e1) {
 				this.vibrar();
+			} catch (PasoImpedidoException e1) {
+				this.vibrar();
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			try {
 				this.gestor.moverVehiculo(new EstrategiaOeste());
 			} catch (MovimientoFisicamenteInvalidoException e1) {
+				this.vibrar();
+			} catch (PasoImpedidoException e1) {
 				this.vibrar();
 			}
 		}

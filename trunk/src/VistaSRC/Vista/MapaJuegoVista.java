@@ -190,7 +190,7 @@ public class MapaJuegoVista extends JPanel implements Observer  {
 		columnaPixelPosicionLlegada = (this.juego.getPartida().getPosicionDeLlegada().getColumna()+1)*tamanioManzanaVertical 
 				+ this.juego.getPartida().getPosicionDeLlegada().getColumna()*this.anchoCalle;
 		
-		Image img1 = Toolkit.getDefaultToolkit().getImage("src/imagenes/bandera.png");
+		Image img1 = Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/bandera.png");
 		g.drawImage(img1,columnaPixelPosicionLlegada, filaPixelPosicionLlegada,this);
 	}
 	
