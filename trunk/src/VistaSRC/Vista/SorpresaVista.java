@@ -6,9 +6,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
-import GestorDeMovimientos.GestorDeMovimientos;
-import Obstaculos.Obstaculo;
-import Sorpresas.Sorpresa;
 import Tablero.Calle;
 import Tablero.Esquina;
 import Tablero.Posicion;

@@ -16,8 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import Controladores.ControladorDeFlechas;
-import Controladores.ControladorMenuPrincipal;
+import Controladores.ControladorDeMovimientos;
+import Controladores.ControladorIniciarJuego;
 import Juego.ArchivadorDeJugadores;
 import Juego.DatoJugador;
 import Juego.Juego;
@@ -28,7 +28,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	private Juego juego;
 	private MapaJuegoVista mapaJuegoActual;
 	private PanelDeInformacionVista panelDeInformacionDelJugador;
-	private ControladorDeFlechas controladorDeFlechas;
+	private ControladorDeMovimientos controladorDeFlechas;
 	private ArrayList<JPanel> paneles;
 	private PanelJugadorExistenteVista panelJugadorExistente;
 	private JButton botonVolver;
@@ -89,7 +89,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	}
 	
 	private void configurarVentanaParaJugar(){
-		this.controladorDeFlechas = new ControladorDeFlechas (this.juego.getPartida().getGestorDeMovimientos(), this);
+		this.controladorDeFlechas = new ControladorDeMovimientos (this.juego.getPartida().getGestorDeMovimientos(), this);
 		this.addKeyListener(controladorDeFlechas);
     	this.setFocusable(true);
     	this.panelDeInformacionDelJugador = new PanelDeInformacionVista(this.juego);
@@ -124,7 +124,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 	}
 	
 	private void configurarPanelInicial(){
-		ControladorMenuPrincipal control = new ControladorMenuPrincipal(this.juego, this.mapaJuegoActual);		
+		ControladorIniciarJuego control = new ControladorIniciarJuego(this.juego, this.mapaJuegoActual);		
 		
 		//this.panelInicial = new PanelInicial(control);	
 		this.panelInicial = new JPanel();
@@ -155,7 +155,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 				
 				}
 				if (nombre!= null){
-	            	ControladorMenuPrincipal control = new ControladorMenuPrincipal(juego, mapaJuegoActual);		
+	            	ControladorIniciarJuego control = new ControladorIniciarJuego(juego, mapaJuegoActual);		
 	            		
 	            	panelJugadorExistente = new PanelJugadorExistenteVista(juego, control, nombre);
 	            	panelJugadorExistente.setBounds(250,100,300,400);
@@ -178,7 +178,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
             	
             	DatoJugador unDato = pedirJugador();
             	if (unDato!= null){
-            	ControladorMenuPrincipal control = new ControladorMenuPrincipal(juego, mapaJuegoActual);		
+            	ControladorIniciarJuego control = new ControladorIniciarJuego(juego, mapaJuegoActual);		
             		
             	panelJugadorExistente = new PanelJugadorExistenteVista(juego, control, unDato.getNombre());
             	panelJugadorExistente.setBounds(250,100,300,400);

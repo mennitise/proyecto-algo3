@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Controladores.ControladorMenuPrincipal;
+import Controladores.ControladorIniciarJuego;
 import Juego.Juego;
 
 public class PanelJugadorExistenteVista extends JPanel{
@@ -18,13 +18,13 @@ public class PanelJugadorExistenteVista extends JPanel{
 	private JButton botonVolverMenuPrincipal;
 	private Juego juego;
 	private JLabel etiquetaNombre;
-	private ControladorMenuPrincipal controladorMenuPrincipal;
+	private ControladorIniciarJuego controladorMenuPrincipal;
 	private String nombreDelJugador;
 	
 	PanelJugadorExistenteVista(){
 		
 	}
-	PanelJugadorExistenteVista(Juego unJuego, ControladorMenuPrincipal unControlador, String nombreDelJugador){
+	PanelJugadorExistenteVista(Juego unJuego, ControladorIniciarJuego unControlador, String nombreDelJugador){
 		this.juego = unJuego;
 		this.nombreDelJugador = nombreDelJugador;
 		this.controladorMenuPrincipal = unControlador;

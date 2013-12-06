@@ -29,9 +29,9 @@ public class GestorDeMovimientos extends java.util.Observable {
 	public void moverVehiculo(EstrategiaDeMovimiento unaEstrategia) throws MovimientoFisicamenteInvalidoException, PasoImpedidoException{
 		Posicion laPosicion = this.jugador.getVehiculo().getPosicion(); 
 		Esquina laEsquina = tablero.getEsquinaEn(laPosicion);
+		this.ActualizarObservadores(); //Quiero que actualice observadores por si aqui abajo se lanza la excepcion y no se vuelven a actualizar
 		unaEstrategia.realizarMovimiento(this.jugador.getVehiculo(), laEsquina);
 		this.ActualizarObservadores();
-		
 	}
 	
 	public void ActualizarObservadores()

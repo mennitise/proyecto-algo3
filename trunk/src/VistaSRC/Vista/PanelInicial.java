@@ -5,19 +5,19 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import Controladores.ControladorMenuPrincipal;
+import Controladores.ControladorIniciarJuego;
 
 public class PanelInicial extends JPanel implements Observer {
 	private JButton botonJugadorNuevo;
 	private JButton botonJugadorExistente;
 
 
-	public PanelInicial(ControladorMenuPrincipal control){
+	public PanelInicial(ControladorIniciarJuego control){
 		
 		this.botonJugadorNuevo = new JButton ("Jugador Nuevo");			
 		this.botonJugadorExistente = new JButton ("Jugador Existente");
-		this.botonJugadorNuevo.addActionListener(control.getListenerBotonJugadorNuevo());
-		this.botonJugadorExistente.addActionListener(control.getListenerBotonJugadorExistente());
+		//this.botonJugadorNuevo.addActionListener(control.getListenerBotonJugadorNuevo());
+		//this.botonJugadorExistente.addActionListener(control.getListenerBotonJugadorExistente());
 		this.botonJugadorExistente.setVisible(true);
 		this.botonJugadorNuevo.setVisible(true);
 		this.setLayout(new GridLayout(2,1));
