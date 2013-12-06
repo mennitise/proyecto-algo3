@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.NumeroNegativoException;
+import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaDeMovimiento;
 import GestorDeMovimientos.EstrategiaEste;
@@ -631,6 +632,9 @@ public class IntegracionJugabilidadTableroTest {
 		try {
 			this.unGestor.moverVehiculo(unaEstrategia);
 		} catch (MovimientoFisicamenteInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PasoImpedidoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

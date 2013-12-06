@@ -111,13 +111,13 @@ public class ObstaculoVista {
 		
 		String nombreObstaculo = unObstaculo.getClass().getSimpleName();
 		if (nombreObstaculo.equals("Piquete")){
-			return Toolkit.getDefaultToolkit().getImage("src/imagenes/piquete.png");
+			return Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/piquete.png");
 		}
 		if (nombreObstaculo.equals("ControlPolicial")){
-			return Toolkit.getDefaultToolkit().getImage("src/imagenes/controlPolicial.png");
+			return Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/controlPolicial.png");
 		}
 		if (nombreObstaculo.equals("Pozo")){
-			return Toolkit.getDefaultToolkit().getImage("src/imagenes/pozo.png");
+			return Toolkit.getDefaultToolkit().getImage("src/ModelSRC/imagenes/pozo.png");
 		}
 		
 

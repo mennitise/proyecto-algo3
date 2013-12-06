@@ -10,19 +10,15 @@ public class EstrategiaEste implements EstrategiaDeMovimiento {
 
 	@Override
 	public void realizarMovimiento(Vehiculo unVehiculo, Esquina unaEsquina)
-			throws MovimientoFisicamenteInvalidoException {
+			throws MovimientoFisicamenteInvalidoException, PasoImpedidoException {
+		
 		boolean puedePasar = true;
 		if(unaEsquina.tieneCalleAlEste()){
-			try{
 				unaEsquina.getCalleEste().procesarVehiculo(unVehiculo);
-			}catch(PasoImpedidoException e){
-				puedePasar = false;
-				//Implementar
-			}
-			if(puedePasar){ 
+			 
 				unVehiculo.mover(this);
 				unVehiculo.getConductor().sumarUnMovimiento();
-			}
+			
 		}else{
 			throw new MovimientoFisicamenteInvalidoException();
 		}

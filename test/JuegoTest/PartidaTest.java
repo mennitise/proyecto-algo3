@@ -1,8 +1,11 @@
 package JuegoTest;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import Excepciones.MovimientoFisicamenteInvalidoException;
+import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
 import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
@@ -67,7 +70,7 @@ public class PartidaTest {
 	}
 	
 	@Test
-	public void testNoGanaConUnMovimiento() {
+	public void testNoGanaConUnMovimiento() throws PasoImpedidoException {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		try {
 			this.unGestor.moverVehiculo(new EstrategiaSur());
@@ -117,7 +120,7 @@ public class PartidaTest {
 	}
 	
 	@Test
-	public void testNoPierdeConUnMovimiento() {
+	public void testNoPierdeConUnMovimiento() throws PasoImpedidoException {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		try {
 			this.unGestor.moverVehiculo(new EstrategiaSur());
