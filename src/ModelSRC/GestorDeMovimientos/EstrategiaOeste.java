@@ -13,13 +13,16 @@ public class EstrategiaOeste implements EstrategiaDeMovimiento {
 			throws MovimientoFisicamenteInvalidoException, PasoImpedidoException {
 		boolean puedePasar = true;
 		if(unaEsquina.tieneCalleAlOeste()){
-			
+			try{
 				unaEsquina.getCalleOeste().procesarVehiculo(unVehiculo);
-			
-			
+			}catch(PasoImpedidoException e){
+				puedePasar = false;
+				throw new PasoImpedidoException();
+			}
+			if(puedePasar){ 
 				unVehiculo.mover(this);
 				unVehiculo.getConductor().sumarUnMovimiento();
-			
+			}
 		}else{
 			throw new MovimientoFisicamenteInvalidoException();
 		}
