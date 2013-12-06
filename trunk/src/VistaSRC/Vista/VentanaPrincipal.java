@@ -147,6 +147,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 				String nombre = new String("");			
 				while ((nombre != null) && (nombre.equals(""))){
 				nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
+				nombre = nombre.trim();
 				if ((nombre != null) && (nombre.equals(""))){
 					JOptionPane.showMessageDialog(null,"Usted no ingreso un nombre","Aviso",JOptionPane.WARNING_MESSAGE);
 
