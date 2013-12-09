@@ -632,11 +632,9 @@ public class IntegracionJugabilidadTableroTest {
 		try {
 			this.unGestor.moverVehiculo(unaEstrategia);
 		} catch (MovimientoFisicamenteInvalidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// Si no deberia haber dado esta excepcion el test dará negativo
 		} catch (PasoImpedidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// Si no deberia haber dado esta excepcion el test dará negativo
 		}
 	}
 	

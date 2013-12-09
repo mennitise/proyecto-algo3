@@ -121,6 +121,16 @@ public class Juego extends Observable {
 		this.unJugador = unJug;
 	}
 	
+	private Nivel obtenerNivelNumero(int numeroNivel){
+		if( numeroNivel == 2){
+			return new NivelMedio();
+		}
+		if( numeroNivel == 3){
+			return new NivelDificil();
+		}
+		return new NivelFacil();
+	}
+	
 	public void iniciarPartida(int numeroNivel, int numeroVehiculo) 
 			throws PartidaEnJuegoException, NivelInvalidoException, VehiculoInvalidoException, JugadorNoCargadoException{
 
@@ -144,7 +154,8 @@ public class Juego extends Observable {
 			throw new VehiculoInvalidoException();
 		}
 		
-		Nivel unNivel = this.niveles.get(numeroNivel - 1);
+		Nivel unNivel = this.obtenerNivelNumero(numeroNivel);
+		
 		Vehiculo unVehiculo = this.getVehiculo(numeroVehiculo);
 		this.unJugador.setVehiculo(unVehiculo);
 		this.partidaActual = new Partida(this.unJugador, unNivel);
@@ -163,7 +174,7 @@ public class Juego extends Observable {
 					throw new VehiculoInvalidoException();
 				}
 				
-				Nivel unNivel = this.niveles.get(numeroNivel - 1);
+				Nivel unNivel = this.obtenerNivelNumero(numeroNivel);
 				Vehiculo unVehiculo = this.getVehiculo(numeroVehiculo);
 				this.unJugador.setVehiculo(unVehiculo);
 				this.partidaActual = new Partida(this.unJugador, unNivel);

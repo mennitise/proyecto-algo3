@@ -13,6 +13,12 @@ public class Posicion{
 		this.columna = laColumna;
 	}
 	
+	public static Posicion obtenerRandomDentroDelRadio(int radio){
+		int x = (int) Math.floor( Math.random() * radio );
+		int y = (int) Math.floor( Math.random() * radio );
+		return new Posicion(x,y);
+	}
+	
 	public int getColumna(){
 		return this.columna;
 	}
@@ -60,5 +66,10 @@ public class Posicion{
 
 	public Posicion getCopiaDePosicion() {
 		return new Posicion(this.fila, this.columna);
+	}
+	
+	public double distanciaA(Posicion otraPos){
+		int dist = ( (this.fila - otraPos.fila)^2 + (this.columna - otraPos.columna)^2 );
+		return Math.sqrt(dist);
 	}
 }
