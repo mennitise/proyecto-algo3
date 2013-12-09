@@ -85,7 +85,7 @@ public class VentanaPrincipal extends JFrame implements Observer{
 		this.controladorDeFlechas = null;
 		this.panelDeInformacionDelJugador.setVisible(false);
 		this.panelJugadorExistente.setVisible(true);
-		System.out.println("Si, termino la partida");
+		// System.out.println("Si, termino la partida");
 	}
 	
 	private void configurarVentanaParaJugar(){
@@ -147,7 +147,9 @@ public class VentanaPrincipal extends JFrame implements Observer{
 				String nombre = new String("");			
 				while ((nombre != null) && (nombre.equals(""))){
 				nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
-				nombre = nombre.trim();
+				if(nombre != null){
+					nombre = nombre.trim();
+				}
 				if ((nombre != null) && (nombre.equals(""))){
 					JOptionPane.showMessageDialog(null,"Usted no ingreso un nombre","Aviso",JOptionPane.WARNING_MESSAGE);
 

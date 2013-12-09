@@ -7,8 +7,10 @@ import org.junit.Test;
 import Excepciones.MovimientoFisicamenteInvalidoException;
 import Excepciones.PasoImpedidoException;
 import Excepciones.StringVacioException;
+import GestorDeMovimientos.EstrategiaEste;
 import GestorDeMovimientos.EstrategiaSur;
 import GestorDeMovimientos.GestorDeMovimientos;
+import Juego.Nivel;
 import Juego.NivelFacil;
 import Juego.Partida;
 import Jugador.Jugador;
@@ -19,6 +21,7 @@ public class PartidaTest {
 	private Partida unaPartida;
 	private Jugador unJugador;
 	private GestorDeMovimientos unGestor;
+	private Nivel unNivel;
 	
 	private void inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor(){
 		try {
@@ -26,7 +29,8 @@ public class PartidaTest {
 		} catch (StringVacioException e) {
 			// No ingresa aca.
 		}
-		this.unaPartida = new Partida(unJugador, new NivelFacil());	
+		this.unNivel = new NivelFacil();
+		this.unaPartida = new Partida(unJugador, this.unNivel);	
 		this.unGestor = new GestorDeMovimientos(unJugador, this.unaPartida.getTablero());
 	}
 	
@@ -53,8 +57,7 @@ public class PartidaTest {
 	@Test
 	public void testPartidaInicializoLaPosicionDelVehiculoCorrectamente() {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
-		NivelFacil nivelAux = new NivelFacil(); 
-		assertTrue(this.unaPartida.getPosicionJugador().esIgual(nivelAux.getPosicionInicialDelVehiculo()));
+		assertTrue(this.unaPartida.getPosicionJugador().esIgual(this.unNivel.getPosicionInicialDelVehiculo()));
 	}
 	
 	@Test
@@ -73,7 +76,7 @@ public class PartidaTest {
 	public void testNoGanaConUnMovimiento() throws PasoImpedidoException {
 		this.inicializarPartidaConJugadorPepeConMotoYNivelFacilYGestor();
 		try {
-			this.unGestor.moverVehiculo(new EstrategiaSur());
+			this.unGestor.moverVehiculo(new EstrategiaEste());
 		} catch (MovimientoFisicamenteInvalidoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
