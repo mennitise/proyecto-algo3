@@ -1,4 +1,4 @@
-package Juego;
+package Niveles;
 
 import org.jdom.Element;
 
@@ -24,13 +24,24 @@ public class NivelDificil extends Nivel {
 		this.pathArchivoTablero = "TableroNivelDificil.xml";
 	}
 	
-	private Posicion obtenerPosicionADistanciaXDe(Posicion unaPos, int x){
+private Posicion obtenerPosicionADistanciaXDe(Posicion unaPos, int x){
 		
 		Posicion posicion = Posicion.obtenerRandomDentroDelRadio(12); 
-		while( unaPos.distanciaA(posicion) < x ){
+		int numeroDeIteraciones = 0; //es para controlar que el ciclo no busque muchas veces
+		while( (unaPos.distanciaA(posicion) < x ) && (numeroDeIteraciones <20 )){
 			posicion = Posicion.obtenerRandomDentroDelRadio(12);
+			numeroDeIteraciones++;
+		}		
+		if ((numeroDeIteraciones >= 20) && (posicion.esIgual(this.posicionInicialVehiculo))){
+			this.buscarPosicionDeLlegadaDistintaALaInicial(posicion);
 		}
 		return posicion;
+	}
+	
+	private void buscarPosicionDeLlegadaDistintaALaInicial(Posicion unaPosicion){
+		while (unaPosicion.esIgual(this.posicionInicialVehiculo)){
+			unaPosicion = Posicion.obtenerRandomDentroDelRadio(12);
+		}
 	}
 	
 	// Serialización

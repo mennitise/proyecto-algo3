@@ -1,6 +1,7 @@
-package Juego;
+package Niveles;
 
 import org.jdom.Element;
+
 import Archivadores.ArchivadorDeTablero;
 import Tablero.Posicion;
 import Tablero.Tablero;

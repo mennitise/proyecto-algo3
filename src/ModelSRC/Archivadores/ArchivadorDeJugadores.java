@@ -1,12 +1,15 @@
-package Juego;
+package Archivadores;
 import java.io.FileWriter;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+
 import org.jdom.*;
 import org.jdom.input.*;
 import org.jdom.output.*;
+
+import Juego.DatoJugador;
 
 
 public class ArchivadorDeJugadores {

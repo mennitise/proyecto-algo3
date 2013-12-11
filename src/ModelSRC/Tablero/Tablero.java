@@ -113,10 +113,10 @@ public class Tablero extends Observable{
 	
 	private void agregarSorpresasYObstaculosANodoCalle(Element elementoCalle, Calle unaCalle){
 		if (unaCalle.tieneAlgunaSorpresa()){
-			elementoCalle.getChildren().add(unaCalle.getSorpresas().get(0).serializarXML());
+			elementoCalle.getChildren().add(unaCalle.getSorpresa().serializarXML());
 		}
 		if (unaCalle.tieneAlgunObstaculo()){
-			elementoCalle.getChildren().add(unaCalle.getObstaculos().get(0).serializarXML());
+			elementoCalle.getChildren().add(unaCalle.getObstaculo().serializarXML());
 		}
 		
 	}

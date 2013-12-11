@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<listaDeJugadores>
-  <datoJugador nombre="Juan Pepe" puntaje="21" />
-  <datoJugador nombre="Jose" puntaje="11" />
-  <datoJugador nombre="Juan" puntaje="0" />
-  <datoJugador nombre="Seba" puntaje="33" />
-</listaDeJugadores>
-

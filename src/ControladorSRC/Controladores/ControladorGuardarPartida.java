@@ -3,6 +3,8 @@ package Controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import Juego.Juego;
 
 public class ControladorGuardarPartida {
@@ -18,6 +20,8 @@ public class ControladorGuardarPartida {
 		public void actionPerformed(ActionEvent arg0) {				
 				juegoActual.guardarListaDeJugadoresExistentes();
 				juegoActual.guardarPartida();
+				JOptionPane.showMessageDialog(null,"Su partida ha sido guardada con exito","Aviso",JOptionPane.WARNING_MESSAGE);
+
 		}
 	}
 		
