@@ -1,0 +1,22 @@
+Jugar a GPS Challenge implica tener una cuenta. Si eres jugador nuevo, será necesario crearse un nuevo usuario mediante el botón Jugador Nuevo. En caso de ser jugador existente, deberás seleccionar tu nombre haciendo click en Jugador Existente.
+Una vez logueado, podrás jugar, cargar una partida o ver los puntajes. Las partidas solo pueden ser cargadas cuando ya se ha jugado previamente y se ha guardado alguna partida.
+Para guardar el juego, será necesario tener una partida activa y en el panel de informacion de la partida actual habrá un botón para Guardar Partida. Una vez guardada la partida, el juego terminará y serás transferido al menú principal.
+
+El juego constará de lo siguiente:
+
+1. Deberá conducirse desde el punto de inicio al punto de llegada utilizando las flechas. Este último se indicará con una bandera. Las posiciones de inicio y llegada son Random.
+
+2. Para ganar el Nivel, será necesario llegar a la posición de llegada con una menor cantidad de movimientos a la máxima permitida por el Nivel.
+
+3. El puntaje se obtendrá como la resta entre la cantidad máxima de movimientos permitidos por el nivel y la cantidad de movimientos realizados, y será multiplicado X1, X2 o X3 según el nivel sea Fácil, Intermedio o Difícil respectivamente.
+
+4. La interacción de los vehículos con los obstáculos se da de la siguiente forma:
+	•Pozos: Le suma 3 movimientos de penalización a autos y motos, pero no afecta a las 4x4.
+	•Piquete: Autos y 4x4 deben pegar la vuelta, no pueden pasar. En tal caso, se notará una vibración en pantalla. En cambio, las motos puede pasar con una penalización de 2 movimientos.
+	•Control Policial: Para todos los vehículos la penalización es de 3 movimientos. Sin embargo, es más probable que se detenga a una moto que un auto y también es más probable que se detenga a un auto que a una CuatroXCuatro.
+
+5. Las sorpresas favorables y desfavorables actúan de la misma forma para todos los vehículos, exceptuando la de cambio de vehículo: 
+	•Sorpresa Favorable: Resta el 20% de los movimientos hechos.
+	•Sorpresa Desfavorable: Suma el 25% de los movimientos hechos.
+	•Sorpresa Cambio de Vehículo: Cambia el vehículo del jugador. Si es una moto, la convierte en auto. Si es un auto lo convierte en 4x4. Si es una 4x4 la convierte en moto.
+	

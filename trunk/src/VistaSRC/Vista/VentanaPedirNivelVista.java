@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import Excepciones.CanceloJuegoException;
 
+//El modelo sabe interpretar el numero 1,2 o 3 al pedir nivel. Por eso se devuelven enteros
 public class VentanaPedirNivelVista {
 
 	public static int pedirNivel() throws CanceloJuegoException{
