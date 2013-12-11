@@ -1,4 +1,4 @@
-package JuegoTest;
+package NivelesTest;
 
 import static org.junit.Assert.*;
 

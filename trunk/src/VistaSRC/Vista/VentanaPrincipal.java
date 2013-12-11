@@ -16,9 +16,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import Archivadores.ArchivadorDeJugadores;
 import Controladores.ControladorDeMovimientos;
 import Controladores.ControladorIniciarJuego;
-import Juego.ArchivadorDeJugadores;
 import Juego.DatoJugador;
 import Juego.Juego;
 

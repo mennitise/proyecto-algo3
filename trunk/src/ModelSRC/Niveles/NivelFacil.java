@@ -1,6 +1,7 @@
-package Juego;
+package Niveles;
 
 import org.jdom.Element;
+
 import Tablero.Posicion;
 
 public class NivelFacil extends Nivel {
@@ -26,10 +27,22 @@ public class NivelFacil extends Nivel {
 	private Posicion obtenerPosicionADistanciaXDe(Posicion unaPos, int x){
 		
 		Posicion posicion = Posicion.obtenerRandomDentroDelRadio(6); 
-		while( unaPos.distanciaA(posicion) < x ){
+		int numeroDeIteraciones = 0; //es para controlar que el ciclo no busque muchas veces
+		while( (unaPos.distanciaA(posicion) < x ) && (numeroDeIteraciones <20 )){
 			posicion = Posicion.obtenerRandomDentroDelRadio(6);
+			numeroDeIteraciones++;
+		}		
+		if ((numeroDeIteraciones >= 20) && (this.posicionLlegada.esIgual(this.posicionInicialVehiculo))){
+			this.buscarPosicionDeLlegadaDistintaALaInicial(posicion);
 		}
 		return posicion;
+	}
+	
+
+	private void buscarPosicionDeLlegadaDistintaALaInicial(Posicion unaPosicion){
+		while (unaPosicion.esIgual(this.posicionInicialVehiculo)){
+			unaPosicion = Posicion.obtenerRandomDentroDelRadio(6);
+		}
 	}
 	
 	// Serialización

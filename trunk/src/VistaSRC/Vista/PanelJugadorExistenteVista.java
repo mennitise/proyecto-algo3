@@ -41,7 +41,7 @@ public class PanelJugadorExistenteVista extends JPanel{
 		this.botonJuegoNuevo.addActionListener(this.controladorMenuPrincipal.getListenerBotonNuevoJuego(this.nombreDelJugador));
 		this.botonVerPuntajes = new JButton("Ver Puntajes");
 		this.botonVerPuntajes.addActionListener(this.controladorMenuPrincipal.getListenerBotonVerPuntajes());
-		this.etiquetaNombre = new JLabel("Bienvenido " + this.nombreDelJugador);
+		this.etiquetaNombre = new JLabel("Bienvenido a GPS Challenge, " + this.nombreDelJugador);
 		this.etiquetaNombre.setBackground(Color.blue);
 		this.add(this.etiquetaNombre);
 		this.add(this.botonJuegoNuevo);

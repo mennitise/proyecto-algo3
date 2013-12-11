@@ -42,8 +42,8 @@ public class ObstaculoVista {
 			int pixelVertical = (filaActual+1)*this.tamanioManzana + this.anchoCalle*(filaActual);
 			
 			Calle unaCalle = unaEsquina.getCalleOeste();
-			if ((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
-				Image img1 = this.getImagen (unaCalle.getObstaculos().get(0)); 
+			if (unaCalle.tieneAlgunObstaculo()){
+				Image img1 = this.getImagen (unaCalle.getObstaculo()); 
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			
 			}
@@ -60,8 +60,8 @@ public class ObstaculoVista {
 			int pixelVertical = (filaActual+1)*this.tamanioManzana + this.anchoCalle*(filaActual+1) + this.anchoCalle/2;
 			
 			Calle unaCalle = unaEsquina.getCalleSur();
-			if ((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
-				Image img1 = this.getImagen (unaCalle.getObstaculos().get(0)); 					
+			if (unaCalle.tieneAlgunObstaculo()){
+				Image img1 = this.getImagen (unaCalle.getObstaculo()); 					
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			
 			}
@@ -79,8 +79,8 @@ public class ObstaculoVista {
 			int pixelVertical = (filaActual)*this.tamanioManzana + this.anchoCalle*(filaActual) + this.anchoCalle/2;
 			
 			Calle unaCalle = unaEsquina.getCalleNorte();
-			if ((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
-				Image img1 = this.getImagen (unaCalle.getObstaculos().get(0)); 
+			if (unaCalle.tieneAlgunObstaculo()){
+				Image img1 = this.getImagen (unaCalle.getObstaculo()); 
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			}
 		
@@ -96,8 +96,8 @@ public class ObstaculoVista {
 		
 			Calle unaCalle = unaEsquina.getCalleEste();
 			
-			if ((unaCalle.getObstaculos()!=null)&&(unaCalle.getObstaculos().size()!=0)){
-				Image img1 = this.getImagen (unaCalle.getObstaculos().get(0)); 
+			if (unaCalle.tieneAlgunObstaculo()){
+				Image img1 = this.getImagen (unaCalle.getObstaculo()); 
 				g.drawImage(img1,pixelHorizontal,pixelVertical,panelDeDondeViene);
 			
 			}

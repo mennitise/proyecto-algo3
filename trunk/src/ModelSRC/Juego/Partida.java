@@ -1,9 +1,12 @@
 package Juego;
 
 import java.util.Observable;
+
 import org.jdom.Element;
+
 import GestorDeMovimientos.GestorDeMovimientos;
 import Jugador.Jugador;
+import Niveles.Nivel;
 import Tablero.Posicion;
 import Tablero.Tablero;
 
