@@ -128,11 +128,13 @@ public class VentanaPrincipal extends JFrame implements Observer{
 		
 		//this.panelInicial = new PanelInicial(control);	
 		this.panelInicial = new JPanel();
-		this.panelInicial.setLayout(new GridLayout(3,1));
+		this.panelInicial.setLayout(new GridLayout(4,1));
 		JButton botonJugadorNuevo = new JButton("Jugador Nuevo");
 		JButton botonJugadorExistente = new JButton("Jugador Existente");
+		JButton botonInstrucciones = new JButton("Instrucciones");
 		JButton botonSalir = new JButton("Salir");
-			botonSalir.addActionListener(new ActionListener(){
+		
+		botonSalir.addActionListener(new ActionListener(){
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -195,8 +197,18 @@ public class VentanaPrincipal extends JFrame implements Observer{
             	}
             }
         });
+		
+		botonInstrucciones.addActionListener(new ActionListener(){
+			
+			@Override
+			public void actionPerformed (ActionEvent e){
+				InstruccionesVista.mostrarInstrucciones();
+			}
+		});
+		
 		this.panelInicial.add(botonJugadorNuevo);
 		this.panelInicial.add(botonJugadorExistente);
+		this.panelInicial.add(botonInstrucciones);
 		this.panelInicial.add(botonSalir);
 		this.panelInicial.setBounds(250,150,300,300);	
 		this.panelInicial.setVisible(true);

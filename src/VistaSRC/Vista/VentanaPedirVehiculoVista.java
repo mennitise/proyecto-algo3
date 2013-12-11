@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 
 import Excepciones.CanceloJuegoException;
 
+
+//el modelo sabe interpretar el numero 1, 2 o 3, por eso devuelve enteros
 public class VentanaPedirVehiculoVista {
 	
 	public static int pedirVehiculo() throws CanceloJuegoException{
